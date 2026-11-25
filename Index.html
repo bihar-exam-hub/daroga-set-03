@@ -1,0 +1,3233 @@
+<!DOCTYPE html>
+<html lang="hi" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rukmini बिहार दारोगा मुख्य परीक्षा — SET 03</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Noto Sans Devanagari + Inter for crisp Hindi & numeric readability -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans Devanagari"', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* =========================================================================
+       DESIGN TOKENS: EYE-COMFORT DARK MODE (DEFAULT) + CRISP LIGHT MODE
+       Dynamic Font Scale (--fs-scale) controllable via A- / A+
+    ========================================================================= */
+    :root {
+      --fs-scale: 1;
+
+      /* Dark Mode Surface & Text Tokens */
+      --bg-page: #0b1120;
+      --bg-card: #131c31;
+      --bg-surface: #1a2540;
+      --bg-input: #0e1628;
+      --border-color: #263554;
+      --text-primary: #f8fafc;
+      --text-secondary: #e2e8f0;
+      --text-muted: #94a3b8;
+
+      /* Tasteful Colored Keyword Highlights (Dark Mode) */
+      --hl-gold: #fbbf24;
+      --hl-gold-bg: rgba(251, 191, 36, 0.14);
+      --hl-cyan: #38bdf8;
+      --hl-cyan-bg: rgba(56, 189, 248, 0.14);
+      --hl-green: #34d399;
+      --hl-green-bg: rgba(52, 211, 153, 0.14);
+      --hl-pink: #f472b6;
+      --hl-pink-bg: rgba(244, 114, 182, 0.15);
+
+      /* 3-Part Smart Analysis Card Tokens (Dark Mode) */
+      --exp-bg: #101b30;
+      --exp-border: rgba(52, 211, 153, 0.36);
+      --exp-accent: #10b981;
+      --others-bg: rgba(255, 255, 255, 0.03);
+      --others-border: #2a3b5e;
+      --point-bg: rgba(251, 191, 36, 0.1);
+      --point-border: rgba(251, 191, 36, 0.48);
+    }
+
+    html:not(.dark) {
+      /* Light Mode Surface & Text Tokens */
+      --bg-page: #f1f5f9;
+      --bg-card: #ffffff;
+      --bg-surface: #f8fafc;
+      --bg-input: #ffffff;
+      --border-color: #cbd5e1;
+      --text-primary: #0f172a;
+      --text-secondary: #1e293b;
+      --text-muted: #475569;
+
+      /* High-Contrast Keyword Highlights (Light Mode) */
+      --hl-gold: #b45309;
+      --hl-gold-bg: rgba(245, 158, 11, 0.15);
+      --hl-cyan: #0369a1;
+      --hl-cyan-bg: rgba(14, 165, 233, 0.13);
+      --hl-green: #047857;
+      --hl-green-bg: rgba(16, 185, 129, 0.13);
+      --hl-pink: #be185d;
+      --hl-pink-bg: rgba(236, 72, 153, 0.12);
+
+      /* 3-Part Smart Analysis Card Tokens (Light Mode) */
+      --exp-bg: #f0fdf4;
+      --exp-border: #86efac;
+      --exp-accent: #059669;
+      --others-bg: #f8fafc;
+      --others-border: #cbd5e1;
+      --point-bg: #fffbeb;
+      --point-border: #f59e0b;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans Devanagari', 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      transition: background-color 0.22s ease, color 0.22s ease;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .card-surface {
+      background-color: var(--bg-card);
+      border-color: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    .inner-surface {
+      background-color: var(--bg-surface);
+      border-color: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    .input-surface {
+      background-color: var(--bg-input);
+      border-color: var(--border-color);
+      color: var(--text-primary);
+    }
+
+    .text-sec {
+      color: var(--text-secondary);
+    }
+
+    .text-soft {
+      color: var(--text-muted);
+    }
+
+    /* Eye-Friendly Large Typography (Scalable via A- / A+) */
+    .q-text {
+      font-size: calc(1.35rem * var(--fs-scale));
+      line-height: 1.68;
+      font-weight: 700;
+    }
+
+    @media (min-width: 640px) {
+      .q-text {
+        font-size: calc(1.42rem * var(--fs-scale));
+      }
+    }
+
+    .opt-text {
+      font-size: calc(1.16rem * var(--fs-scale));
+      line-height: 1.6;
+      font-weight: 600;
+    }
+
+    .exp-text {
+      font-size: calc(1.13rem * var(--fs-scale));
+      line-height: 1.72;
+    }
+
+    .point-text {
+      font-size: calc(1.12rem * var(--fs-scale));
+      line-height: 1.68;
+    }
+
+    /* CRITICAL: Strictly uncolored plain arrow matching neutral body text */
+    .plain-arrow {
+      color: inherit;
+      font-weight: 600;
+      flex-shrink: 0;
+      line-height: 1.72;
+    }
+
+    /* Readable Keyword Highlights */
+    .hl-gold,
+    .hl-cyan,
+    .hl-green,
+    .hl-pink {
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 6px;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    .hl-gold {
+      color: var(--hl-gold);
+      background-color: var(--hl-gold-bg);
+    }
+
+    .hl-cyan {
+      color: var(--hl-cyan);
+      background-color: var(--hl-cyan-bg);
+    }
+
+    .hl-green {
+      color: var(--hl-green);
+      background-color: var(--hl-green-bg);
+    }
+
+    .hl-pink {
+      color: var(--hl-pink);
+      background-color: var(--hl-pink-bg);
+    }
+
+    /* 3-Part Smart Analysis Boxes */
+    .explanation-box {
+      background-color: var(--exp-bg);
+      border: 1px solid var(--exp-border);
+      border-left: 4px solid var(--exp-accent);
+    }
+
+    .others-box {
+      background-color: var(--others-bg);
+      border: 1px solid var(--others-border);
+      color: var(--text-secondary);
+    }
+
+    .exam-point-card {
+      background-color: var(--point-bg);
+      border: 1px solid var(--point-border);
+      border-left: 4px solid var(--point-border);
+    }
+
+    /* Primary CTA Gradient */
+    .btn-primary {
+      background: linear-gradient(95deg, #4f46e5 0%, #7c3aed 52%, #db2777 100%);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.07);
+    }
+
+    /* Dropdown Compatibility across Dark & Light Modes */
+    select option {
+      background-color: #131c31;
+      color: #f8fafc;
+    }
+
+    html:not(.dark) select option {
+      background-color: #ffffff;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ==================== STATIC TOP HEADER (NON-STICKY / SCROLLS NATURALLY) ==================== -->
+  <header class="static w-full border-b card-surface px-3 py-3 sm:px-5 shadow-sm">
+    <div class="max-w-4xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <!-- App Title -->
+      <div class="flex items-center gap-2.5 min-w-0 flex-1">
+        <span class="inline-flex items-center justify-center w-9 h-9 rounded-xl bg-indigo-500/20 text-indigo-400 border border-indigo-500/35 text-lg shrink-0">
+          🛡️
+        </span>
+        <div class="min-w-0">
+          <div class="text-sm sm:text-lg font-extrabold tracking-tight leading-snug truncate">
+            Rukmini बिहार दारोगा मुख्य परीक्षा — SET 03
+          </div>
+          <div class="text-xs text-soft font-semibold hidden sm:block">
+            Paper-II: सामान्य अध्ययन • 100 प्रश्न • +2 / -0.2
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls: Live Timer, A- / A+, Dark/Light Mode Toggle -->
+      <div class="flex items-center gap-1.5 sm:gap-2 shrink-0">
+        <div title="कुल समय" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl inner-surface border text-sm sm:text-base font-extrabold text-amber-400">
+          <span>⏱️</span>
+          <span id="timerDisplay">00:00</span>
+        </div>
+
+        <div class="inline-flex items-center rounded-xl inner-surface border overflow-hidden" role="group" aria-label="फ़ॉन्ट आकार नियंत्रण">
+          <button
+            id="fontDecBtn"
+            type="button"
+            title="अक्षर छोटे करें"
+            class="px-2.5 py-1.5 text-sm sm:text-base font-extrabold hover:bg-indigo-500/20 transition cursor-pointer"
+          >
+            A-
+          </button>
+          <span class="w-px h-5 bg-slate-500/40"></span>
+          <button
+            id="fontIncBtn"
+            type="button"
+            title="अक्षर बड़े करें"
+            class="px-2.5 py-1.5 text-sm sm:text-base font-extrabold hover:bg-indigo-500/20 transition cursor-pointer"
+          >
+            A+
+          </button>
+        </div>
+
+        <button
+          id="themeToggleBtn"
+          type="button"
+          aria-label="थीम बदलें"
+          title="डार्क / लाइट मोड बदलें"
+          class="p-2 rounded-xl inner-surface border hover:border-indigo-400 transition cursor-pointer"
+        >
+          <span id="themeIcon" class="text-base sm:text-lg leading-none">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN WORKSPACE (COMPACT, BALANCED BOTTOM SPACING) ==================== -->
+  <main class="flex-1 w-full max-w-4xl mx-auto px-3 py-4 sm:px-6 sm:py-5">
+
+    <!-- ==================== 1. CLEAN ENTRY SCREEN (NO WARNINGS / सावधानियाँ BOX) ==================== -->
+    <section id="entrySection" class="card-surface border rounded-2xl shadow-xl p-4 sm:p-6 space-y-5">
+      <!-- Title & Subtitle -->
+      <div class="text-center space-y-1.5 pb-4 border-b" style="border-color: var(--border-color);">
+        <h1 class="text-xl sm:text-3xl font-extrabold tracking-tight leading-snug">
+          Rukmini बिहार दारोगा मुख्य परीक्षा — SET 03
+        </h1>
+        <p class="text-sm sm:text-base font-semibold text-soft">
+          रैंक कोड: <span class="text-amber-400 font-extrabold">Rukmini-Daroga-Mains-Set-03</span> • 100 प्रश्न (+2 / -0.2)
+        </p>
+      </div>
+
+      <!-- Smart Resume Card (Auto-shown if unfinished progress exists in localStorage) -->
+      <div id="resumeCard" class="hidden rounded-2xl border-2 border-emerald-500/55 bg-emerald-500/10 p-4 space-y-3">
+        <div class="flex items-start gap-3">
+          <span class="text-2xl shrink-0">💾</span>
+          <div class="space-y-1 min-w-0">
+            <h2 id="resumeHeading" class="text-base sm:text-lg font-extrabold text-emerald-400">
+              पिछला टेस्ट जारी रखें
+            </h2>
+            <p id="resumeInfo" class="text-sm sm:text-base text-sec leading-relaxed"></p>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-2.5">
+          <button
+            id="resumeBtn"
+            type="button"
+            class="flex-1 px-5 py-3 rounded-xl text-base font-extrabold bg-emerald-600 hover:bg-emerald-500 text-white shadow transition cursor-pointer"
+          >
+            ▶️ जारी रखें
+          </button>
+          <button
+            id="discardResumeBtn"
+            type="button"
+            class="px-5 py-3 rounded-xl text-sm sm:text-base font-bold inner-surface border hover:border-rose-400 text-rose-400 transition cursor-pointer"
+          >
+            🔄 नया टेस्ट शुरू करें
+          </button>
+        </div>
+      </div>
+
+      <!-- Registration & Mandatory Honesty Oath Form (No Password Field) -->
+      <form id="entryForm" novalidate class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label for="inputName" class="block text-sm sm:text-base font-bold text-sec mb-1.5">
+              पूरा नाम (Name) <span class="text-rose-400">*</span>
+            </label>
+            <input
+              id="inputName"
+              type="text"
+              required
+              autocomplete="name"
+              placeholder="जैसे: अभिषेक यादव"
+              class="w-full px-4 py-3 rounded-xl border input-surface text-base sm:text-lg font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+
+          <div>
+            <label for="inputDistrict" class="block text-sm sm:text-base font-bold text-sec mb-1.5">
+              जिला (District) <span class="text-rose-400">*</span>
+            </label>
+            <input
+              id="inputDistrict"
+              type="text"
+              required
+              placeholder="जैसे: सारण (Saran)"
+              class="w-full px-4 py-3 rounded-xl border input-surface text-base sm:text-lg font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </div>
+        </div>
+
+        <!-- Mandatory Honesty Oath Box -->
+        <div class="rounded-2xl border border-amber-500/40 inner-surface p-4 sm:p-5 space-y-3">
+          <p class="text-base sm:text-lg leading-relaxed font-medium text-sec">
+            मैं शपथ लेता/लेती हूँ कि मैं यह प्रैक्टिस सेट समय सीमा के अंदर बनाऊँगा/बनाऊँगी तथा किसी भी प्रश्न को हल करने के लिए गलत संसाधन जैसे - नोट्स या किताब, आपसी डिस्कसन और गूगल बाबा का प्रयोग नहीं करूँगा/करूँगी। <strong class="hl-gold">हम शपथ लेते हैं अपने भाग्य का। *</strong>
+          </p>
+          <p class="text-xs sm:text-sm italic text-soft leading-relaxed">
+            (अगर आप सहमत हो तो हाँ पर क्लिक करें नहीं तो नां पर क्लिक करें। नां करने वाले को रैंक लिस्ट में शामिल नहीं किया जाएगा।)
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 pt-1">
+            <label class="flex items-center justify-center gap-2.5 p-3.5 rounded-xl border-2 border-emerald-500/45 bg-emerald-500/10 hover:border-emerald-400 cursor-pointer transition">
+              <input type="radio" name="honestyOath" value="हाँ" class="w-5 h-5 accent-emerald-500 cursor-pointer shrink-0" />
+              <span class="text-lg font-extrabold text-emerald-400">हाँ</span>
+            </label>
+            <label class="flex items-center justify-center gap-2.5 p-3.5 rounded-xl border-2 border-rose-500/45 bg-rose-500/10 hover:border-rose-400 cursor-pointer transition">
+              <input type="radio" name="honestyOath" value="नां" class="w-5 h-5 accent-rose-500 cursor-pointer shrink-0" />
+              <span class="text-lg font-extrabold text-rose-400">नां</span>
+            </label>
+          </div>
+
+          <p id="oathInfoMsg" class="hidden text-sm font-bold text-amber-400 bg-amber-500/15 border border-amber-500/40 rounded-xl px-4 py-2.5 leading-relaxed">
+            ℹ️ आपने "नां" चुना है — आप अभ्यास के लिए पूरा टेस्ट दे सकते हैं, लेकिन आपका स्कोर लाइव रैंक लिस्ट में शामिल नहीं किया जाएगा।
+          </p>
+          <p id="formErrorMsg" class="hidden text-sm font-bold text-rose-400 bg-rose-500/15 border border-rose-500/40 rounded-xl px-4 py-2.5"></p>
+        </div>
+
+        <!-- Primary Start & Secondary Live Rank List Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+          <button
+            type="submit"
+            class="flex-1 px-6 py-3.5 rounded-xl text-base sm:text-lg font-extrabold text-white btn-primary shadow-lg transition cursor-pointer"
+          >
+            🚀 क्विज़ शुरू करें (Start SET-03)
+          </button>
+
+          <button
+            id="openPreRankBtn"
+            type="button"
+            class="sm:w-auto px-6 py-3.5 rounded-xl text-base font-extrabold bg-amber-500/15 hover:bg-amber-500/25 text-amber-400 border border-amber-500/45 transition cursor-pointer"
+          >
+            🏆 लाइव रैंक लिस्ट देखें
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ==================== 2. QUIZ SECTION ==================== -->
+    <section id="quizSection" class="hidden space-y-3.5">
+      <!-- Quiz Control & Progress Bar -->
+      <div class="card-surface border rounded-2xl p-3 sm:p-4 space-y-2.5 shadow-sm">
+        <div class="w-full h-2.5 rounded-full bg-slate-600/35 overflow-hidden">
+          <div id="progressBar" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-400 transition-all duration-300" style="width: 1%;"></div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap items-center gap-2">
+            <span id="qCounterBadge" class="px-3 py-1 rounded-xl text-sm sm:text-base font-extrabold bg-indigo-500/20 text-indigo-400 border border-indigo-500/35">
+              Q 1 / 100
+            </span>
+            <span id="solvedBadge" class="px-3 py-1 rounded-xl text-sm sm:text-base font-bold inner-surface border text-sec">
+              हल: 0/100
+            </span>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-2">
+            <label for="jumpDropdown" class="sr-only">प्रश्न चुनें</label>
+            <select
+              id="jumpDropdown"
+              class="px-3 py-1.5 rounded-xl text-sm sm:text-base font-bold inner-surface border focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer"
+            ></select>
+
+            <button
+              id="topFinishBtn"
+              type="button"
+              class="px-3.5 py-1.5 rounded-xl text-sm sm:text-base font-extrabold bg-amber-500/15 hover:bg-amber-500/25 text-amber-400 border border-amber-500/45 transition cursor-pointer"
+            >
+              🏁 Finish
+            </button>
+
+            <button
+              id="returnToScoreBtn"
+              type="button"
+              class="hidden px-3.5 py-1.5 rounded-xl text-sm sm:text-base font-extrabold bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-400 border border-emerald-500/45 transition cursor-pointer"
+            >
+              📊 स्कोरबोर्ड
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Question Card (Smart Scroll Focus Anchor) -->
+      <article id="questionCard" class="card-surface border rounded-2xl shadow-xl p-4 sm:p-6 space-y-5 scroll-mt-3">
+        <!-- Sub-Subject Tag, Student Name & Status -->
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b" style="border-color: var(--border-color);">
+          <div class="flex flex-wrap items-center gap-2">
+            <span id="subSubjectTag" class="inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-extrabold border">
+              प्राचीन भारत
+            </span>
+            <span id="studentTag" class="text-xs sm:text-sm font-semibold text-soft"></span>
+          </div>
+          <span id="qStatusTag" class="text-xs sm:text-sm font-bold text-soft">विकल्प चुनें</span>
+        </div>
+
+        <!-- Question Text -->
+        <h2 id="questionText" class="q-text whitespace-pre-line"></h2>
+
+        <!-- 4 Clickable Option Buttons -->
+        <div id="optionsList" class="grid grid-cols-1 gap-3"></div>
+
+        <!-- Clean 3-Part Smart Analysis Card (Instant Reveal) -->
+        <div id="explanationCard" class="hidden explanation-box rounded-2xl p-4 sm:p-5 space-y-3.5">
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b" style="border-color: var(--exp-border);">
+            <span class="inline-flex items-center gap-1.5 text-base sm:text-lg font-extrabold text-emerald-400">
+              <span>💡</span>
+              <span>सटीक विश्लेषण</span>
+            </span>
+            <span id="correctAnswerPill" class="px-3 py-1 rounded-full text-sm font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-500/45"></span>
+          </div>
+
+          <!-- Part 1: Direct Reason / Direct Step-by-Step Math Solution -->
+          <div id="expDirectReason" class="exp-text text-sec"></div>
+
+          <!-- Part 2: Other Exam-Worthy Options ONLY (Plain uncolored ➢ arrow) -->
+          <div id="expOthersWrapper" class="hidden others-box rounded-xl p-3.5 sm:p-4 space-y-2">
+            <div class="text-sm sm:text-base font-extrabold text-sec">अन्य उपयोगी विकल्प:</div>
+            <ul id="expOthersList" class="exp-text text-sec space-y-2"></ul>
+          </div>
+
+          <!-- Part 3: Mandatory Exam Point Box -->
+          <div class="exam-point-card rounded-xl p-3.5 sm:p-4 point-text text-sec">
+            <span class="font-extrabold text-amber-400">🎯 परीक्षा पॉइंट:</span>
+            <span id="expExamPoint" class="ml-1"></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bottom Previous & Next Navigation Buttons (Compact, Balanced Spacing) -->
+      <div class="flex items-center justify-between gap-3 pt-1">
+        <button
+          id="prevBtn"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-base font-extrabold card-surface border hover:border-indigo-400 disabled:opacity-40 disabled:pointer-events-none transition cursor-pointer"
+        >
+          <span>⬅️ Previous</span>
+        </button>
+
+        <button
+          id="nextBtn"
+          type="button"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-base font-extrabold text-white btn-primary shadow-lg disabled:opacity-40 disabled:pointer-events-none transition cursor-pointer"
+        >
+          <span id="nextBtnText">Next ➡️</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== 3. RESULT SCOREBOARD & LIVE RANK LIST ==================== -->
+    <section id="resultSection" class="hidden space-y-5">
+      <!-- Scoreboard Summary Card -->
+      <div class="card-surface border rounded-2xl shadow-xl p-4 sm:p-6 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b" style="border-color: var(--border-color);">
+          <div>
+            <h2 class="text-xl sm:text-2xl font-extrabold">📊 SET 03 — परिणाम एवं स्कोरबोर्ड</h2>
+            <p id="resultStudentLine" class="text-sm sm:text-base font-bold text-indigo-400 mt-0.5"></p>
+          </div>
+          <span class="px-3 py-1 rounded-full text-xs sm:text-sm font-extrabold bg-amber-500/15 text-amber-400 border border-amber-500/40">
+            मार्किंग: +2 सही | -0.2 गलत
+          </span>
+        </div>
+
+        <!-- 6 Performance Stat Cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          <div class="rounded-xl border border-indigo-500/40 bg-indigo-500/10 p-3.5 text-center">
+            <div class="text-xs sm:text-sm font-bold text-indigo-400">🎯 नेट स्कोर</div>
+            <div id="statNetScore" class="text-xl sm:text-2xl font-extrabold mt-1">0 / 200</div>
+          </div>
+          <div class="rounded-xl border border-emerald-500/40 bg-emerald-500/10 p-3.5 text-center">
+            <div class="text-xs sm:text-sm font-bold text-emerald-400">✅ सही</div>
+            <div id="statCorrect" class="text-xl sm:text-2xl font-extrabold text-emerald-400 mt-1">0</div>
+          </div>
+          <div class="rounded-xl border border-rose-500/40 bg-rose-500/10 p-3.5 text-center">
+            <div class="text-xs sm:text-sm font-bold text-rose-400">❌ गलत</div>
+            <div id="statWrong" class="text-xl sm:text-2xl font-extrabold text-rose-400 mt-1">0</div>
+          </div>
+          <div class="rounded-xl border border-amber-500/40 bg-amber-500/10 p-3.5 text-center">
+            <div class="text-xs sm:text-sm font-bold text-amber-400">⏭️ छोड़े गए</div>
+            <div id="statUnattempted" class="text-xl sm:text-2xl font-extrabold text-amber-400 mt-1">0</div>
+          </div>
+          <div class="rounded-xl border border-sky-500/40 bg-sky-500/10 p-3.5 text-center">
+            <div class="text-xs sm:text-sm font-bold text-sky-400">📈 सटीकता</div>
+            <div id="statAccuracy" class="text-xl sm:text-2xl font-extrabold text-sky-400 mt-1">0%</div>
+          </div>
+          <div class="rounded-xl border border-purple-500/40 bg-purple-500/10 p-3.5 text-center">
+            <div class="text-xs sm:text-sm font-bold text-purple-400">⏱️ कुल समय</div>
+            <div id="statTime" class="text-xl sm:text-2xl font-extrabold text-purple-400 mt-1">00:00</div>
+          </div>
+        </div>
+
+        <!-- Subject-wise Breakdown (All 8 Main Categories) -->
+        <div class="space-y-2.5">
+          <h3 class="text-sm sm:text-base font-extrabold text-sec">📚 विषयवार प्रदर्शन (सही / कुल):</h3>
+          <div id="subjectPillsContainer" class="flex flex-wrap gap-2"></div>
+        </div>
+
+        <!-- Review & Home Actions -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 pt-1">
+          <button
+            id="reviewBtn"
+            type="button"
+            class="px-6 py-3 rounded-xl text-base font-extrabold text-white btn-primary shadow-lg transition cursor-pointer"
+          >
+            📖 प्रश्नों की समीक्षा करें
+          </button>
+          <button
+            id="homePracticeBtn"
+            type="button"
+            class="px-6 py-3 rounded-xl text-base font-extrabold inner-surface border hover:border-indigo-400 transition cursor-pointer"
+          >
+            🏠 मुख्य पेज / नया अभ्यास
+          </button>
+        </div>
+      </div>
+
+      <!-- Full-Width Mobile-Friendly Live Rank List -->
+      <div class="card-surface border-2 border-amber-500/55 rounded-2xl shadow-xl p-4 sm:p-6 space-y-4">
+        <div class="flex flex-wrap items-start sm:items-center justify-between gap-3 pb-3.5 border-b" style="border-color: var(--border-color);">
+          <div class="space-y-1 min-w-0">
+            <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-400 text-xs sm:text-sm font-extrabold">
+              <span>🏆 लाइव रैंक पेज</span>
+              <span>•</span>
+              <span id="rankTotalBadge">0 अभ्यर्थी</span>
+            </div>
+            <h3 class="text-lg sm:text-xl font-extrabold text-amber-400 break-words">
+              📋 Rukmini-Daroga-Mains-Set-03 — लाइव Rank List
+            </h3>
+            <p id="rankStatusText" class="text-xs sm:text-sm font-bold text-amber-400">
+              ⏳ लाइव Google Sheet से डेटा लोड हो रहा है...
+            </p>
+          </div>
+
+          <button
+            id="refreshRankBtn"
+            type="button"
+            class="px-4 py-2.5 rounded-xl text-sm sm:text-base font-extrabold bg-indigo-600 hover:bg-indigo-500 text-white shadow transition cursor-pointer shrink-0"
+          >
+            🔄 Rank Refresh
+          </button>
+        </div>
+
+        <div id="rankNoticeBanner" class="hidden rounded-xl border border-amber-500/45 bg-amber-500/15 px-4 py-3 text-sm font-bold text-amber-400 leading-relaxed"></div>
+
+        <div id="rankCardsContainer" class="space-y-3">
+          <div class="py-7 text-center text-soft font-semibold">लाइव रैंक लिस्ट लोड हो रही है...</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== PRE-START LIVE RANK MODAL ==================== -->
+  <div id="rankModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-3 sm:p-5">
+    <div class="card-surface border-2 border-amber-500/55 rounded-2xl max-w-3xl w-full max-h-[86vh] flex flex-col shadow-2xl overflow-hidden">
+      <div class="p-4 border-b flex flex-wrap items-center justify-between gap-2.5" style="border-color: var(--border-color);">
+        <div class="space-y-1 min-w-0">
+          <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-400 text-xs font-extrabold">
+            <span>🏆 लाइव रैंक पेज</span>
+            <span>•</span>
+            <span id="modalRankTotal">0 अभ्यर्थी</span>
+          </div>
+          <h3 class="text-base sm:text-lg font-extrabold text-amber-400 break-words">
+            📋 Rukmini-Daroga-Mains-Set-03 — लाइव Rank List
+          </h3>
+          <p id="modalRankStatus" class="text-xs sm:text-sm font-bold text-amber-400">
+            ⏳ लाइव Google Sheet से लोड हो रहा है...
+          </p>
+        </div>
+
+        <div class="flex items-center gap-2 shrink-0">
+          <button
+            id="modalRefreshBtn"
+            type="button"
+            class="px-3.5 py-2 rounded-xl text-sm font-extrabold bg-indigo-600 hover:bg-indigo-500 text-white transition cursor-pointer"
+          >
+            🔄 Refresh
+          </button>
+          <button
+            id="modalCloseBtn"
+            type="button"
+            class="px-3.5 py-2 rounded-xl text-sm font-extrabold inner-surface border hover:border-rose-400 text-rose-400 transition cursor-pointer"
+          >
+            ✕ बंद करें
+          </button>
+        </div>
+      </div>
+
+      <div id="modalRankList" class="p-4 overflow-y-auto space-y-3 flex-1">
+        <div class="py-7 text-center text-soft font-semibold">लाइव रैंक लिस्ट लोड हो रही है...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CUSTOM CONFIRMATION MODAL (NO alert/confirm) ==================== -->
+  <div id="confirmModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4">
+    <div class="card-surface border-2 border-indigo-500/50 rounded-2xl max-w-md w-full p-5 shadow-2xl space-y-4">
+      <h3 id="confirmTitle" class="text-lg sm:text-xl font-extrabold">पुष्टि करें</h3>
+      <p id="confirmBody" class="text-base text-sec leading-relaxed"></p>
+      <div class="flex items-center justify-end gap-2.5 pt-1">
+        <button
+          id="confirmCancelBtn"
+          type="button"
+          class="px-4 py-2.5 rounded-xl text-sm sm:text-base font-bold inner-surface border hover:border-slate-400 transition cursor-pointer"
+        >
+          रद्द करें
+        </button>
+        <button
+          id="confirmOkBtn"
+          type="button"
+          class="px-5 py-2.5 rounded-xl text-sm sm:text-base font-extrabold text-white btn-primary shadow transition cursor-pointer"
+        >
+          हाँ, आगे बढ़ें
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =========================================================================
+       1. GOOGLE APPS SCRIPT & QUIZ CONFIGURATION
+    ========================================================================= */
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxBy0l7zENv8uThYrnLrJG-9y50s5kwn8eiPz9VIwlSjZesO6ahPkfvL2PhtavjWMAM/exec";
+    const TEST_NAME = "Rukmini-Daroga-Mains-Set-03";
+    const MARKS_PER_Q = 2;
+    const NEG_PER_WRONG = 0.2;
+    const MAX_MARKS = 200;
+
+    const AUTOSAVE_KEY = "rukmini_daroga_set03_autosave_v2";
+    const DEVICE_LOCK_KEY = "rukmini_daroga_set03_device_lock_v2";
+    const LOCAL_BOARD_KEY = "rukmini_daroga_set03_local_board_v2";
+    const THEME_KEY = "rukmini_daroga_theme_v2";
+    const FONT_KEY = "rukmini_daroga_font_scale_v2";
+
+    const CATEGORY_ORDER = [
+      "इतिहास",
+      "राजव्यवस्था",
+      "भूगोल",
+      "अर्थव्यवस्था",
+      "विज्ञान",
+      "गणित/रीजनिंग",
+      "करंट/GK",
+      "बिहार GK"
+    ];
+
+    const CATEGORY_BADGE_STYLE = {
+      "इतिहास": "bg-amber-500/15 text-amber-400 border-amber-500/40",
+      "राजव्यवस्था": "bg-indigo-500/15 text-indigo-400 border-indigo-500/40",
+      "भूगोल": "bg-emerald-500/15 text-emerald-400 border-emerald-500/40",
+      "अर्थव्यवस्था": "bg-cyan-500/15 text-cyan-400 border-cyan-500/40",
+      "विज्ञान": "bg-purple-500/15 text-purple-400 border-purple-500/40",
+      "गणित/रीजनिंग": "bg-pink-500/15 text-pink-400 border-pink-500/40",
+      "करंट/GK": "bg-sky-500/15 text-sky-400 border-sky-500/40",
+      "बिहार GK": "bg-orange-500/15 text-orange-400 border-orange-500/40"
+    };
+
+    /* =========================================================================
+       2. ALL 100 UNIQUE BIHAR DAROGA MAINS SET 03 QUESTIONS
+       Distribution:
+         इतिहास (14), राजव्यवस्था (15), भूगोल (11), अर्थव्यवस्था (6),
+         विज्ञान (21: भौतिक 7, रसायन 6, जीव 6, विज्ञान एवं प्रौद्योगिकी 2),
+         गणित/रीजनिंग (25: गणित 13, रीजनिंग 12), करंट/GK (6), बिहार GK (2) = 100
+    ========================================================================= */
+    const QUESTIONS = [
+      /* ---------------- इतिहास (Q1 - Q14: 14 Questions) ---------------- */
+      {
+        id: 1,
+        category: "इतिहास",
+        subSubject: "प्राचीन भारत",
+        question: "सिंधु घाटी सभ्यता का कौन-सा स्थल घग्गर नदी के तट पर स्थित है तथा जहाँ से जुते हुए खेत के साक्ष्य मिले हैं?",
+        options: ["लोथल", "कालीबंगा", "बनवाली", "धौलावीरा"],
+        answer: 1,
+        reason: "<span class='hl-gold'>कालीबंगा</span> (<span class='hl-green'>राजस्थान</span>, <span class='hl-cyan'>घग्गर नदी</span>) से विश्व के प्रथम <span class='hl-gold'>जुते हुए खेत</span>, अग्निवेदिकाएँ तथा काली मिट्टी की चूड़ियों के साक्ष्य प्राप्त हुए हैं।",
+        others: [
+          "<span class='hl-green'>लोथल</span> (भोगवा नदी, गुजरात): हड़प्पा काल का प्रमुख <span class='hl-cyan'>बंदरगाह (गोदीवाड़ा)</span>।",
+          "<span class='hl-green'>बनवाली</span> (हरियाणा): यहाँ से <span class='hl-cyan'>मिट्टी के हल</span> का खिलौना मिला है।",
+          "<span class='hl-green'>धौलावीरा</span> (गुजरात): तीन भागों में विभाजित नगर व <span class='hl-cyan'>उन्नत जल प्रबंधन</span>।"
+        ],
+        examPoint: "कालीबंगा में एक ही खेत में <span class='hl-pink'>दो फसलें (चना और सरसों)</span> एक साथ बोए जाने का प्रमाण मिला है।"
+      },
+      {
+        id: 2,
+        category: "इतिहास",
+        subSubject: "प्राचीन भारत",
+        question: "गौतम बुद्ध ने अपना प्रथम उपदेश ('धर्मचक्रप्रवर्तन') किस स्थान पर दिया था?",
+        options: ["बोधगया", "सारनाथ", "कुशीनगर", "श्रावस्ती"],
+        answer: 1,
+        reason: "गौतम बुद्ध ने ज्ञान प्राप्ति के बाद अपना प्रथम उपदेश <span class='hl-gold'>सारनाथ (ऋषिपत्तनम)</span> में पाँच ब्राह्मण संन्यासियों को <span class='hl-cyan'>पाली भाषा</span> में दिया, जिसे <span class='hl-gold'>'धर्मचक्रप्रवर्तन'</span> कहा गया।",
+        others: [
+          "<span class='hl-green'>बोधगया</span>: निरंजना (फल्गु) नदी के तट पर पीपल वृक्ष के नीचे <span class='hl-cyan'>ज्ञान प्राप्ति (संबोधि)</span>।",
+          "<span class='hl-green'>श्रावस्ती</span>: कोसल की राजधानी, जहाँ बुद्ध ने अपने जीवन के <span class='hl-pink'>सर्वाधिक उपदेश</span> दिए।",
+          "<span class='hl-green'>कुशीनगर</span>: मल्ल गणराज्य में <span class='hl-gold'>483 ई.पू.</span> में <span class='hl-cyan'>महापरिनिर्वाण</span>।"
+        ],
+        examPoint: "अक्सर छात्र <span class='hl-gold'>प्रथम उपदेश (सारनाथ)</span> और <span class='hl-cyan'>सर्वाधिक उपदेश (श्रावस्ती)</span> में कन्फ्यूज़ होते हैं — दोनों को साथ याद रखें।"
+      },
+      {
+        id: 3,
+        category: "इतिहास",
+        subSubject: "प्राचीन भारत",
+        question: "कलिंग युद्ध (261 ई.पू.) का विस्तृत विवरण सम्राट अशोक के किस शिलालेख में मिलता है?",
+        options: ["प्रथम शिलालेख", "पाँचवाँ शिलालेख", "ग्यारहवाँ शिलालेख", "तेरहवाँ शिलालेख"],
+        answer: 3,
+        reason: "सम्राट अशोक के <span class='hl-gold'>तेरहवें (13वें) शिलालेख</span> में <span class='hl-pink'>261 ई.पू.</span> के <span class='hl-gold'>कलिंग युद्ध</span> और युद्ध त्यागकर <span class='hl-cyan'>धम्म नीति</span> अपनाने का वर्णन मिलता है।",
+        others: [
+          "<span class='hl-cyan'>प्रथम शिलालेख</span>: इसमें <span class='hl-green'>पशुबलि की निंदा</span> की गई है।",
+          "<span class='hl-cyan'>पाँचवाँ शिलालेख</span>: <span class='hl-green'>धम्म महामात्रों</span> की नियुक्ति का उल्लेख।",
+          "<span class='hl-cyan'>ग्यारहवाँ शिलालेख</span>: <span class='hl-green'>धम्म</span> की विस्तृत व्याख्या।"
+        ],
+        examPoint: "अशोक के शिलालेखों को सर्वप्रथम <span class='hl-gold'>1837 ई.</span> में <span class='hl-green'>जेम्स प्रिंसेप</span> ने पढ़ा था।"
+      },
+      {
+        id: 4,
+        category: "इतिहास",
+        subSubject: "प्राचीन भारत",
+        question: "किस गुप्त शासक को उसके सिक्कों पर वीणा बजाते हुए दर्शाया गया है तथा जिसे 'भारत का नेपोलियन' कहा जाता है?",
+        options: ["चंद्रगुप्त प्रथम", "समुद्रगुप्त", "चंद्रगुप्त द्वितीय", "स्कंदगुप्त"],
+        answer: 1,
+        reason: "<span class='hl-gold'>समुद्रगुप्त</span> को उनके स्वर्ण सिक्कों पर <span class='hl-cyan'>वीणा वादन</span> करते दिखाया गया है; इतिहासकार <span class='hl-green'>विन्सेंट स्मिथ</span> ने इन्हें <span class='hl-gold'>'भारत का नेपोलियन'</span> कहा।",
+        others: [
+          "<span class='hl-green'>चंद्रगुप्त प्रथम</span>: <span class='hl-pink'>319 ई.</span> में <span class='hl-cyan'>गुप्त संवत्</span> चलाया और 'महाराजाधिराज' उपाधि ली।",
+          "<span class='hl-green'>चंद्रगुप्त द्वितीय</span>: <span class='hl-cyan'>विक्रमादित्य</span> उपाधि, नवरत्न व चीनी यात्री फाह्यान का आगमन।",
+          "<span class='hl-green'>स्कंदगुप्त</span>: <span class='hl-cyan'>हूण आक्रमण</span> को विफल किया (भीतरी स्तंभ लेख)।"
+        ],
+        examPoint: "समुद्रगुप्त की विजयों का वर्णन उनके दरबारी कवि <span class='hl-green'>हरिषेण</span> ने <span class='hl-gold'>प्रयाग प्रशस्ति</span> में किया है।"
+      },
+      {
+        id: 5,
+        category: "इतिहास",
+        subSubject: "कला एवं संस्कृति",
+        question: "ओडिशा में स्थित विश्व प्रसिद्ध 'कोणार्क के सूर्य मंदिर' (ब्लैक पैगोडा) का निर्माण किस शासक ने करवाया था?",
+        options: ["राजराज प्रथम", "नरसिंहदेव प्रथम", "कृष्ण प्रथम", "महेंद्रवर्मन प्रथम"],
+        answer: 1,
+        reason: "पूर्वी <span class='hl-cyan'>गंग वंश</span> के शासक <span class='hl-gold'>नरसिंहदेव प्रथम</span> ने <span class='hl-pink'>13वीं शताब्दी</span> में कलिंग शैली में <span class='hl-gold'>कोणार्क सूर्य मंदिर</span> का निर्माण करवाया था।",
+        others: [
+          "<span class='hl-green'>राजराज प्रथम</span> (चोल): तंजौर का प्रसिद्ध <span class='hl-cyan'>बृहदीश्वर (राजराजेश्वर) मंदिर</span> बनवाया।",
+          "<span class='hl-green'>कृष्ण प्रथम</span> (राष्ट्रकूट): एलोरा का एकाश्म <span class='hl-cyan'>कैलाश मंदिर</span> निर्मित कराया।"
+        ],
+        examPoint: "कोणार्क सूर्य मंदिर को <span class='hl-gold'>'ब्लैक पैगोडा'</span> कहते हैं और इसका चित्र <span class='hl-pink'>₹10 के नए भारतीय नोट</span> पर अंकित है।"
+      },
+      {
+        id: 6,
+        category: "इतिहास",
+        subSubject: "मध्यकालीन भारत",
+        question: "दिल्ली सल्तनत के किस सुल्तान ने बाजार नियंत्रण प्रणाली (दीवान-ए-रियासत) और 'दाग व हुलिया' प्रथा प्रारंभ की थी?",
+        options: ["इल्तुतमिश", "बलबन", "अलाउद्दीन खिलजी", "मुहम्मद बिन तुगलक"],
+        answer: 2,
+        reason: "<span class='hl-gold'>अलाउद्दीन खिलजी</span> ने विशाल स्थायी सेना के खर्च को नियंत्रित करने हेतु <span class='hl-cyan'>बाजार नियंत्रण प्रणाली</span> और घोड़ों को <span class='hl-pink'>दागने व सैनिकों का हुलिया</span> लिखने की प्रथा शुरू की।",
+        others: [
+          "<span class='hl-green'>इल्तुतमिश</span>: <span class='hl-cyan'>इक्ता प्रणाली</span>, तुर्कान-ए-चहलगानी तथा टंका व जीतल सिक्के।",
+          "<span class='hl-green'>बलबन</span>: <span class='hl-cyan'>रक्त एवं लौह नीति</span> तथा दरबार में सिजदा व पैबोस प्रथा।",
+          "<span class='hl-green'>मुहम्मद बिन तुगलक</span>: <span class='hl-cyan'>सांकेतिक मुद्रा</span> और राजधानी दिल्ली से दौलताबाद परिवर्तन।"
+        ],
+        examPoint: "अलाउद्दीन खिलजी पहला सुल्तान था जिसने सैनिकों को <span class='hl-gold'>नकद वेतन</span> और <span class='hl-cyan'>भूमि की पैमाइश (मसाहत)</span> शुरू की।"
+      },
+      {
+        id: 7,
+        category: "इतिहास",
+        subSubject: "मध्यकालीन भारत",
+        question: "विजयनगर साम्राज्य के प्रसिद्ध शासक कृष्णदेव राय ने तेलुगु भाषा में किस प्रसिद्ध ग्रंथ की रचना की थी?",
+        options: ["आमुक्तमाल्यद", "मनुचरितम्", "पांडुरंग महात्म्य", "राजतरंगिणी"],
+        answer: 0,
+        reason: "<span class='hl-green'>तुलुव वंश</span> के महान शासक <span class='hl-gold'>कृष्णदेव राय</span> ने शासन-नीति व लोककल्याण पर आधारित तेलुगु महाकाव्य <span class='hl-gold'>आमुक्तमाल्यद</span> की रचना की।",
+        others: [
+          "<span class='hl-cyan'>मनुचरितम्</span>: रचनाकार <span class='hl-green'>अल्लासानी पेद्दन्ना</span> (तेलुगु कविता के पितामह)।",
+          "<span class='hl-cyan'>पांडुरंग महात्म्य</span>: रचनाकार <span class='hl-green'>तेनालीराम रामकृष्ण</span>।",
+          "<span class='hl-cyan'>राजतरंगिणी</span>: रचनाकार <span class='hl-green'>कल्हण</span> (कश्मीर का प्रामाणिक इतिहास)।"
+        ],
+        examPoint: "कृष्णदेव राय के दरबार में <span class='hl-pink'>'अष्टदिग्गज'</span> (8 तेलुगु कवि) थे; इन्होंने संस्कृत में <span class='hl-cyan'>जाम्बवती कल्याणम्</span> भी लिखा।"
+      },
+      {
+        id: 8,
+        category: "इतिहास",
+        subSubject: "मध्यकालीन भारत",
+        question: "अकबर द्वारा लागू की गई 'दहसाला बंदोबस्त' (भू-राजस्व व्यवस्था) को किस राजस्व मंत्री ने तैयार किया था?",
+        options: ["बीरबल", "राजा टोडरमल", "अबुल फजल", "मानसिंह"],
+        answer: 1,
+        reason: "<span class='hl-gold'>राजा टोडरमल</span> ने <span class='hl-pink'>1580 ई.</span> में <span class='hl-cyan'>आइन-ए-दहसाला</span> लागू की, जिसमें पिछले <span class='hl-pink'>10 वर्षों</span> की औसत पैदावार व कीमतों के आधार पर भू-राजस्व तय होता था।",
+        others: [
+          "<span class='hl-green'>बीरबल</span>: <span class='hl-cyan'>दीन-ए-इलाही</span> स्वीकार करने वाले एकमात्र हिंदू।",
+          "<span class='hl-green'>अबुल फजल</span>: <span class='hl-cyan'>अकबरनामा</span> एवं आइन-ए-अकबरी के लेखक।",
+          "<span class='hl-green'>मानसिंह</span>: <span class='hl-pink'>1576</span> के <span class='hl-cyan'>हल्दीघाटी युद्ध</span> में मुगल सेनापति।"
+        ],
+        examPoint: "राजा टोडरमल अकबर से पहले <span class='hl-gold'>शेरशाह सूरी</span> के राजस्व प्रशासन में भी कार्य कर चुके थे।"
+      },
+      {
+        id: 9,
+        category: "इतिहास",
+        subSubject: "मध्यकालीन भारत",
+        question: "छत्रपति शिवाजी महाराज के प्रशासन में 'अष्टप्रधान' के अंतर्गत प्रधानमंत्री को क्या कहा जाता था?",
+        options: ["अमात्य", "सुमंत", "पेशवा", "सर-ए-नौबत"],
+        answer: 2,
+        reason: "शिवाजी के आठ मंत्रियों की परिषद् <span class='hl-cyan'>अष्टप्रधान</span> में <span class='hl-gold'>पेशवा</span> प्रधानमंत्री होता था, जो संपूर्ण सामान्य प्रशासन और राजकीय पत्रों पर मोहर देखता था।",
+        others: [
+          "<span class='hl-cyan'>अमात्य</span> (मजूमदार): राज्य का <span class='hl-green'>वित्त एवं राजस्व मंत्री</span>।",
+          "<span class='hl-cyan'>सुमंत</span> (दबीर): राज्य का <span class='hl-green'>विदेश मंत्री</span>।",
+          "<span class='hl-cyan'>सर-ए-नौबत</span>: मराठा सेना का <span class='hl-green'>प्रधान सेनापति</span>।"
+        ],
+        examPoint: "मराठा राजस्व के दो प्रमुख कर <span class='hl-gold'>चौथ (उपज का 1/4 भाग)</span> और <span class='hl-pink'>सरदेशमुखी (1/10 भाग)</span> थे।"
+      },
+      {
+        id: 10,
+        category: "इतिहास",
+        subSubject: "आधुनिक भारत",
+        question: "1793 ई. में बंगाल में 'स्थायी बंदोबस्त' (Permanent Settlement) किस ब्रिटिश गवर्नर-जनरल ने लागू किया था?",
+        options: ["वॉरेन हेस्टिंग्स", "लॉर्ड कॉर्नवालिस", "लॉर्ड वेलेजली", "लॉर्ड डलहौजी"],
+        answer: 1,
+        reason: "<span class='hl-gold'>लॉर्ड कॉर्नवालिस</span> ने <span class='hl-pink'>1793 ई.</span> में <span class='hl-green'>बंगाल, बिहार और ओडिशा</span> में <span class='hl-cyan'>स्थायी बंदोबस्त (जमींदारी प्रथा)</span> लागू की, जिसकी रूपरेखा जॉन शोर ने बनाई थी।",
+        others: [
+          "<span class='hl-green'>वॉरेन हेस्टिंग्स</span>: बंगाल के <span class='hl-cyan'>प्रथम गवर्नर-जनरल</span> (1773 रेगुलेटिंग एक्ट)।",
+          "<span class='hl-green'>लॉर्ड वेलेजली</span>: <span class='hl-pink'>1798</span> में <span class='hl-cyan'>सहायक संधि</span> प्रारंभ की (पहला राज्य: हैदराबाद)।",
+          "<span class='hl-green'>लॉर्ड डलहौजी</span>: <span class='hl-cyan'>व्यपगत सिद्धांत</span> एवं भारत में प्रथम रेलवे (<span class='hl-pink'>1853</span>)।"
+        ],
+        examPoint: "लॉर्ड कॉर्नवालिस को <span class='hl-gold'>भारत में सिविल सेवा एवं पुलिस सेवा का जनक</span> कहा जाता है।"
+      },
+      {
+        id: 11,
+        category: "इतिहास",
+        subSubject: "आधुनिक भारत",
+        question: "वर्ष 1875 में बंबई में 'आर्य समाज' की स्थापना किस समाज सुधारक ने की थी?",
+        options: ["राजा राममोहन राय", "स्वामी दयानंद सरस्वती", "स्वामी विवेकानंद", "ज्योतिबा फुले"],
+        answer: 1,
+        reason: "<span class='hl-gold'>स्वामी दयानंद सरस्वती</span> (मूल नाम <span class='hl-cyan'>मूलशंकर</span>) ने <span class='hl-pink'>1875</span> में <span class='hl-green'>बंबई</span> में <span class='hl-gold'>आर्य समाज</span> की स्थापना की और <span class='hl-cyan'>'वेदों की ओर लौटो'</span> नारा दिया।",
+        others: [
+          "<span class='hl-green'>राजा राममोहन राय</span>: <span class='hl-pink'>1828</span> में <span class='hl-cyan'>ब्रह्म समाज</span> की स्थापना व सती प्रथा उन्मूलन।",
+          "<span class='hl-green'>स्वामी विवेकानंद</span>: <span class='hl-pink'>1897</span> में <span class='hl-cyan'>रामकृष्ण मिशन</span> की स्थापना।",
+          "<span class='hl-green'>ज्योतिबा फुले</span>: <span class='hl-pink'>1873</span> में <span class='hl-cyan'>सत्यशोधक समाज</span> व 'गुलामगिरी' पुस्तक।"
+        ],
+        examPoint: "दयानंद सरस्वती की प्रसिद्ध पुस्तक <span class='hl-cyan'>'सत्यार्थ प्रकाश'</span> है और उन्होंने सर्वप्रथम <span class='hl-gold'>'स्वराज'</span> शब्द का प्रयोग किया।"
+      },
+      {
+        id: 12,
+        category: "इतिहास",
+        subSubject: "आधुनिक भारत",
+        question: "बंगाल विभाजन (1905) के विरोध में प्रारंभ हुए स्वदेशी आंदोलन के समय भारत का वायसराय कौन था?",
+        options: ["लॉर्ड लिटन", "लॉर्ड रिपन", "लॉर्ड कर्जन", "लॉर्ड हार्डिंग द्वितीय"],
+        answer: 2,
+        reason: "<span class='hl-gold'>लॉर्ड कर्जन</span> के शासनकाल में <span class='hl-pink'>16 अक्टूबर 1905</span> को <span class='hl-gold'>बंगाल विभाजन</span> लागू हुआ, जिसके विरोध में <span class='hl-cyan'>स्वदेशी एवं बहिष्कार आंदोलन</span> शुरू हुआ।",
+        others: [
+          "<span class='hl-green'>लॉर्ड लिटन</span>: <span class='hl-pink'>1878</span> में <span class='hl-cyan'>वर्नाक्यूलर प्रेस एक्ट</span> लागू किया।",
+          "<span class='hl-green'>लॉर्ड रिपन</span>: भारत में <span class='hl-cyan'>स्थानीय स्वशासन के जनक</span> व इल्बर्ट बिल विवाद।",
+          "<span class='hl-green'>लॉर्ड हार्डिंग द्वितीय</span>: <span class='hl-pink'>1911</span> में बंगाल विभाजन रद्द व राजधानी दिल्ली स्थानांतरित।"
+        ],
+        examPoint: "बंगाल विभाजन के दिन (<span class='hl-pink'>16 अक्टूबर 1905</span>) को <span class='hl-green'>रवींद्रनाथ टैगोर</span> के सुझाव पर <span class='hl-gold'>राखी दिवस</span> मनाया गया।"
+      },
+      {
+        id: 13,
+        category: "इतिहास",
+        subSubject: "आधुनिक भारत",
+        question: "महात्मा गांधी ने भारतीय राष्ट्रीय कांग्रेस के किस एकमात्र अधिवेशन की अध्यक्षता की थी?",
+        options: ["कलकत्ता अधिवेशन (1920)", "बेलगाम अधिवेशन (1924)", "लाहौर अधिवेशन (1929)", "कराची अधिवेशन (1931)"],
+        answer: 1,
+        reason: "महात्मा गांधी ने अपने जीवन में केवल एक बार <span class='hl-gold'>बेलगाम अधिवेशन (1924, कर्नाटक)</span> में भारतीय राष्ट्रीय कांग्रेस की अध्यक्षता की थी।",
+        others: [
+          "<span class='hl-green'>कलकत्ता विशेष अधिवेशन (1920)</span>: अध्यक्ष <span class='hl-cyan'>लाला लाजपत राय</span> (असहयोग प्रस्ताव)।",
+          "<span class='hl-green'>लाहौर अधिवेशन (1929)</span>: अध्यक्ष <span class='hl-cyan'>जवाहरलाल नेहरू</span> (<span class='hl-gold'>पूर्ण स्वराज</span> का लक्ष्य)।",
+          "<span class='hl-green'>कराची अधिवेशन (1931)</span>: अध्यक्ष <span class='hl-cyan'>सरदार पटेल</span> (मौलिक अधिकार प्रस्ताव)।"
+        ],
+        examPoint: "बिहार में कांग्रेस के दो महत्वपूर्ण अधिवेशन हुए: <span class='hl-gold'>बांकीपुर/पटना (1912)</span> — आर.एन. माधोलकर और <span class='hl-gold'>गया (1922)</span> — सी.आर. दास।"
+      },
+      {
+        id: 14,
+        category: "इतिहास",
+        subSubject: "आधुनिक भारत",
+        question: "वर्ष 1946 में भारत आए 'कैबिनेट मिशन' के सदस्यों में निम्नलिखित में से कौन शामिल नहीं था?",
+        options: ["लॉर्ड पैथिक लॉरेंस", "सर स्टैफोर्ड क्रिप्स", "ए.वी. अलेक्जेंडर", "लॉर्ड वेवेल"],
+        answer: 3,
+        reason: "<span class='hl-gold'>लॉर्ड वेवेल</span> उस समय भारत के <span class='hl-cyan'>वायसराय</span> थे; वे ब्रिटेन से आए तीन-सदस्यीय <span class='hl-gold'>कैबिनेट मिशन (1946)</span> के सदस्य नहीं थे।",
+        others: [
+          "मिशन के तीनों सदस्य: <span class='hl-green'>लॉर्ड पैथिक लॉरेंस</span> (अध्यक्ष व भारत सचिव), <span class='hl-green'>सर स्टैफोर्ड क्रिप्स</span> और <span class='hl-green'>ए.वी. अलेक्जेंडर</span>।"
+        ],
+        examPoint: "भारत की <span class='hl-cyan'>संविधान सभा</span> का गठन <span class='hl-gold'>कैबिनेट मिशन योजना (1946)</span> की सिफारिश पर किया गया था।"
+      },
+
+      /* ---------------- राजव्यवस्था (Q15 - Q29: 15 Questions) ---------------- */
+      {
+        id: 15,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "भारतीय संविधान की प्रस्तावना में 'समाजवादी', 'पंथनिरपेक्ष' और 'अखंडता' शब्द किस संशोधन द्वारा जोड़े गए?",
+        options: ["42वाँ संशोधन (1976)", "44वाँ संशोधन (1978)", "52वाँ संशोधन (1985)", "86वाँ संशोधन (2002)"],
+        answer: 0,
+        reason: "<span class='hl-gold'>42वें संविधान संशोधन (1976)</span> द्वारा प्रस्तावना में अब तक एकमात्र संशोधन कर <span class='hl-cyan'>समाजवादी, पंथनिरपेक्ष और अखंडता</span> शब्द जोड़े गए।",
+        others: [
+          "<span class='hl-cyan'>44वाँ संशोधन (1978)</span>: संपत्ति का अधिकार मूल अधिकार से हटाकर <span class='hl-pink'>अनुच्छेद 300A</span> में विधिक अधिकार बना।",
+          "<span class='hl-cyan'>52वाँ संशोधन (1985)</span>: <span class='hl-green'>10वीं अनुसूची</span> (दल-बदल विरोधी कानून) जोड़ी गई।",
+          "<span class='hl-cyan'>86वाँ संशोधन (2002)</span>: <span class='hl-pink'>अनुच्छेद 21A</span> (6–14 वर्ष निःशुल्क शिक्षा) जोड़ा गया।"
+        ],
+        examPoint: "व्यापक बदलावों के कारण <span class='hl-gold'>42वें संशोधन (1976)</span> को <span class='hl-cyan'>'लघु संविधान (Mini Constitution)'</span> कहा जाता है।"
+      },
+      {
+        id: 16,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "भारतीय संविधान में 'समवर्ती सूची' (Concurrent List) का प्रावधान किस देश के संविधान से लिया गया है?",
+        options: ["कनाडा", "ऑस्ट्रेलिया", "आयरलैंड", "ब्रिटेन"],
+        answer: 1,
+        reason: "<span class='hl-gold'>समवर्ती सूची</span> (7वीं अनुसूची), प्रस्तावना की भाषा और <span class='hl-cyan'>संसद की संयुक्त बैठक</span> का प्रावधान <span class='hl-gold'>ऑस्ट्रेलिया</span> से लिया गया है।",
+        others: [
+          "<span class='hl-green'>कनाडा</span>: सशक्त केंद्र के साथ <span class='hl-cyan'>संघीय व्यवस्था</span> एवं अवशिष्ट शक्तियाँ।",
+          "<span class='hl-green'>आयरलैंड</span>: <span class='hl-cyan'>राज्य के नीति निदेशक तत्व (DPSP)</span> एवं राष्ट्रपति निर्वाचन पद्धति।",
+          "<span class='hl-green'>ब्रिटेन</span>: <span class='hl-cyan'>संसदीय शासन प्रणाली</span>, विधि का शासन एवं एकल नागरिकता।"
+        ],
+        examPoint: "समवर्ती सूची में मूलतः <span class='hl-pink'>47 विषय</span> थे, जो 42वें संशोधन के बाद <span class='hl-gold'>52 विषय</span> हो गए (शिक्षा, वन आदि यहीं हैं)।"
+      },
+      {
+        id: 17,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "भारतीय संविधान का कौन-सा अनुच्छेद 'अस्पृश्यता के अंत' (Abolition of Untouchability) का प्रावधान करता है?",
+        options: ["अनुच्छेद 14", "अनुच्छेद 15", "अनुच्छेद 17", "अनुच्छेद 18"],
+        answer: 2,
+        reason: "<span class='hl-gold'>अनुच्छेद 17</span> अस्पृश्यता (छुआछूत) को पूर्णतः समाप्त करता है और किसी भी रूप में इसका आचरण <span class='hl-pink'>विधि के अनुसार दंडनीय</span> है।",
+        others: [
+          "<span class='hl-cyan'>अनुच्छेद 14</span>: <span class='hl-green'>विधि के समक्ष समता</span> और विधियों का समान संरक्षण।",
+          "<span class='hl-cyan'>अनुच्छेद 15</span>: धर्म, मूलवंश, जाति, लिंग या जन्मस्थान पर <span class='hl-green'>भेदभाव निषेध</span>।",
+          "<span class='hl-cyan'>अनुच्छेद 18</span>: सेना व विद्या को छोड़कर सभी <span class='hl-green'>उपाधियों का अंत</span>।"
+        ],
+        examPoint: "अनुच्छेद 17 एक <span class='hl-gold'>निरपेक्ष (Absolute) मूल अधिकार</span> है, जिसका संविधान में कोई भी अपवाद नहीं दिया गया है।"
+      },
+      {
+        id: 18,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "डॉ. भीमराव अंबेडकर ने भारतीय संविधान के किस अनुच्छेद को 'संविधान की हृदय और आत्मा' कहा था?",
+        options: ["अनुच्छेद 19", "अनुच्छेद 21", "अनुच्छेद 32", "अनुच्छेद 40"],
+        answer: 2,
+        reason: "डॉ. अंबेडकर ने <span class='hl-gold'>अनुच्छेद 32 (संवैधानिक उपचारों का अधिकार)</span> को संविधान का हृदय और आत्मा कहा, जिससे नागरिक सीधे <span class='hl-green'>सर्वोच्च न्यायालय</span> जा सकते हैं।",
+        others: [
+          "<span class='hl-cyan'>अनुच्छेद 19</span>: वाक् एवं अभिव्यक्ति सहित <span class='hl-green'>6 मौलिक स्वतंत्रताएँ</span>।",
+          "<span class='hl-cyan'>अनुच्छेद 21</span>: <span class='hl-green'>प्राण एवं दैहिक स्वतंत्रता</span> (निजता का अधिकार भी इसी में)।",
+          "<span class='hl-cyan'>अनुच्छेद 40</span>: <span class='hl-green'>ग्राम पंचायतों के गठन</span> का नीति निदेशक तत्व।"
+        ],
+        examPoint: "सुप्रीम कोर्ट <span class='hl-cyan'>अनुच्छेद 32</span> से तथा हाईकोर्ट <span class='hl-cyan'>अनुच्छेद 226</span> से <span class='hl-pink'>5 प्रकार की रिट</span> जारी करते हैं।"
+      },
+      {
+        id: 19,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "राज्य के नीति निदेशक तत्वों के अंतर्गत 'समान नागरिक संहिता' (Uniform Civil Code) का उल्लेख किस अनुच्छेद में है?",
+        options: ["अनुच्छेद 40", "अनुच्छेद 43", "अनुच्छेद 44", "अनुच्छेद 50"],
+        answer: 2,
+        reason: "<span class='hl-gold'>अनुच्छेद 44</span> राज्य को निर्देश देता है कि वह पूरे देश में नागरिकों के लिए <span class='hl-cyan'>एक समान सिविल संहिता (UCC)</span> लागू करने का प्रयास करे।",
+        others: [
+          "<span class='hl-cyan'>अनुच्छेद 40</span>: ग्राम पंचायतों का संगठन।",
+          "<span class='hl-cyan'>अनुच्छेद 43</span>: कर्मकारों हेतु निर्वाह मजदूरी व <span class='hl-green'>कुटीर उद्योगों</span> को बढ़ावा।",
+          "<span class='hl-cyan'>अनुच्छेद 50</span>: <span class='hl-green'>कार्यपालिका से न्यायपालिका का पृथक्करण</span>।"
+        ],
+        examPoint: "<span class='hl-green'>गोवा</span> में पूर्व से UCC लागू है, जबकि स्वतंत्र भारत में विधानसभा कानून से इसे लागू करने वाला पहला राज्य <span class='hl-gold'>उत्तराखंड</span> है।"
+      },
+      {
+        id: 20,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "भारत के राष्ट्रपति पर महाभियोग (Impeachment) चलाने की प्रक्रिया का उल्लेख किस अनुच्छेद में है?",
+        options: ["अनुच्छेद 52", "अनुच्छेद 56", "अनुच्छेद 61", "अनुच्छेद 72"],
+        answer: 2,
+        reason: "<span class='hl-gold'>अनुच्छेद 61</span> के तहत <span class='hl-cyan'>'संविधान के अतिक्रमण'</span> पर <span class='hl-pink'>14 दिन</span> पूर्व सूचना और दोनों सदनों के कुल सदस्यों के <span class='hl-pink'>2/3 बहुमत</span> से महाभियोग चलता है।",
+        others: [
+          "<span class='hl-cyan'>अनुच्छेद 52</span>: भारत का एक राष्ट्रपति होगा।",
+          "<span class='hl-cyan'>अनुच्छेद 56</span>: राष्ट्रपति की <span class='hl-green'>5 वर्ष की पदावधि</span>।",
+          "<span class='hl-cyan'>अनुच्छेद 72</span>: राष्ट्रपति की <span class='hl-green'>क्षमादान शक्ति</span> (मृत्युदंड सहित)।"
+        ],
+        examPoint: "राष्ट्रपति के महाभियोग में संसद के <span class='hl-gold'>निर्वाचित व मनोनीत दोनों सदस्य</span> भाग लेते हैं, किंतु राज्यों की विधानसभाएँ नहीं।"
+      },
+      {
+        id: 21,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "कोई विधेयक 'धन विधेयक' (Money Bill) है या नहीं, इसका अंतिम निर्णय कौन करता है?",
+        options: ["राष्ट्रपति", "प्रधानमंत्री", "लोकसभा अध्यक्ष", "वित्त मंत्री"],
+        answer: 2,
+        reason: "<span class='hl-cyan'>अनुच्छेद 110(3)</span> के अनुसार किसी विधेयक को धन विधेयक प्रमाणित करने का अंतिम और अनन्य अधिकार केवल <span class='hl-gold'>लोकसभा अध्यक्ष</span> को प्राप्त है।",
+        others: [],
+        examPoint: "धन विधेयक <span class='hl-green'>राष्ट्रपति की पूर्व स्वीकृति</span> से केवल <span class='hl-cyan'>लोकसभा</span> में पेश होता है और राज्यसभा इसे अधिकतम <span class='hl-pink'>14 दिन</span> रोक सकती है।"
+      },
+      {
+        id: 22,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "संसद के दो सत्रों के बीच अधिकतम कितना अंतराल हो सकता है?",
+        options: ["3 माह", "6 माह", "9 माह", "12 माह"],
+        answer: 1,
+        reason: "<span class='hl-cyan'>अनुच्छेद 85(1)</span> के अनुसार संसद के एक सत्र की अंतिम बैठक और अगले सत्र की प्रथम बैठक के बीच <span class='hl-gold'>6 माह</span> से अधिक का अंतराल नहीं हो सकता।",
+        others: [],
+        examPoint: "संसद के सत्र को आहूत व सत्रावसान <span class='hl-green'>राष्ट्रपति</span> करते हैं, जबकि सदन को स्थगित (Adjourn) <span class='hl-cyan'>पीठासीन अधिकारी</span> करते हैं।"
+      },
+      {
+        id: 23,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "भारत के सर्वोच्च न्यायालय की स्थापना का प्रावधान संविधान के किस अनुच्छेद में किया गया है?",
+        options: ["अनुच्छेद 123", "अनुच्छेद 124", "अनुच्छेद 131", "अनुच्छेद 143"],
+        answer: 1,
+        reason: "<span class='hl-gold'>अनुच्छेद 124</span> में <span class='hl-green'>भारत के सर्वोच्च न्यायालय</span> की स्थापना, गठन और न्यायाधीशों की नियुक्ति का प्रावधान है।",
+        others: [
+          "<span class='hl-cyan'>अनुच्छेद 123</span>: राष्ट्रपति की <span class='hl-green'>अध्यादेश</span> जारी करने की शक्ति।",
+          "<span class='hl-cyan'>अनुच्छेद 131</span>: सर्वोच्च न्यायालय की <span class='hl-green'>मूल अधिकारिता</span> (केंद्र–राज्य विवाद)।",
+          "<span class='hl-cyan'>अनुच्छेद 143</span>: राष्ट्रपति को सर्वोच्च न्यायालय से <span class='hl-green'>परामर्श लेने</span> की शक्ति।"
+        ],
+        examPoint: "सुप्रीम कोर्ट के न्यायाधीशों की सेवानिवृत्ति आयु <span class='hl-pink'>65 वर्ष</span> तथा हाईकोर्ट के न्यायाधीशों की <span class='hl-pink'>62 वर्ष</span> निर्धारित है।"
+      },
+      {
+        id: 24,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "राज्यपाल को अध्यादेश (Ordinance) जारी करने की शक्ति किस अनुच्छेद के अंतर्गत प्राप्त है?",
+        options: ["अनुच्छेद 123", "अनुच्छेद 161", "अनुच्छेद 213", "अनुच्छेद 214"],
+        answer: 2,
+        reason: "राज्य विधानमंडल का सत्र न चलने की स्थिति में राज्यपाल <span class='hl-gold'>अनुच्छेद 213</span> के अंतर्गत <span class='hl-cyan'>अध्यादेश</span> जारी कर सकते हैं।",
+        others: [
+          "<span class='hl-cyan'>अनुच्छेद 123</span>: राष्ट्रपति का अध्यादेश।",
+          "<span class='hl-cyan'>अनुच्छेद 161</span>: राज्यपाल की <span class='hl-green'>क्षमादान शक्ति</span> (मृत्युदंड को छोड़कर)।",
+          "<span class='hl-cyan'>अनुच्छेद 214</span>: प्रत्येक राज्य के लिए एक <span class='hl-green'>उच्च न्यायालय</span>।"
+        ],
+        examPoint: "आसान ट्रिक: राष्ट्रपति का अध्यादेश <span class='hl-gold'>1-2-3</span> और राज्यपाल का <span class='hl-gold'>2-1-3</span>; सत्र शुरू होने के <span class='hl-pink'>6 सप्ताह</span> में अनुमोदन अनिवार्य है।"
+      },
+      {
+        id: 25,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "केंद्र और राज्यों के बीच वित्तीय संसाधनों के वितरण हेतु 'वित्त आयोग' का गठन किस अनुच्छेद के तहत किया जाता है?",
+        options: ["अनुच्छेद 263", "अनुच्छेद 279A", "अनुच्छेद 280", "अनुच्छेद 315"],
+        answer: 2,
+        reason: "<span class='hl-gold'>अनुच्छेद 280</span> के तहत <span class='hl-green'>राष्ट्रपति</span> प्रत्येक <span class='hl-pink'>5 वर्ष</span> में एक अध्यक्ष एवं 4 अन्य सदस्यों वाले <span class='hl-gold'>वित्त आयोग</span> का गठन करते हैं।",
+        others: [
+          "<span class='hl-cyan'>अनुच्छेद 263</span>: <span class='hl-green'>अंतर-राज्यीय परिषद्</span> का गठन।",
+          "<span class='hl-cyan'>अनुच्छेद 279A</span>: <span class='hl-green'>GST परिषद्</span> का गठन।",
+          "<span class='hl-cyan'>अनुच्छेद 315</span>: संघ एवं राज्यों के लिए <span class='hl-green'>लोक सेवा आयोग (UPSC / BPSC)</span>।"
+        ],
+        examPoint: "प्रथम वित्त आयोग के अध्यक्ष <span class='hl-green'>के.सी. नियोगी</span> थे तथा <span class='hl-gold'>16वें वित्त आयोग</span> के अध्यक्ष <span class='hl-green'>डॉ. अरविंद पनगढ़िया</span> हैं।"
+      },
+      {
+        id: 26,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "भारतीय संविधान में 'वित्तीय आपातकाल' (Financial Emergency) का प्रावधान किस अनुच्छेद में है?",
+        options: ["अनुच्छेद 352", "अनुच्छेद 356", "अनुच्छेद 360", "अनुच्छेद 365"],
+        answer: 2,
+        reason: "<span class='hl-gold'>अनुच्छेद 360</span> में <span class='hl-cyan'>वित्तीय आपातकाल</span> का प्रावधान है, जिसे भारत में आज तक <span class='hl-pink'>एक बार भी लागू नहीं</span> किया गया है।",
+        others: [
+          "<span class='hl-cyan'>अनुच्छेद 352</span>: <span class='hl-green'>राष्ट्रीय आपातकाल</span> (भारत में अब तक 3 बार: 1962, 1971, 1975)।",
+          "<span class='hl-cyan'>अनुच्छेद 356</span>: राज्यों में संवैधानिक तंत्र विफल होने पर <span class='hl-green'>राष्ट्रपति शासन</span>।",
+          "<span class='hl-cyan'>अनुच्छेद 365</span>: केंद्र के निर्देश न मानने पर राज्य में राष्ट्रपति शासन का आधार।"
+        ],
+        examPoint: "राष्ट्रीय आपातकाल (<span class='hl-cyan'>अनुच्छेद 352</span>) के दौरान भी <span class='hl-pink'>अनुच्छेद 20 और 21</span> कभी निलंबित नहीं किए जा सकते।"
+      },
+      {
+        id: 27,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "पंचायती राज व्यवस्था को संवैधानिक दर्जा किस संविधान संशोधन अधिनियम द्वारा प्रदान किया गया?",
+        options: ["71वाँ संशोधन", "73वाँ संशोधन", "74वाँ संशोधन", "84वाँ संशोधन"],
+        answer: 1,
+        reason: "<span class='hl-gold'>73वें संविधान संशोधन (1992)</span> द्वारा संविधान में <span class='hl-cyan'>भाग-IX</span> तथा <span class='hl-cyan'>11वीं अनुसूची</span> (<span class='hl-pink'>29 विषय</span>) जोड़कर पंचायतों को संवैधानिक दर्जा मिला।",
+        others: [
+          "<span class='hl-cyan'>71वाँ संशोधन (1992)</span>: 8वीं अनुसूची में <span class='hl-green'>कोंकणी, मणिपुरी व नेपाली</span> भाषाएँ जोड़ी गईं।",
+          "<span class='hl-cyan'>74वाँ संशोधन (1992)</span>: <span class='hl-green'>नगरपालिकाओं</span> को संवैधानिक दर्जा (12वीं अनुसूची, 18 विषय)।"
+        ],
+        examPoint: "73वाँ संशोधन <span class='hl-gold'>24 अप्रैल 1993</span> को लागू हुआ, इसलिए प्रतिवर्ष <span class='hl-pink'>24 अप्रैल</span> को 'राष्ट्रीय पंचायती राज दिवस' मनाया जाता है।"
+      },
+      {
+        id: 28,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "भारत सरकार का प्रथम विधि अधिकारी (First Law Officer) कौन होता है?",
+        options: ["भारत का मुख्य न्यायाधीश", "भारत का महान्यायवादी", "केंद्रीय विधि मंत्री", "सॉलिसिटर जनरल"],
+        answer: 1,
+        reason: "<span class='hl-gold'>भारत का महान्यायवादी (Attorney General)</span> केंद्र सरकार का सर्वोच्च विधि अधिकारी है, जिसकी नियुक्ति राष्ट्रपति <span class='hl-cyan'>अनुच्छेद 76</span> के तहत करते हैं।",
+        others: [
+          "<span class='hl-green'>सॉलिसिटर जनरल</span>: महान्यायवादी के सहायक (द्वितीय विधि अधिकारी, संविधान में प्रत्यक्ष उल्लेख नहीं)।"
+        ],
+        examPoint: "<span class='hl-cyan'>अनुच्छेद 88</span> के तहत महान्यायवादी संसद की बैठकों में भाग ले व बोल सकता है, परंतु <span class='hl-pink'>मतदान नहीं</span> कर सकता।"
+      },
+      {
+        id: 29,
+        category: "राजव्यवस्था",
+        subSubject: "भारतीय राजव्यवस्था",
+        question: "संसद की 'लोक लेखा समिति' (Public Accounts Committee) में कुल कितने सदस्य होते हैं?",
+        options: ["15 सदस्य", "22 सदस्य", "30 सदस्य", "45 सदस्य"],
+        answer: 1,
+        reason: "<span class='hl-gold'>लोक लेखा समिति (PAC)</span> में कुल <span class='hl-gold'>22 सदस्य</span> होते हैं — <span class='hl-pink'>15 लोकसभा</span> से तथा <span class='hl-pink'>7 राज्यसभा</span> से (कार्यकाल 1 वर्ष)।",
+        others: [
+          "<span class='hl-cyan'>30 सदस्य</span>: संसद की सबसे बड़ी समिति <span class='hl-green'>प्राक्कलन समिति</span> (सभी 30 सदस्य केवल लोकसभा से)।"
+        ],
+        examPoint: "लोक लेखा समिति का अध्यक्ष परंपरा से <span class='hl-gold'>विपक्ष का नेता</span> होता है और इसे <span class='hl-cyan'>CAG का मित्र व मार्गदर्शक</span> कहा जाता है।"
+      },
+
+      /* ---------------- भूगोल (Q30 - Q40: 11 Questions) ---------------- */
+      {
+        id: 30,
+        category: "भूगोल",
+        subSubject: "भारत का भूगोल",
+        question: "कर्क रेखा (23½° उत्तरी अक्षांश) भारत के कुल कितने राज्यों से होकर गुजरती है?",
+        options: ["6 राज्य", "7 राज्य", "8 राज्य", "9 राज्य"],
+        answer: 2,
+        reason: "<span class='hl-gold'>कर्क रेखा</span> भारत के <span class='hl-gold'>8 राज्यों</span> — <span class='hl-green'>गुजरात, राजस्थान, मध्य प्रदेश, छत्तीसगढ़, झारखंड, पश्चिम बंगाल, त्रिपुरा और मिजोरम</span> से गुजरती है।",
+        others: [],
+        examPoint: "<span class='hl-cyan'>माही नदी</span> कर्क रेखा को <span class='hl-pink'>दो बार</span> काटती है और ध्यान रहे कि <span class='hl-pink'>बिहार</span> से कर्क रेखा नहीं गुजरती (झारखंड से गुजरती है)।"
+      },
+      {
+        id: 31,
+        category: "भूगोल",
+        subSubject: "भारत का भूगोल",
+        question: "प्रायद्वीपीय भारत की सबसे ऊँची पर्वत चोटी 'अनाईमुडी' किस पहाड़ी पर स्थित है?",
+        options: ["नीलगिरि पहाड़ी", "अन्नामलाई पहाड़ी", "कार्डामम पहाड़ी", "सतपुड़ा पहाड़ी"],
+        answer: 1,
+        reason: "<span class='hl-gold'>अनाईमुडी</span> (<span class='hl-pink'>2,695 मीटर</span>, केरल) <span class='hl-gold'>अन्नामलाई पहाड़ी</span> पर स्थित प्रायद्वीपीय (दक्षिण) भारत की सर्वोच्च चोटी है।",
+        others: [
+          "<span class='hl-green'>नीलगिरि पहाड़ी</span>: सर्वोच्च चोटी <span class='hl-cyan'>डोडाबेट्टा</span> (2,637 मी. — दक्षिण भारत की दूसरी सबसे ऊँची)।",
+          "<span class='hl-green'>कार्डामम (इलायची) पहाड़ी</span>: भारत की <span class='hl-cyan'>दक्षिणतम पहाड़ी</span>।",
+          "<span class='hl-green'>सतपुड़ा श्रेणी</span>: सर्वोच्च चोटी <span class='hl-cyan'>धूपगढ़</span> (1,350 मी., मध्य प्रदेश)।"
+        ],
+        examPoint: "पूर्वी घाट और पश्चिमी घाट का मिलन बिंदु <span class='hl-gold'>नीलगिरि की पहाड़ियाँ</span> हैं।"
+      },
+      {
+        id: 32,
+        category: "भूगोल",
+        subSubject: "भारत का भूगोल",
+        question: "जोजिला दर्रा निम्नलिखित में से किन दो स्थानों को आपस में जोड़ता है?",
+        options: ["श्रीनगर और लेह", "जम्मू और श्रीनगर", "मनाली और लेह", "शिमला और तिब्बत"],
+        answer: 0,
+        reason: "<span class='hl-cyan'>जास्कर श्रेणी</span> में स्थित <span class='hl-gold'>जोजिला दर्रा</span> कश्मीर घाटी के <span class='hl-green'>श्रीनगर</span> को लद्दाख के <span class='hl-green'>लेह</span> से जोड़ता है।",
+        others: [
+          "<span class='hl-green'>जम्मू और श्रीनगर</span>: <span class='hl-cyan'>बनिहाल दर्रा</span> (इसी में जवाहर सुरंग स्थित है)।",
+          "<span class='hl-green'>मनाली और लेह</span>: <span class='hl-cyan'>रोहतांग / बारालाचा ला दर्रा</span>।",
+          "<span class='hl-green'>शिमला और तिब्बत</span>: <span class='hl-cyan'>शिपकी ला दर्रा</span> (हिमाचल प्रदेश)।"
+        ],
+        examPoint: "<span class='hl-cyan'>सतलुज नदी</span> भारत में हिमाचल प्रदेश के <span class='hl-gold'>शिपकी ला दर्रे</span> से होकर प्रवेश करती है।"
+      },
+      {
+        id: 33,
+        category: "भूगोल",
+        subSubject: "भारत का भूगोल",
+        question: "निम्नलिखित में से कौन-सी नदी 'दक्षिण की गंगा' (या वृद्ध गंगा) के नाम से जानी जाती है?",
+        options: ["कृष्णा", "कावेरी", "गोदावरी", "महानदी"],
+        answer: 2,
+        reason: "नासिक के <span class='hl-green'>त्र्यंबकेश्वर</span> से निकलने वाली <span class='hl-gold'>गोदावरी</span> (<span class='hl-pink'>1,465 किमी</span>) प्रायद्वीपीय भारत की सबसे लंबी नदी है, जिसे <span class='hl-gold'>वृद्ध गंगा / दक्षिण की गंगा</span> कहा जाता है।",
+        others: [
+          "<span class='hl-green'>कृष्णा</span>: महाबलेश्वर से उद्गम; <span class='hl-cyan'>नागार्जुन सागर बाँध</span> इसी पर है।",
+          "<span class='hl-green'>कावेरी</span>: इसे <span class='hl-cyan'>'दक्षिण भारत की गंगा'</span> कहा जाता है (सदानीरा नदी)।",
+          "<span class='hl-green'>महानदी</span>: ओडिशा में भारत का सबसे लंबा बाँध <span class='hl-cyan'>हीराकुंड</span> इसी पर स्थित है।"
+        ],
+        examPoint: "गोदावरी की प्रमुख सहायक नदियाँ: <span class='hl-cyan'>पेनगंगा, वेनगंगा, प्राणहिता, इंद्रावती व मंजीरा</span>।"
+      },
+      {
+        id: 34,
+        category: "भूगोल",
+        subSubject: "भारत का भूगोल",
+        question: "भारत में कपास की खेती के लिए सर्वाधिक उपयुक्त 'रेगुर मिट्टी' को किस अन्य नाम से जाना जाता है?",
+        options: ["जलोढ़ मिट्टी", "काली मिट्टी", "लैटेराइट मिट्टी", "लाल मिट्टी"],
+        answer: 1,
+        reason: "दक्कन के <span class='hl-cyan'>बेसाल्ट लावा</span> के अपक्षय से बनी <span class='hl-gold'>काली मिट्टी (रेगुर)</span> में नमी धारण करने की क्षमता सर्वाधिक होती है, जो <span class='hl-gold'>कपास</span> के लिए सर्वोत्तम है।",
+        others: [
+          "<span class='hl-green'>जलोढ़ मिट्टी</span>: भारत के सर्वाधिक क्षेत्रफल (<span class='hl-pink'>~43%</span>) पर फैली सबसे उपजाऊ मिट्टी।",
+          "<span class='hl-green'>लैटेराइट मिट्टी</span>: अधिक वर्षा वाले क्षेत्रों में; <span class='hl-cyan'>काजू, चाय व कॉफी</span> हेतु उपयुक्त।",
+          "<span class='hl-green'>लाल मिट्टी</span>: <span class='hl-cyan'>फेरिक (लौह) ऑक्साइड</span> के कारण लाल रंग।"
+        ],
+        examPoint: "सूखने पर गहरी दरारें पड़ने के कारण काली मिट्टी को <span class='hl-gold'>'स्वतः जुताई वाली मिट्टी'</span> भी कहा जाता है।"
+      },
+      {
+        id: 35,
+        category: "भूगोल",
+        subSubject: "भारत का भूगोल",
+        question: "भारत की प्रसिद्ध 'चिल्का झील' (खारे पानी की लैगून झील) किस राज्य में स्थित है?",
+        options: ["आंध्र प्रदेश", "तमिलनाडु", "ओडिशा", "केरल"],
+        answer: 2,
+        reason: "<span class='hl-gold'>चिल्का झील</span> <span class='hl-gold'>ओडिशा</span> तट पर स्थित भारत की सबसे बड़ी <span class='hl-cyan'>खारे पानी की लैगून झील</span> है।",
+        others: [
+          "<span class='hl-green'>आंध्र प्रदेश</span>: <span class='hl-cyan'>कोलेरू झील</span> (मीठे पानी की) तथा पुलिकट झील (आंध्र–तमिलनाडु सीमा)।",
+          "<span class='hl-green'>केरल</span>: <span class='hl-cyan'>वेम्बनाड झील</span> (भारत की सबसे लंबी झील)।"
+        ],
+        examPoint: "चिल्का झील (<span class='hl-pink'>1981</span>) को केवलादेव उद्यान के साथ भारत का <span class='hl-gold'>प्रथम रामसर आर्द्रभूमि स्थल</span> घोषित किया गया था।"
+      },
+      {
+        id: 36,
+        category: "भूगोल",
+        subSubject: "विश्व का भूगोल",
+        question: "विश्व की सबसे लंबी पर्वत श्रृंखला 'एंडीज़' किस महाद्वीप में स्थित है?",
+        options: ["उत्तरी अमेरिका", "दक्षिणी अमेरिका", "एशिया", "अफ्रीका"],
+        answer: 1,
+        reason: "<span class='hl-gold'>एंडीज़ पर्वतमाला</span> (<span class='hl-pink'>~7,000 किमी</span>) <span class='hl-gold'>दक्षिणी अमेरिका</span> के पश्चिमी तट पर फैली विश्व की सबसे लंबी स्थलीय पर्वत श्रृंखला है।",
+        others: [
+          "<span class='hl-green'>उत्तरी अमेरिका</span>: प्रमुख पर्वत श्रेणी <span class='hl-cyan'>रॉकी (Rocky)</span>।",
+          "<span class='hl-green'>एशिया</span>: विश्व की सबसे ऊँची श्रेणी <span class='hl-cyan'>हिमालय</span>।",
+          "<span class='hl-green'>अफ्रीका</span>: <span class='hl-cyan'>एटलस पर्वत</span> तथा सर्वोच्च चोटी किलिमंजारो।"
+        ],
+        examPoint: "एंडीज़ पर्वतमाला की सर्वोच्च चोटी <span class='hl-gold'>माउंट एकांकागुआ</span> (<span class='hl-green'>अर्जेंटीना</span>) है।"
+      },
+      {
+        id: 37,
+        category: "भूगोल",
+        subSubject: "विश्व का भूगोल",
+        question: "भूमध्य सागर को लाल सागर से जोड़ने वाली प्रमुख नहर कौन-सी है?",
+        options: ["पनामा नहर", "स्वेज नहर", "कील नहर", "सू नहर"],
+        answer: 1,
+        reason: "<span class='hl-green'>मिस्र</span> में स्थित <span class='hl-gold'>स्वेज नहर</span> (<span class='hl-pink'>1869</span>) <span class='hl-cyan'>भूमध्य सागर</span> को <span class='hl-cyan'>लाल सागर</span> से जोड़ती है (उत्तरी छोर: पोर्ट सईद, दक्षिणी: पोर्ट स्वेज)।",
+        others: [
+          "<span class='hl-green'>पनामा नहर</span>: <span class='hl-cyan'>प्रशांत महासागर</span> को <span class='hl-cyan'>अटलांटिक महासागर</span> से जोड़ती है।",
+          "<span class='hl-green'>कील नहर</span> (जर्मनी): <span class='hl-cyan'>उत्तरी सागर</span> को <span class='hl-cyan'>बाल्टिक सागर</span> से जोड़ती है।",
+          "<span class='hl-green'>सू नहर</span> (USA): <span class='hl-cyan'>सुपीरियर झील</span> को <span class='hl-cyan'>ह्यूरन झील</span> से जोड़ती है।"
+        ],
+        examPoint: "स्वेज नहर के खुलने से भारत और यूरोप के बीच समुद्री मार्ग की दूरी लगभग <span class='hl-pink'>7,000 किमी</span> कम हो गई।"
+      },
+      {
+        id: 38,
+        category: "भूगोल",
+        subSubject: "विश्व का भूगोल",
+        question: "वायुमंडल की किस परत में ओजोन परत (Ozone Layer) पाई जाती है, जो पराबैंगनी किरणों को अवशोषित करती है?",
+        options: ["क्षोभमंडल", "समतापमंडल", "मध्यमंडल", "आयनमंडल"],
+        answer: 1,
+        reason: "<span class='hl-gold'>समतापमंडल (Stratosphere)</span> में <span class='hl-cyan'>ओजोन परत (O₃)</span> स्थित है, जो सूर्य की हानिकारक <span class='hl-pink'>पराबैंगनी (UV)</span> किरणों से पृथ्वी की रक्षा करती है।",
+        others: [
+          "<span class='hl-green'>क्षोभमंडल</span>: सबसे निचली परत; <span class='hl-cyan'>बादल, वर्षा व सभी मौसमी घटनाएँ</span> यहीं होती हैं।",
+          "<span class='hl-green'>मध्यमंडल</span>: सबसे ठंडी परत; अंतरिक्ष से आने वाले <span class='hl-cyan'>उल्कापिंड</span> यहीं जलते हैं।",
+          "<span class='hl-green'>आयनमंडल</span>: पृथ्वी से भेजी गई <span class='hl-cyan'>रेडियो तरंगों</span> को वापस परावर्तित करता है।"
+        ],
+        examPoint: "ओजोन परत की मोटाई <span class='hl-cyan'>डॉब्सन इकाई (DU)</span> में मापते हैं तथा इसके संरक्षण हेतु <span class='hl-gold'>मॉन्ट्रियल प्रोटोकॉल (1987)</span> बना।"
+      },
+      {
+        id: 39,
+        category: "भूगोल",
+        subSubject: "पर्यावरण एवं पारिस्थितिकी",
+        question: "पर्यावरण संरक्षण से संबंधित 'प्रोजेक्ट टाइगर' (बाघ परियोजना) भारत में किस वर्ष प्रारंभ किया गया था?",
+        options: ["1972", "1973", "1986", "1992"],
+        answer: 1,
+        reason: "बाघों के संरक्षण हेतु <span class='hl-gold'>प्रोजेक्ट टाइगर</span> <span class='hl-gold'>1 अप्रैल 1973</span> को <span class='hl-green'>जिम कॉर्बेट राष्ट्रीय उद्यान (उत्तराखंड)</span> से प्रारंभ किया गया।",
+        others: [
+          "<span class='hl-cyan'>1972</span>: <span class='hl-green'>वन्यजीव संरक्षण अधिनियम</span>।",
+          "<span class='hl-cyan'>1986</span>: <span class='hl-green'>पर्यावरण संरक्षण अधिनियम</span> (छाता विधान)।",
+          "<span class='hl-cyan'>1992</span>: <span class='hl-green'>प्रोजेक्ट एलीफेंट</span> (हाथी परियोजना)।"
+        ],
+        examPoint: "<span class='hl-green'>कैलाश सांखला</span> को <span class='hl-gold'>'टाइगर मैन ऑफ इंडिया'</span> कहा जाता है और <span class='hl-pink'>29 जुलाई</span> को अंतर्राष्ट्रीय बाघ दिवस मनाते हैं।"
+      },
+      {
+        id: 40,
+        category: "भूगोल",
+        subSubject: "पर्यावरण एवं पारिस्थितिकी",
+        question: "काजीरंगा राष्ट्रीय उद्यान, जो एक सींग वाले गैंडे के लिए विश्व प्रसिद्ध है, किस राज्य में स्थित है?",
+        options: ["अरुणाचल प्रदेश", "असम", "मेघालय", "पश्चिम बंगाल"],
+        answer: 1,
+        reason: "<span class='hl-gold'>काजीरंगा राष्ट्रीय उद्यान</span> <span class='hl-gold'>असम</span> में स्थित है, जो विश्व में सर्वाधिक <span class='hl-cyan'>एक सींग वाले गैंडे</span> एवं यूनेस्को विश्व धरोहर हेतु प्रसिद्ध है।",
+        others: [
+          "<span class='hl-green'>अरुणाचल प्रदेश</span>: <span class='hl-cyan'>नामदफा राष्ट्रीय उद्यान</span> (उड़ने वाली गिलहरी)।",
+          "<span class='hl-green'>मेघालय</span>: <span class='hl-cyan'>नोकरेक</span> एवं बलफकरम राष्ट्रीय उद्यान।",
+          "<span class='hl-green'>पश्चिम बंगाल</span>: <span class='hl-cyan'>सुंदरवन</span> (रॉयल बंगाल टाइगर व मैंग्रोव वन)।"
+        ],
+        examPoint: "असम में कुल <span class='hl-pink'>7 राष्ट्रीय उद्यान</span> हैं — काजीरंगा, मानस, नामेरी, ओरंग, डिब्रू-सैखोवा, <span class='hl-cyan'>रायमोना व देहिंग पटकाई</span>।"
+      },
+
+      /* ---------------- अर्थव्यवस्था (Q41 - Q46: 6 Questions) ---------------- */
+      {
+        id: 41,
+        category: "अर्थव्यवस्था",
+        subSubject: "भारतीय अर्थव्यवस्था",
+        question: "भारत में राष्ट्रीय आय की गणना आधिकारिक रूप से किस संस्था द्वारा की जाती है?",
+        options: ["भारतीय रिजर्व बैंक", "नीति आयोग", "राष्ट्रीय सांख्यिकी कार्यालय (NSO)", "वित्त मंत्रालय"],
+        answer: 2,
+        reason: "भारत में राष्ट्रीय आय व GDP के आधिकारिक आँकड़े <span class='hl-gold'>राष्ट्रीय सांख्यिकी कार्यालय (NSO)</span> द्वारा (<span class='hl-cyan'>सांख्यिकी एवं कार्यक्रम कार्यान्वयन मंत्रालय</span> के अधीन) जारी होते हैं।",
+        others: [
+          "<span class='hl-green'>भारतीय रिजर्व बैंक (RBI)</span>: देश की <span class='hl-cyan'>मौद्रिक नीति</span> और बैंकिंग प्रणाली का नियामक।",
+          "<span class='hl-green'>नीति आयोग</span> (<span class='hl-pink'>1 जनवरी 2015</span>): योजना आयोग के स्थान पर बना नीतिगत थिंक-टैंक।"
+        ],
+        examPoint: "भारत में सर्वप्रथम राष्ट्रीय आय की गणना <span class='hl-green'>दादाभाई नौरोजी</span> (<span class='hl-gold'>1867–68</span>, प्रति व्यक्ति आय ₹20) ने की थी।"
+      },
+      {
+        id: 42,
+        category: "अर्थव्यवस्था",
+        subSubject: "भारतीय अर्थव्यवस्था",
+        question: "भारत में 'हरित क्रांति' (Green Revolution) की शुरुआत किस दशक में हुई तथा इसके भारतीय जनक कौन माने जाते हैं?",
+        options: ["1950 का दशक — वर्गीज कुरियन", "1960 का दशक — डॉ. एम.एस. स्वामीनाथन", "1970 का दशक — पी.सी. महालनोबिस", "1980 का दशक — अमर्त्य सेन"],
+        answer: 1,
+        reason: "भारत में हरित क्रांति <span class='hl-gold'>1960 के दशक (1966–67)</span> में शुरू हुई और इसके भारतीय जनक <span class='hl-gold'>डॉ. एम.एस. स्वामीनाथन</span> (भारत रत्न 2024) माने जाते हैं।",
+        others: [
+          "<span class='hl-green'>वर्गीज कुरियन</span>: <span class='hl-cyan'>श्वेत क्रांति</span> (ऑपरेशन फ्लड — दुग्ध उत्पादन) के जनक।",
+          "<span class='hl-green'>पी.सी. महालनोबिस</span>: <span class='hl-cyan'>द्वितीय पंचवर्षीय योजना</span> (भारी उद्योग मॉडल) के सूत्रधार।",
+          "<span class='hl-green'>अमर्त्य सेन</span>: <span class='hl-cyan'>कल्याणकारी अर्थशास्त्र</span> के लिए 1998 में नोबेल पुरस्कार विजेता।"
+        ],
+        examPoint: "विश्व में हरित क्रांति के जनक <span class='hl-green'>नॉर्मन बोरलॉग</span> हैं; भारत में इसका सर्वाधिक लाभ <span class='hl-cyan'>गेहूँ की फसल</span> को मिला।"
+      },
+      {
+        id: 43,
+        category: "अर्थव्यवस्था",
+        subSubject: "भारतीय अर्थव्यवस्था",
+        question: "भारत में 'वस्तु एवं सेवा कर' (GST) किस तिथि से लागू किया गया?",
+        options: ["1 अप्रैल 2017", "1 जुलाई 2017", "8 नवंबर 2016", "1 जनवरी 2018"],
+        answer: 1,
+        reason: "<span class='hl-cyan'>101वें संविधान संशोधन (2016)</span> द्वारा 'एक राष्ट्र, एक कर' के रूप में अप्रत्यक्ष कर प्रणाली <span class='hl-gold'>GST</span> को <span class='hl-gold'>1 जुलाई 2017</span> से लागू किया गया।",
+        others: [
+          "<span class='hl-pink'>8 नवंबर 2016</span>: इस तिथि को ₹500 एवं ₹1000 के पुराने नोटों का <span class='hl-cyan'>विमुद्रीकरण</span> हुआ था।"
+        ],
+        examPoint: "GST की सिफारिश <span class='hl-green'>विजय केलकर समिति</span> ने की थी तथा <span class='hl-cyan'>GST परिषद् (अनुच्छेद 279A)</span> के अध्यक्ष केंद्रीय वित्त मंत्री होते हैं।"
+      },
+      {
+        id: 44,
+        category: "अर्थव्यवस्था",
+        subSubject: "भारतीय अर्थव्यवस्था",
+        question: "वह ब्याज दर जिस पर भारतीय रिजर्व बैंक (RBI) वाणिज्यिक बैंकों को अल्पकालिक ऋण देता है, क्या कहलाती है?",
+        options: ["रिवर्स रेपो दर", "रेपो दर", "नकद आरक्षित अनुपात (CRR)", "सांविधिक तरलता अनुपात (SLR)"],
+        answer: 1,
+        reason: "<span class='hl-gold'>रेपो दर (Repo Rate)</span> वह ब्याज दर है जिस पर RBI सरकारी प्रतिभूतियों के बदले वाणिज्यिक बैंकों को <span class='hl-cyan'>अल्पकालिक ऋण</span> देता है।",
+        others: [
+          "<span class='hl-cyan'>रिवर्स रेपो दर</span>: जिस दर पर बैंक अपना अतिरिक्त धन <span class='hl-green'>RBI के पास जमा</span> करते हैं।",
+          "<span class='hl-cyan'>CRR</span>: कुल जमा का वह भाग जो बैंकों को <span class='hl-green'>RBI के पास नकद</span> रखना पड़ता है।",
+          "<span class='hl-cyan'>SLR</span>: वह हिस्सा जो बैंकों को <span class='hl-green'>स्वयं के पास नकद/स्वर्ण/प्रतिभूति</span> रूप में रखना पड़ता है।"
+        ],
+        examPoint: "बाजार में <span class='hl-pink'>मुद्रास्फीति (महंगाई)</span> नियंत्रित करने के लिए RBI <span class='hl-gold'>रेपो दर बढ़ाता</span> है ताकि कर्ज महंगा हो।"
+      },
+      {
+        id: 45,
+        category: "अर्थव्यवस्था",
+        subSubject: "भारतीय अर्थव्यवस्था",
+        question: "नाबार्ड (NABARD — राष्ट्रीय कृषि एवं ग्रामीण विकास बैंक) की स्थापना किस समिति की सिफारिश पर हुई थी?",
+        options: ["नरसिम्हम समिति", "शिवरामन समिति", "तेंदुलकर समिति", "रंगराजन समिति"],
+        answer: 1,
+        reason: "<span class='hl-gold'>नाबार्ड (NABARD)</span> की स्थापना <span class='hl-gold'>बी. शिवरामन समिति</span> की सिफारिश पर <span class='hl-pink'>12 जुलाई 1982</span> को हुई (मुख्यालय: <span class='hl-green'>मुंबई</span>)।",
+        others: [
+          "<span class='hl-green'>नरसिम्हम समिति</span>: <span class='hl-cyan'>बैंकिंग क्षेत्र में सुधार</span> से संबंधित।",
+          "<span class='hl-green'>तेंदुलकर एवं रंगराजन समिति</span>: भारत में <span class='hl-cyan'>गरीबी रेखा के आकलन</span> से संबंधित।"
+        ],
+        examPoint: "नाबार्ड की स्थापना <span class='hl-cyan'>छठी पंचवर्षीय योजना (1980–85)</span> के दौरान की गई थी।"
+      },
+      {
+        id: 46,
+        category: "अर्थव्यवस्था",
+        subSubject: "भारतीय अर्थव्यवस्था",
+        question: "अर्थशास्त्र में 'प्रच्छन्न बेरोजगारी' (Disguised Unemployment) मुख्य रूप से किस क्षेत्र में पाई जाती है?",
+        options: ["सूचना प्रौद्योगिकी क्षेत्र", "कृषि क्षेत्र", "बैंकिंग क्षेत्र", "भारी उद्योग क्षेत्र"],
+        answer: 1,
+        reason: "<span class='hl-gold'>प्रच्छन्न (छिपी) बेरोजगारी</span> मुख्यतः <span class='hl-gold'>कृषि क्षेत्र</span> में पाई जाती है, जहाँ आवश्यकता से अधिक लोग काम में लगे रहते हैं और अतिरिक्त श्रमिक की <span class='hl-pink'>सीमांत उत्पादकता शून्य</span> होती है।",
+        others: [],
+        examPoint: "परीक्षा में सीधे पूछा जाता है: किस बेरोजगारी में <span class='hl-cyan'>सीमांत उत्पादकता शून्य (0)</span> होती है? उत्तर — <span class='hl-gold'>प्रच्छन्न बेरोजगारी</span>।"
+      },
+
+      /* ---------------- विज्ञान: भौतिक विज्ञान (Q47 - Q53: 7 Questions) ---------------- */
+      {
+        id: 47,
+        category: "विज्ञान",
+        subSubject: "भौतिक विज्ञान",
+        question: "ध्वनि तरंगें निम्नलिखित में से किस माध्यम में सबसे तेज गति से संचरित होती हैं?",
+        options: ["वायु (गैस)", "जल (द्रव)", "इस्पात (ठोस)", "निर्वात"],
+        answer: 2,
+        reason: "ध्वनि एक <span class='hl-cyan'>अनुदैर्ध्य यांत्रिक तरंग</span> है, जिसकी चाल सर्वाधिक <span class='hl-gold'>ठोस (इस्पात में ~5,100 मी/से)</span> में होती है (<span class='hl-cyan'>ठोस &gt; द्रव &gt; गैस</span>)।",
+        others: [
+          "<span class='hl-pink'>निर्वात</span>: माध्यम न होने से ध्वनि की चाल <span class='hl-pink'>शून्य (0)</span> होती है।",
+          "<span class='hl-green'>वायु (0°C)</span>: लगभग <span class='hl-cyan'>332 मी/से</span>; जल में ~1,480 मी/से।"
+        ],
+        examPoint: "ध्वनि की चाल पर <span class='hl-pink'>दाब (Pressure) का कोई प्रभाव नहीं</span> पड़ता, जबकि ताप बढ़ने पर ध्वनि की चाल बढ़ती है।"
+      },
+      {
+        id: 48,
+        category: "विज्ञान",
+        subSubject: "भौतिक विज्ञान",
+        question: "वाहन के पीछे का दृश्य देखने (Rear-view mirror) के लिए किस दर्पण का उपयोग किया जाता है?",
+        options: ["अवतल दर्पण", "उत्तल दर्पण", "समतल दर्पण", "परवलयाकार दर्पण"],
+        answer: 1,
+        reason: "<span class='hl-gold'>उत्तल दर्पण (Convex Mirror)</span> सदैव <span class='hl-cyan'>सीधा, आभासी और छोटा</span> प्रतिबिंब बनाता है, जिससे चालक को पीछे का व्यापक दृश्य क्षेत्र दिखाई देता है।",
+        others: [
+          "<span class='hl-green'>अवतल दर्पण</span>: वाहनों की <span class='hl-cyan'>हेडलाइट</span>, दाढ़ी बनाने, दंत चिकित्सक व सोलर कुकर में।",
+          "<span class='hl-green'>समतल दर्पण</span>: <span class='hl-cyan'>पेरिस्कोप</span> एवं सामान्य घरेलू दर्पण में।"
+        ],
+        examPoint: "अंतर पक्का रखें: वाहन की <span class='hl-cyan'>हेडलाइट = अवतल दर्पण</span>, जबकि <span class='hl-gold'>साइड मिरर = उत्तल दर्पण</span>।"
+      },
+      {
+        id: 49,
+        category: "विज्ञान",
+        subSubject: "भौतिक विज्ञान",
+        question: "विद्युत शक्ति (Electric Power) का SI मात्रक क्या होता है?",
+        options: ["जूल", "वाट", "वोल्ट", "कूलम्ब"],
+        answer: 1,
+        reason: "विद्युत शक्ति (<span class='hl-cyan'>P = V × I</span>) का SI मात्रक <span class='hl-gold'>वाट (Watt)</span> है (<span class='hl-cyan'>1 वाट = 1 जूल/सेकंड</span>)।",
+        others: [
+          "<span class='hl-cyan'>जूल</span>: कार्य एवं ऊर्जा का मात्रक।",
+          "<span class='hl-cyan'>वोल्ट</span>: विद्युत विभवांतर का मात्रक।",
+          "<span class='hl-cyan'>कूलम्ब</span>: विद्युत आवेश का मात्रक।"
+        ],
+        examPoint: "<span class='hl-gold'>1 अश्वशक्ति (HP) = 746 वाट</span> तथा बिजली की <span class='hl-pink'>1 यूनिट = 1 kWh = 3.6 × 10⁶ जूल</span>।"
+      },
+      {
+        id: 50,
+        category: "विज्ञान",
+        subSubject: "भौतिक विज्ञान",
+        question: "निकट दृष्टि दोष (Myopia) से पीड़ित व्यक्ति को किस प्रकार के लेंस के चश्मे का उपयोग करना चाहिए?",
+        options: ["उत्तल लेंस", "अवतल लेंस", "द्विफोकसी लेंस", "बेलनाकार लेंस"],
+        answer: 1,
+        reason: "<span class='hl-cyan'>निकट दृष्टि दोष</span> में दूर की वस्तु स्पष्ट नहीं दिखती (प्रतिबिंब रेटिना के आगे बनता है), जिसे ठीक करने हेतु <span class='hl-gold'>अवतल लेंस (Concave Lens)</span> लगाते हैं।",
+        others: [
+          "<span class='hl-green'>उत्तल लेंस</span>: <span class='hl-cyan'>दूर दृष्टि दोष (Hypermetropia)</span> के निवारण में।",
+          "<span class='hl-green'>द्विफोकसी लेंस</span>: <span class='hl-cyan'>जरा दृष्टि दोष (Presbyopia)</span> में।",
+          "<span class='hl-green'>बेलनाकार लेंस</span>: <span class='hl-cyan'>अबिंदुकता (Astigmatism)</span> के निवारण में।"
+        ],
+        examPoint: "आसान ट्रिक: <span class='hl-gold'>'नि-अ'</span> (निकट = अवतल लेंस) और <span class='hl-cyan'>'दू-उ'</span> (दूर = उत्तल लेंस)।"
+      },
+      {
+        id: 51,
+        category: "विज्ञान",
+        subSubject: "भौतिक विज्ञान",
+        question: "यदि किसी वस्तु को पृथ्वी से चंद्रमा पर ले जाया जाए, तो उसके द्रव्यमान और भार पर क्या प्रभाव पड़ेगा?",
+        options: ["द्रव्यमान और भार दोनों बदल जाएँगे", "द्रव्यमान अपरिवर्तित रहेगा, भार 1/6 हो जाएगा", "भार अपरिवर्तित रहेगा, द्रव्यमान 1/6 हो जाएगा", "दोनों अपरिवर्तित रहेंगे"],
+        answer: 1,
+        reason: "<span class='hl-gold'>द्रव्यमान (m)</span> पदार्थ की मात्रा है जो हर स्थान पर <span class='hl-cyan'>अपरिवर्तित</span> रहता है, जबकि <span class='hl-gold'>भार (W = mg)</span> चंद्रमा पर गुरुत्व 1/6 होने के कारण <span class='hl-pink'>1/6</span> रह जाता है।",
+        others: [],
+        examPoint: "पृथ्वी के केंद्र पर <span class='hl-pink'>g = 0</span> होने से वस्तु का भार शून्य हो जाता है, किंतु <span class='hl-gold'>द्रव्यमान कभी शून्य नहीं होता</span>।"
+      },
+      {
+        id: 52,
+        category: "विज्ञान",
+        subSubject: "भौतिक विज्ञान",
+        question: "ऑप्टिकल फाइबर (प्रकाशिक तंतु) प्रकाश के किस सिद्धांत पर कार्य करता है?",
+        options: ["प्रकाश का अपवर्तन", "प्रकाश का प्रकीर्णन", "पूर्ण आंतरिक परावर्तन", "प्रकाश का विवर्तन"],
+        answer: 2,
+        reason: "<span class='hl-gold'>ऑप्टिकल फाइबर</span> <span class='hl-gold'>पूर्ण आंतरिक परावर्तन (Total Internal Reflection)</span> पर कार्य करके प्रकाश संकेतों को बिना ऊर्जा हानि के दूर तक पहुँचाता है।",
+        others: [
+          "<span class='hl-cyan'>अपवर्तन</span>: तारों का टिमटिमाना और पानी में पेंसिल का मुड़ा दिखना।",
+          "<span class='hl-cyan'>प्रकीर्णन</span>: आकाश का नीला रंग तथा सूर्योदय/सूर्यास्त के समय लालिमा।",
+          "<span class='hl-cyan'>विवर्तन</span>: प्रकाश का अवरोध के किनारों से मुड़ना।"
+        ],
+        examPoint: "<span class='hl-gold'>हीरे की चमक</span>, <span class='hl-green'>मरीचिका</span> और चिकित्सा में <span class='hl-cyan'>एंडोस्कोपी</span> भी पूर्ण आंतरिक परावर्तन के उदाहरण हैं।"
+      },
+      {
+        id: 53,
+        category: "विज्ञान",
+        subSubject: "भौतिक विज्ञान",
+        question: "डायनेमो (विद्युत जनरेटर) का मुख्य कार्य क्या होता है?",
+        options: ["विद्युत ऊर्जा को यांत्रिक ऊर्जा में बदलना", "यांत्रिक ऊर्जा को विद्युत ऊर्जा में बदलना", "रासायनिक ऊर्जा को विद्युत ऊर्जा में बदलना", "ध्वनि ऊर्जा को विद्युत ऊर्जा में बदलना"],
+        answer: 1,
+        reason: "<span class='hl-gold'>डायनेमो</span> माइकल फैराडे के विद्युत-चुंबकीय प्रेरण सिद्धांत पर <span class='hl-gold'>यांत्रिक ऊर्जा को विद्युत ऊर्जा</span> में रूपांतरित करता है।",
+        others: [
+          "<span class='hl-cyan'>विद्युत मोटर</span>: विद्युत ऊर्जा → यांत्रिक ऊर्जा।",
+          "<span class='hl-cyan'>विद्युत सेल / बैटरी</span>: रासायनिक ऊर्जा → विद्युत ऊर्जा।",
+          "<span class='hl-cyan'>माइक्रोफोन</span>: ध्वनि ऊर्जा → विद्युत ऊर्जा।"
+        ],
+        examPoint: "डायनेमो और विद्युत मोटर ठीक <span class='hl-pink'>एक-दूसरे के विपरीत</span> ऊर्जा रूपांतरण करते हैं।"
+      },
+
+      /* ---------------- विज्ञान: रसायन विज्ञान (Q54 - Q59: 6 Questions) ---------------- */
+      {
+        id: 54,
+        category: "विज्ञान",
+        subSubject: "रसायन विज्ञान",
+        question: "धोने के सोडे (Washing Soda) का सही रासायनिक सूत्र क्या है?",
+        options: ["NaHCO₃", "Na₂CO₃·10H₂O", "CaOCl₂", "CaSO₄·½H₂O"],
+        answer: 1,
+        reason: "धोने के सोडे (<span class='hl-cyan'>सोडियम कार्बोनेट डेकाहाइड्रेट</span>) का सूत्र <span class='hl-gold'>Na₂CO₃·10H₂O</span> है, जिसका उपयोग जल की <span class='hl-green'>स्थायी कठोरता</span> दूर करने में होता है।",
+        others: [
+          "<span class='hl-cyan'>NaHCO₃</span>: <span class='hl-green'>बेकिंग सोडा</span> (खाने का सोडा — सोडियम बाइकार्बोनेट)।",
+          "<span class='hl-cyan'>CaOCl₂</span>: <span class='hl-green'>ब्लीचिंग पाउडर</span> (विरंजक चूर्ण)।",
+          "<span class='hl-cyan'>CaSO₄·½H₂O</span>: <span class='hl-green'>प्लास्टर ऑफ पेरिस (POP)</span>।"
+        ],
+        examPoint: "जिप्सम का सूत्र <span class='hl-gold'>CaSO₄·2H₂O</span> है, जिसे <span class='hl-pink'>373 K (100°C)</span> पर गर्म करने पर प्लास्टर ऑफ पेरिस बनता है।"
+      },
+      {
+        id: 55,
+        category: "विज्ञान",
+        subSubject: "रसायन विज्ञान",
+        question: "मानव रक्त (Blood) का सामान्य pH मान कितना होता है?",
+        options: ["6.4", "7.0", "7.4", "8.4"],
+        answer: 2,
+        reason: "मानव रक्त का सामान्य pH मान <span class='hl-gold'>7.4</span> (हल्का क्षारीय, परास <span class='hl-cyan'>7.35–7.45</span>) होता है।",
+        others: [
+          "<span class='hl-cyan'>6.4</span>: दूध का pH मान।",
+          "<span class='hl-cyan'>7.0</span>: <span class='hl-green'>शुद्ध जल</span> (उदासीन) का pH मान।",
+          "<span class='hl-cyan'>8.4</span>: समुद्री जल का pH मान।"
+        ],
+        examPoint: "pH स्केल की खोज <span class='hl-green'>सोरेनसन (1909)</span> ने की थी; <span class='hl-pink'>pH &lt; 7 अम्लीय</span> तथा <span class='hl-cyan'>pH &gt; 7 क्षारीय</span> होता है।"
+      },
+      {
+        id: 56,
+        category: "विज्ञान",
+        subSubject: "रसायन विज्ञान",
+        question: "पीतल (Brass) किन दो धातुओं की मिश्रधातु (Alloy) है?",
+        options: ["ताँबा और टिन", "ताँबा और जस्ता", "सीसा और टिन", "लोहा और क्रोमियम"],
+        answer: 1,
+        reason: "<span class='hl-gold'>पीतल</span>, <span class='hl-gold'>ताँबा (Cu ~70%) और जस्ता (Zn ~30%)</span> की मिश्रधातु है।",
+        others: [
+          "<span class='hl-cyan'>ताँबा + टिन</span>: <span class='hl-green'>काँसा (Bronze)</span>।",
+          "<span class='hl-cyan'>सीसा + टिन</span>: <span class='hl-green'>टाँका (Solder)</span>।",
+          "<span class='hl-cyan'>लोहा + क्रोमियम + निकेल</span>: <span class='hl-green'>स्टेनलेस स्टील</span>।"
+        ],
+        examPoint: "सदाबहार ट्रिक: <span class='hl-gold'>'पिताजी'</span> = <span class='hl-cyan'>पी</span>तल (<span class='hl-green'>ताँ</span>बा + <span class='hl-pink'>जिं</span>क)।"
+      },
+      {
+        id: 57,
+        category: "विज्ञान",
+        subSubject: "रसायन विज्ञान",
+        question: "आधुनिक आवर्त सारणी में तत्वों का वर्गीकरण किस आधार पर किया गया है?",
+        options: ["परमाणु द्रव्यमान", "परमाणु क्रमांक", "न्यूट्रॉन की संख्या", "संयोजकता"],
+        answer: 1,
+        reason: "<span class='hl-green'>हेनरी मोजले (1913)</span> द्वारा प्रस्तुत आधुनिक आवर्त सारणी में तत्वों को उनके बढ़ते <span class='hl-gold'>परमाणु क्रमांक</span> (प्रोटॉनों की संख्या) के क्रम में सजाया गया है।",
+        others: [
+          "<span class='hl-cyan'>परमाणु द्रव्यमान</span>: यह <span class='hl-green'>मेंडलीफ की मूल आवर्त सारणी</span> का आधार था।"
+        ],
+        examPoint: "आधुनिक आवर्त सारणी में कुल <span class='hl-pink'>18 वर्ग (Groups)</span> और <span class='hl-pink'>7 आवर्त (Periods)</span> होते हैं।"
+      },
+      {
+        id: 58,
+        category: "विज्ञान",
+        subSubject: "रसायन विज्ञान",
+        question: "निम्नलिखित में से किस गैस को 'हास्य गैस' (Laughing Gas) कहा जाता है?",
+        options: ["नाइट्रिक ऑक्साइड (NO)", "नाइट्रस ऑक्साइड (N₂O)", "नाइट्रोजन डाइऑक्साइड (NO₂)", "अमोनिया (NH₃)"],
+        answer: 1,
+        reason: "<span class='hl-gold'>नाइट्रस ऑक्साइड (N₂O)</span> को <span class='hl-gold'>हास्य गैस</span> कहते हैं; इसका उपयोग शल्य व दंत चिकित्सा में <span class='hl-cyan'>निश्चेतक (बेहोशी)</span> हेतु भी होता है।",
+        others: [
+          "<span class='hl-cyan'>NO₂</span>: वायुमंडल में <span class='hl-pink'>अम्ल वर्षा (Acid Rain)</span> का प्रमुख कारक।",
+          "<span class='hl-cyan'>NH₃</span>: औद्योगिक स्तर पर <span class='hl-green'>हैबर विधि</span> से निर्मित गैस।"
+        ],
+        examPoint: "हास्य गैस (<span class='hl-gold'>N₂O</span>) की खोज <span class='hl-green'>जोसेफ प्रीस्टले</span> ने की थी और यह एक प्रमुख <span class='hl-pink'>ग्रीनहाउस गैस</span> भी है।"
+      },
+      {
+        id: 59,
+        category: "विज्ञान",
+        subSubject: "रसायन विज्ञान",
+        question: "सिरका (Vinegar) में मुख्य रूप से कौन-सा कार्बनिक अम्ल पाया जाता है?",
+        options: ["सिट्रिक अम्ल", "लैक्टिक अम्ल", "एसिटिक अम्ल", "ऑक्जेलिक अम्ल"],
+        answer: 2,
+        reason: "सिरका में <span class='hl-gold'>एसिटिक अम्ल (CH₃COOH)</span> पाया जाता है (जल में <span class='hl-pink'>5% से 8%</span> विलयन सिरका कहलाता है)।",
+        others: [
+          "<span class='hl-cyan'>सिट्रिक अम्ल</span>: नींबू, संतरा व खट्टे फलों में।",
+          "<span class='hl-cyan'>लैक्टिक अम्ल</span>: दही व खट्टे दूध में।",
+          "<span class='hl-cyan'>ऑक्जेलिक अम्ल</span>: टमाटर व पालक में (कपड़ों से जंग के दाग हटाता है)।"
+        ],
+        examPoint: "इमली व अंगूर में <span class='hl-gold'>टार्टरिक अम्ल</span> तथा चींटी के डंक में <span class='hl-pink'>फॉर्मिक (मेथेनोइक) अम्ल</span> पाया जाता है।"
+      },
+
+      /* ---------------- विज्ञान: जीव विज्ञान (Q60 - Q65: 6 Questions) ---------------- */
+      {
+        id: 60,
+        category: "विज्ञान",
+        subSubject: "जीव विज्ञान",
+        question: "कोशिका का 'पावरहाउस' (ऊर्जा गृह) किस कोशिकांग को कहा जाता है?",
+        options: ["राइबोसोम", "लाइसोसोम", "माइटोकॉन्ड्रिया", "गॉल्जी काय"],
+        answer: 2,
+        reason: "<span class='hl-gold'>माइटोकॉन्ड्रिया</span> कोशिकीय श्वसन द्वारा <span class='hl-cyan'>ATP</span> के रूप में ऊर्जा उत्पन्न करता है, अतः इसे <span class='hl-gold'>कोशिका का पावरहाउस</span> कहते हैं।",
+        others: [
+          "<span class='hl-green'>राइबोसोम</span>: इसे <span class='hl-cyan'>प्रोटीन की फैक्ट्री</span> कहा जाता है।",
+          "<span class='hl-green'>लाइसोसोम</span>: इसे कोशिका की <span class='hl-pink'>आत्मघाती थैली</span> कहते हैं।",
+          "<span class='hl-green'>गॉल्जी काय</span>: इसे कोशिका का <span class='hl-cyan'>यातायात प्रबंधक</span> कहा जाता है।"
+        ],
+        examPoint: "माइटोकॉन्ड्रिया की खोज <span class='hl-green'>अल्टमैन</span> व नामकरण <span class='hl-green'>सी. बेंडा</span> ने किया; इसमें स्वयं का <span class='hl-pink'>DNA</span> पाया जाता है।"
+      },
+      {
+        id: 61,
+        category: "विज्ञान",
+        subSubject: "जीव विज्ञान",
+        question: "विटामिन B₁₂ (साइनोकोबालामिन) में कौन-सी धातु पाई जाती है?",
+        options: ["लौह (Fe)", "मैग्नीशियम (Mg)", "कोबाल्ट (Co)", "जस्ता (Zn)"],
+        answer: 2,
+        reason: "<span class='hl-gold'>विटामिन B₁₂</span> (साइनोकोबालामिन) के केंद्र में <span class='hl-gold'>कोबाल्ट (Co)</span> धातु उपस्थित रहती है।",
+        others: [
+          "<span class='hl-cyan'>लौह (Fe)</span>: रक्त के <span class='hl-green'>हीमोग्लोबिन</span> में।",
+          "<span class='hl-cyan'>मैग्नीशियम (Mg)</span>: पौधों के <span class='hl-green'>क्लोरोफिल (पर्णहरित)</span> में।",
+          "<span class='hl-cyan'>जस्ता (Zn)</span>: <span class='hl-green'>इंसुलिन हार्मोन</span> की संरचना में।"
+        ],
+        examPoint: "विटामिन B₁₂ की कमी से <span class='hl-pink'>परनीशियस एनीमिया</span> होता है; <span class='hl-cyan'>विटामिन B व C</span> जल में घुलनशील हैं।"
+      },
+      {
+        id: 62,
+        category: "विज्ञान",
+        subSubject: "जीव विज्ञान",
+        question: "पौधों में जल एवं खनिज लवणों का परिवहन जड़ों से पत्तियों तक किस ऊतक द्वारा होता है?",
+        options: ["फ्लोएम", "जाइलम", "पैरेन्काइमा", "कोलेन्काइमा"],
+        answer: 1,
+        reason: "<span class='hl-gold'>जाइलम (Xylem)</span> संवहन ऊतक जड़ों द्वारा अवशोषित <span class='hl-cyan'>जल एवं खनिजों</span> को ऊपर पत्तियों तक एकदिशीय रूप से पहुँचाता है।",
+        others: [
+          "<span class='hl-green'>फ्लोएम</span>: पत्तियों में बने <span class='hl-cyan'>भोजन (शर्करा)</span> को पूरे पौधे में द्विदिशीय रूप से बाँटता है।",
+          "<span class='hl-green'>कोलेन्काइमा</span>: पौधों के बढ़ते भागों को <span class='hl-cyan'>लचीलापन व यांत्रिक सहारा</span> देता है।"
+        ],
+        examPoint: "सीधी ट्रिक: <span class='hl-gold'>ज</span> से <span class='hl-gold'>जल = जाइलम</span> और <span class='hl-cyan'>फ</span> से <span class='hl-cyan'>फूड = फ्लोएम</span>।"
+      },
+      {
+        id: 63,
+        category: "विज्ञान",
+        subSubject: "जीव विज्ञान",
+        question: "मानव शरीर की सबसे बड़ी अंतःस्रावी ग्रंथि (Endocrine Gland) कौन-सी है?",
+        options: ["पीयूष ग्रंथि", "थायरॉइड (अवटु) ग्रंथि", "अधिवृक्क ग्रंथि", "अग्न्याशय"],
+        answer: 1,
+        reason: "गले में श्वासनली के पास स्थित <span class='hl-gold'>थायरॉइड (अवटु) ग्रंथि</span> शरीर की सबसे बड़ी <span class='hl-cyan'>अंतःस्रावी ग्रंथि</span> है, जो आयोडीन युक्त <span class='hl-gold'>थायरॉक्सिन</span> स्रावित करती है।",
+        others: [
+          "<span class='hl-green'>पीयूष ग्रंथि</span>: इसे <span class='hl-cyan'>मास्टर ग्रंथि</span> कहा जाता है।",
+          "<span class='hl-green'>अधिवृक्क ग्रंथि</span>: <span class='hl-cyan'>एड्रेनालाईन</span> ('लड़ो या उड़ो' आपातकालीन हार्मोन)।",
+          "<span class='hl-green'>अग्न्याशय</span>: शरीर की प्रमुख <span class='hl-cyan'>मिश्रित ग्रंथि</span> (इंसुलिन स्राव)।"
+        ],
+        examPoint: "कन्फ्यूज़ न हों: शरीर की सबसे बड़ी <span class='hl-pink'>कुल/बहिःस्रावी ग्रंथि = यकृत (Liver)</span>, जबकि सबसे बड़ी <span class='hl-gold'>अंतःस्रावी ग्रंथि = थायरॉइड</span> है।"
+      },
+      {
+        id: 64,
+        category: "विज्ञान",
+        subSubject: "जीव विज्ञान",
+        question: "निम्नलिखित में से कौन-सा रोग जीवाणु (Bacteria) के कारण होता है?",
+        options: ["डेंगू", "मलेरिया", "क्षय रोग (तपेदिक / TB)", "पोलियो"],
+        answer: 2,
+        reason: "<span class='hl-gold'>क्षय रोग (TB)</span> <span class='hl-cyan'>माइकोबैक्टीरियम ट्यूबरकुलोसिस</span> नामक <span class='hl-gold'>जीवाणु</span> से फैलता है, जो मुख्यतः फेफड़ों को प्रभावित करता है।",
+        others: [
+          "<span class='hl-pink'>डेंगू एवं पोलियो</span>: <span class='hl-cyan'>विषाणु (Virus)</span> जनित रोग।",
+          "<span class='hl-pink'>मलेरिया</span>: <span class='hl-cyan'>प्लाज्मोडियम प्रोटोजोआ</span> (मादा एनोफिलीज मच्छर वाहक) से।"
+        ],
+        examPoint: "TB से बचाव हेतु <span class='hl-gold'>BCG का टीका</span> लगाया जाता है तथा <span class='hl-cyan'>DOTS प्रणाली</span> इसके उपचार से जुड़ी है।"
+      },
+      {
+        id: 65,
+        category: "विज्ञान",
+        subSubject: "जीव विज्ञान",
+        question: "मानव मस्तिष्क का कौन-सा भाग शरीर के संतुलन (Balance) और ऐच्छिक पेशियों के समन्वय को नियंत्रित करता है?",
+        options: ["प्रमस्तिष्क (Cerebrum)", "अनुमस्तिष्क (Cerebellum)", "मेडुला ऑब्लॉन्गेटा", "हाइपोथैलेमस"],
+        answer: 1,
+        reason: "पश्च-मस्तिष्क का भाग <span class='hl-gold'>अनुमस्तिष्क (Cerebellum)</span> शरीर के <span class='hl-cyan'>संतुलन, मुद्रा और ऐच्छिक पेशियों के तालमेल</span> को नियंत्रित करता है।",
+        others: [
+          "<span class='hl-green'>प्रमस्तिष्क</span>: बुद्धि, स्मृति, चिंतन व इच्छाशक्ति का केंद्र।",
+          "<span class='hl-green'>मेडुला ऑब्लॉन्गेटा</span>: हृदय धड़कन, श्वसन व रक्तचाप जैसी <span class='hl-cyan'>अनैच्छिक क्रियाएँ</span>।",
+          "<span class='hl-green'>हाइपोथैलेमस</span>: भूख, प्यास, शरीर के <span class='hl-cyan'>तापमान व भावनाओं</span> का नियंत्रण।"
+        ],
+        examPoint: "अत्यधिक शराब पीने पर सबसे पहले <span class='hl-pink'>अनुमस्तिष्क (Cerebellum)</span> प्रभावित होता है, जिससे व्यक्ति लड़खड़ाने लगता है।"
+      },
+
+      /* ---------------- विज्ञान: विज्ञान एवं प्रौद्योगिकी (Q66 - Q67: 2 Questions) ---------------- */
+      {
+        id: 66,
+        category: "विज्ञान",
+        subSubject: "विज्ञान एवं प्रौद्योगिकी",
+        question: "भारत में 'डीएनए फिंगरप्रिंटिंग' (DNA Fingerprinting) तकनीक का जनक किसे माना जाता है?",
+        options: ["डॉ. लालजी सिंह", "डॉ. हरगोबिंद खुराना", "डॉ. विक्रम साराभाई", "डॉ. ए.पी.जे. अब्दुल कलाम"],
+        answer: 0,
+        reason: "<span class='hl-gold'>डॉ. लालजी सिंह</span> ने <span class='hl-green'>हैदराबाद (CDFD)</span> में भारत की स्वदेशी <span class='hl-cyan'>DNA फिंगरप्रिंटिंग</span> तकनीक विकसित की, जिससे अपराध अन्वेषण व पैतृकता जाँच संभव हुई।",
+        others: [
+          "<span class='hl-green'>डॉ. हरगोबिंद खुराना</span>: <span class='hl-cyan'>आनुवंशिक कूट (Genetic Code)</span> की व्याख्या हेतु 1968 का नोबेल पुरस्कार।",
+          "<span class='hl-green'>डॉ. विक्रम साराभाई</span>: <span class='hl-cyan'>भारतीय अंतरिक्ष कार्यक्रम</span> के जनक।",
+          "<span class='hl-green'>डॉ. ए.पी.जे. अब्दुल कलाम</span>: भारत के <span class='hl-cyan'>'मिसाइल मैन'</span>।"
+        ],
+        examPoint: "विश्व में DNA फिंगरप्रिंटिंग के जनक <span class='hl-gold'>एलेक जेफ्रीज (1984)</span> हैं।"
+      },
+      {
+        id: 67,
+        category: "विज्ञान",
+        subSubject: "विज्ञान एवं प्रौद्योगिकी",
+        question: "आधुनिक जीन संपादन (Gene Editing) की प्रसिद्ध 'CRISPR-Cas9' तकनीक मुख्य रूप से किस कार्य में प्रयुक्त होती है?",
+        options: ["सैटेलाइट नेविगेशन", "DNA के विशिष्ट भाग को काटने व सुधारने", "सौर ऊर्जा भंडारण", "क्वांटम एन्क्रिप्शन"],
+        answer: 1,
+        reason: "<span class='hl-gold'>CRISPR-Cas9</span> को <span class='hl-cyan'>'आणविक कैंची (Molecular Scissors)'</span> कहा जाता है, जो <span class='hl-gold'>DNA के सटीक हिस्से को काटकर</span> आनुवंशिक सुधार करने में सक्षम है।",
+        others: [],
+        examPoint: "CRISPR-Cas9 तकनीक के विकास के लिए <span class='hl-green'>इमैनुएल शारपेंटियर व जेनिफर डूडना</span> को <span class='hl-pink'>2020 का रसायन नोबेल</span> मिला था।"
+      },
+
+      /* ---------------- गणित (Q68 - Q80: 13 Questions) ---------------- */
+      {
+        id: 68,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "यदि 7 पुरुष किसी कार्य को 6 दिन में तथा 4 महिलाएँ उसी कार्य को 14 दिन में पूरा कर सकती हैं, तो 2 पुरुष और 2 महिलाएँ मिलकर उसी कार्य को कितने दिन में पूरा करेंगे?",
+        options: ["12 दिन", "14 दिन", "17 दिन", "9 दिन"],
+        answer: 0,
+        reason: "कुल कार्य बराबर रखने पर: <span class='hl-cyan'>7M × 6 = 4W × 14</span> ⇒ 42M = 56W ⇒ <span class='hl-green'>M : W = 4 : 3</span>। कुल कार्य = 7×4×6 = <span class='hl-cyan'>168 यूनिट</span>; (2M + 2W) = 2(4)+2(3) = <span class='hl-pink'>14 यूनिट/दिन</span> ⇒ समय = 168 ÷ 14 = <span class='hl-gold'>12 दिन</span>।",
+        others: [],
+        examPoint: "पहले <span class='hl-gold'>क्षमता अनुपात (M : W)</span> निकालकर कुल कार्य यूनिट तय कर लें — बिना भिन्न के सेकंडों में सटीक उत्तर मिलेगा।"
+      },
+      {
+        id: 69,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "किसी वस्तु के मूल्य में पहले 25% की वृद्धि की गई और फिर नए मूल्य में 20% की कमी की गई। वस्तु के मूल्य में कुल प्रतिशत परिवर्तन क्या है?",
+        options: ["5% वृद्धि", "5% कमी", "0% (कोई परिवर्तन नहीं)", "2% कमी"],
+        answer: 2,
+        reason: "क्रमिक प्रतिशत सूत्र <span class='hl-cyan'>x + y + (xy / 100)</span> से: 25 - 20 - (25 × 20)/100 = 5 - 5 = <span class='hl-gold'>0% (कोई परिवर्तन नहीं)</span>।",
+        others: [],
+        examPoint: "याद रखें: <span class='hl-cyan'>+25% (+1/4)</span> बढ़ाकर <span class='hl-pink'>-20% (-1/5)</span> घटाने पर मूल मान सदैव <span class='hl-gold'>100% समान</span> रहता है।"
+      },
+      {
+        id: 70,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "एक दुकानदार एक साइकिल ₹4,500 में खरीदता है और उसे ₹5,400 में बेचता है। उसका लाभ प्रतिशत क्या है?",
+        options: ["15%", "18%", "20%", "25%"],
+        answer: 2,
+        reason: "लाभ = 5,400 - 4,500 = <span class='hl-cyan'>₹900</span> ⇒ लाभ % = <span class='hl-cyan'>(900 / 4500) × 100</span> = (1/5) × 100 = <span class='hl-gold'>20%</span>।",
+        others: [],
+        examPoint: "लाभ या हानि प्रतिशत की गणना हमेशा <span class='hl-pink'>क्रय मूल्य (CP)</span> पर की जाती है: <span class='hl-cyan'>लाभ% = (लाभ / CP) × 100</span>।"
+      },
+      {
+        id: 71,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "₹8,000 की राशि पर 5% वार्षिक साधारण ब्याज की दर से 3 वर्षों में कितना साधारण ब्याज प्राप्त होगा?",
+        options: ["₹1,000", "₹1,200", "₹1,400", "₹1,500"],
+        answer: 1,
+        reason: "साधारण ब्याज (<span class='hl-cyan'>SI = P × R × T / 100</span>) = (8000 × 5 × 3) / 100 = 80 × 15 = <span class='hl-gold'>₹1,200</span>।",
+        others: [],
+        examPoint: "त्वरित ट्रिक: कुल ब्याज दर = <span class='hl-cyan'>R × T = 5% × 3 = 15%</span> ⇒ ₹8,000 का 15% = <span class='hl-gold'>₹1,200</span>।"
+      },
+      {
+        id: 72,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "₹10,000 पर 10% वार्षिक चक्रवृद्धि ब्याज की दर से 2 वर्षों का चक्रवृद्धि ब्याज (CI) क्या होगा?",
+        options: ["₹2,000", "₹2,100", "₹2,200", "₹2,050"],
+        answer: 1,
+        reason: "10% की दर से 2 वर्ष का प्रभावी CI = <span class='hl-cyan'>10 + 10 + (10×10)/100 = 21%</span> ⇒ ₹10,000 का 21% = <span class='hl-gold'>₹2,100</span>।",
+        others: [],
+        examPoint: "2 वर्षों के लिए <span class='hl-cyan'>CI - SI</span> का सीधा सूत्र: <span class='hl-gold'>P × (R/100)²</span> = 10000 × (1/100) = <span class='hl-pink'>₹100</span>।"
+      },
+      {
+        id: 73,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "राम और श्याम की वर्तमान आयु का अनुपात 4 : 5 है। 6 वर्ष बाद उनकी आयु का अनुपात 5 : 6 हो जाएगा। राम की वर्तमान आयु कितनी है?",
+        options: ["18 वर्ष", "24 वर्ष", "30 वर्ष", "20 वर्ष"],
+        answer: 1,
+        reason: "दोनों अनुपातों में समान वृद्धि है: (5 - 4) = <span class='hl-cyan'>1 इकाई</span> = <span class='hl-pink'>6 वर्ष</span> ⇒ राम की वर्तमान आयु = 4 × 6 = <span class='hl-gold'>24 वर्ष</span>।",
+        others: [],
+        examPoint: "अनुपात में समान अंतर दिखे, तो बिना समीकरण बनाए सीधे <span class='hl-cyan'>1 इकाई = वर्षों का अंतर</span> मानकर उत्तर निकालें।"
+      },
+      {
+        id: 74,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "एक ट्रेन 72 किमी/घंटा की गति से चलते हुए एक बिजली के खंभे को 15 सेकंड में पार करती है। ट्रेन की लंबाई कितनी है?",
+        options: ["250 मीटर", "300 मीटर", "320 मीटर", "360 मीटर"],
+        answer: 1,
+        reason: "चाल = <span class='hl-cyan'>72 × (5/18) = 20 मी/से</span>। ट्रेन की लंबाई = चाल × समय = 20 × 15 = <span class='hl-gold'>300 मीटर</span>।",
+        others: [],
+        examPoint: "किमी/घंटा को मी/से में बदलने हेतु <span class='hl-gold'>5/18</span> से गुणा करें और खंभे/व्यक्ति की लंबाई <span class='hl-pink'>शून्य</span> मानें।"
+      },
+      {
+        id: 75,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "7 क्रमागत विषम संख्याओं का औसत 27 है। इनमें सबसे बड़ी संख्या कौन-सी है?",
+        options: ["29", "31", "33", "35"],
+        answer: 2,
+        reason: "क्रमागत संख्याओं का औसत ठीक बीच (4थी) संख्या = <span class='hl-cyan'>27</span> होती है। संख्याएँ: 21, 23, 25, 27, 29, 31, <span class='hl-gold'>33</span> ⇒ सबसे बड़ी = <span class='hl-gold'>33</span>।",
+        others: [],
+        examPoint: "शॉर्टकट: <span class='hl-cyan'>n</span> क्रमागत सम या विषम संख्याओं में सबसे बड़ी संख्या = <span class='hl-gold'>औसत + (n - 1)</span> = 27 + 6 = <span class='hl-gold'>33</span>।"
+      },
+      {
+        id: 76,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "दो संख्याओं का म.स. (HCF) 12 और ल.स. (LCM) 144 है। यदि उनमें से एक संख्या 36 है, तो दूसरी संख्या ज्ञात कीजिए।",
+        options: ["42", "48", "54", "60"],
+        answer: 1,
+        reason: "<span class='hl-cyan'>पहली संख्या × दूसरी संख्या = HCF × LCM</span> ⇒ 36 × दूसरी = 12 × 144 ⇒ दूसरी संख्या = (12 × 144)/36 = <span class='hl-gold'>48</span>।",
+        others: [],
+        examPoint: "यह सूत्र <span class='hl-cyan'>a × b = HCF × LCM</span> केवल <span class='hl-pink'>दो संख्याओं</span> के लिए मान्य होता है, तीन संख्याओं के लिए नहीं।"
+      },
+      {
+        id: 77,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "यदि x + (1/x) = 5 हो, तो x² + (1/x²) का मान क्या होगा?",
+        options: ["21", "23", "25", "27"],
+        answer: 1,
+        reason: "दोनों पक्षों का वर्ग करने पर: <span class='hl-cyan'>x² + (1/x²) = k² - 2</span> = 5² - 2 = 25 - 2 = <span class='hl-gold'>23</span>।",
+        others: [],
+        examPoint: "बीजगणित ट्रिक: यदि <span class='hl-cyan'>x + 1/x = k</span> हो, तो <span class='hl-gold'>x² + 1/x² = k² - 2</span> तथा <span class='hl-pink'>x³ + 1/x³ = k³ - 3k</span>।"
+      },
+      {
+        id: 78,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "एक आयत की लंबाई 18 सेमी और चौड़ाई 12 सेमी है। इसका परिमाप और क्षेत्रफल क्रमशः क्या होंगे?",
+        options: ["60 सेमी, 216 वर्ग सेमी", "30 सेमी, 216 वर्ग सेमी", "60 सेमी, 196 वर्ग सेमी", "64 सेमी, 216 वर्ग सेमी"],
+        answer: 0,
+        reason: "परिमाप = <span class='hl-cyan'>2(L + B)</span> = 2(18 + 12) = <span class='hl-gold'>60 सेमी</span>; क्षेत्रफल = <span class='hl-cyan'>L × B</span> = 18 × 12 = <span class='hl-gold'>216 वर्ग सेमी</span>।",
+        others: [],
+        examPoint: "आयत के विकर्ण का सूत्र <span class='hl-cyan'>√(L² + B²)</span> है तथा आयत के दोनों विकर्ण एक-दूसरे को समद्विभाजित करते हैं।"
+      },
+      {
+        id: 79,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "नल A एक खाली टंकी को 20 घंटे में भर सकता है जबकि नल B भरी टंकी को 30 घंटे में खाली कर सकता है। यदि दोनों नल एक साथ खोल दिए जाएँ, तो खाली टंकी कितने घंटे में भर जाएगी?",
+        options: ["50 घंटे", "60 घंटे", "45 घंटे", "40 घंटे"],
+        answer: 1,
+        reason: "1 घंटे में शुद्ध भरा भाग = <span class='hl-cyan'>(1/20) - (1/30)</span> = (3 - 2)/60 = <span class='hl-cyan'>1/60</span> ⇒ पूरी टंकी भरने का समय = <span class='hl-gold'>60 घंटे</span>।",
+        others: [],
+        examPoint: "डायरेक्ट ट्रिक: एक भरने (x) व एक खाली करने (y) पर समय = <span class='hl-gold'>(x × y) / (y - x)</span> = (20 × 30)/10 = <span class='hl-gold'>60 घंटे</span>।"
+      },
+      {
+        id: 80,
+        category: "गणित/रीजनिंग",
+        subSubject: "गणित",
+        question: "एक निष्पक्ष पासे (Dice) को एक बार उछालने पर अभाज्य संख्या (Prime Number) आने की प्रायिकता क्या होगी?",
+        options: ["1/3", "1/2", "2/3", "1/6"],
+        answer: 1,
+        reason: "कुल परिणाम = 6 {1, 2, 3, 4, 5, 6}; अनुकूल <span class='hl-cyan'>अभाज्य संख्याएँ = {2, 3, 5}</span> = 3 ⇒ प्रायिकता = 3/6 = <span class='hl-gold'>1/2</span>।",
+        others: [],
+        examPoint: "सबसे बड़ा कन्फ्यूज़न: <span class='hl-pink'>1 न तो अभाज्य है और न भाज्य</span>; सबसे छोटी और एकमात्र सम अभाज्य संख्या <span class='hl-gold'>2</span> है।"
+      },
+
+      /* ---------------- रीजनिंग (Q81 - Q92: 12 Questions) ---------------- */
+      {
+        id: 81,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "दी गई संख्या श्रृंखला में प्रश्नवाचक चिह्न (?) के स्थान पर क्या आएगा?\n3, 7, 15, 31, 63, ?",
+        options: ["125", "126", "127", "129"],
+        answer: 2,
+        reason: "पैटर्न <span class='hl-cyan'>(× 2) + 1</span> है: 3×2+1=7, 7×2+1=15, 15×2+1=31, 31×2+1=63 ⇒ 63×2+1 = <span class='hl-gold'>127</span>।",
+        others: [],
+        examPoint: "जब पद लगभग दोगुने होते जाएँ, तो तुरंत <span class='hl-cyan'>×2 ± n</span> या अंतरों (<span class='hl-gold'>+4, +8, +16, +32, +64</span>) की जाँच करें।"
+      },
+      {
+        id: 82,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "यदि एक निश्चित कूट भाषा में 'BIHAR' को 'CJIBS' लिखा जाता है, तो उसी भाषा में 'PATNA' को कैसे लिखा जाएगा?",
+        options: ["QBUOB", "QBVOB", "QBUOA", "OBUQB"],
+        answer: 0,
+        reason: "प्रत्येक अक्षर में <span class='hl-cyan'>+1</span> किया गया है (B→C, I→J, H→I, A→B, R→S)। अतः <span class='hl-green'>PATNA</span> में +1 करने पर: P→Q, A→B, T→U, N→O, A→B = <span class='hl-gold'>QBUOB</span>।",
+        others: [],
+        examPoint: "कोडिंग सवालों में गति के लिए <span class='hl-gold'>EJOTY (5, 10, 15, 20, 25)</span> से अंग्रेजी अक्षरों के स्थान याद रखें।"
+      },
+      {
+        id: 83,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "जिस प्रकार 'हृदय' का संबंध 'कार्डियोलॉजिस्ट' से है, उसी प्रकार 'वृक्क (किडनी)' का संबंध किससे है?",
+        options: ["न्यूरोलॉजिस्ट", "नेफ्रोलॉजिस्ट", "डर्मेटोलॉजिस्ट", "ऑन्कोलॉजिस्ट"],
+        answer: 1,
+        reason: "हृदय रोग विशेषज्ञ को कार्डियोलॉजिस्ट और <span class='hl-cyan'>वृक्क (किडनी)</span> रोग विशेषज्ञ को <span class='hl-gold'>नेफ्रोलॉजिस्ट</span> कहा जाता है।",
+        others: [
+          "<span class='hl-green'>न्यूरोलॉजिस्ट</span>: मस्तिष्क एवं तंत्रिका तंत्र विशेषज्ञ।",
+          "<span class='hl-green'>डर्मेटोलॉजिस्ट</span>: त्वचा रोग विशेषज्ञ।",
+          "<span class='hl-green'>ऑन्कोलॉजिस्ट</span>: कैंसर रोग विशेषज्ञ।"
+        ],
+        examPoint: "किडनी की संरचनात्मक व कार्यात्मक इकाई <span class='hl-gold'>नेफ्रॉन (Nephron)</span> होती है, इसी से 'नेफ्रोलॉजिस्ट' शब्द बना है।"
+      },
+      {
+        id: 84,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "एक तस्वीर की ओर इशारा करते हुए रवि ने कहा, 'वह मेरे दादाजी के इकलौते बेटे की बेटी है।' तस्वीर वाली लड़की रवि की कौन है?",
+        options: ["माँ", "चाची", "बहन", "भतीजी"],
+        answer: 2,
+        reason: "रवि के दादाजी का <span class='hl-cyan'>इकलौता बेटा = रवि के पिता</span> ⇒ पिता की बेटी = रवि की सगी <span class='hl-gold'>बहन</span>।",
+        others: [],
+        examPoint: "इशारे वाले रक्त-संबंध प्रश्नों को हमेशा <span class='hl-gold'>'मेरे' (वक्ता)</span> से शुरू करके पीछे से आगे की ओर जोड़ें।"
+      },
+      {
+        id: 85,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "मोहन अपने घर से उत्तर दिशा की ओर 6 किमी चलता है, फिर दाएँ मुड़कर 8 किमी चलता है। अब वह अपने प्रारंभिक बिंदु से कितनी न्यूनतम दूरी पर है?",
+        options: ["14 किमी", "10 किमी", "12 किमी", "8 किमी"],
+        answer: 1,
+        reason: "उत्तर (6 किमी) से दाएँ मुड़ना पूर्व (8 किमी) है (कोण <span class='hl-cyan'>90°</span>) ⇒ न्यूनतम दूरी = <span class='hl-cyan'>√(6² + 8²)</span> = √100 = <span class='hl-gold'>10 किमी</span>।",
+        others: [],
+        examPoint: "समय बचाने हेतु प्रमुख पाइथागोरस त्रिक याद रखें: <span class='hl-gold'>(3,4,5), (6,8,10), (5,12,13), (8,15,17)</span>।"
+      },
+      {
+        id: 86,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "निम्नलिखित चार संख्याओं में से विषम (असंगत) संख्या का चयन कीजिए:",
+        options: ["121", "144", "169", "195"],
+        answer: 3,
+        reason: "121 (11²), 144 (12²) व 169 (13²) तीनों <span class='hl-cyan'>पूर्ण वर्ग</span> हैं, जबकि <span class='hl-gold'>195</span> पूर्ण वर्ग नहीं है (14² = 196 होता है)।",
+        others: [],
+        examPoint: "विषम संख्या पहचानते समय प्राथमिकता क्रम रखें: <span class='hl-cyan'>अभाज्य → पूर्ण वर्ग/घन → विभाज्यता</span>।"
+      },
+      {
+        id: 87,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "कथन: सभी पुस्तकें पेन हैं। कुछ पेन पेंसिल हैं।\nनिष्कर्ष:\nI. कुछ पेन पुस्तकें हैं।\nII. सभी पेंसिल पुस्तकें हैं।",
+        options: ["केवल निष्कर्ष I अनुसरण करता है", "केवल निष्कर्ष II अनुसरण करता है", "दोनों I और II अनुसरण करते हैं", "न तो I न ही II अनुसरण करता है"],
+        answer: 0,
+        reason: "<span class='hl-cyan'>'सभी पुस्तकें पेन हैं'</span> से <span class='hl-gold'>'कुछ पेन पुस्तकें हैं' (I)</span> निश्चित रूप से सत्य है, जबकि पेंसिल और पुस्तक में सीधा संबंध न होने से <span class='hl-pink'>II असत्य</span> है।",
+        others: [],
+        examPoint: "न्याय निगमन का पक्का नियम: <span class='hl-gold'>'सभी A, B हैं'</span> से हमेशा <span class='hl-cyan'>'कुछ B, A हैं'</span> सही निष्कर्ष निकलता है।"
+      },
+      {
+        id: 88,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "छात्रों की एक पंक्ति में अमित बाएँ से 14वें स्थान पर और दाएँ से 19वें स्थान पर है। पंक्ति में कुल कितने छात्र हैं?",
+        options: ["31", "32", "33", "34"],
+        answer: 1,
+        reason: "पंक्ति में कुल छात्र = <span class='hl-cyan'>(बाएँ से स्थान + दाएँ से स्थान) - 1</span> = (14 + 19) - 1 = 33 - 1 = <span class='hl-gold'>32</span>।",
+        others: [],
+        examPoint: "एक ही व्यक्ति दोनों छोर से दो बार गिन लिया जाता है, इसलिए योग में से <span class='hl-pink'>1 घटाना</span> अनिवार्य है।"
+      },
+      {
+        id: 89,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "यदि '+' का अर्थ '×', '-' का अर्थ '÷', '×' का अर्थ '-' और '÷' का अर्थ '+' हो, तो 16 - 4 + 3 ÷ 5 × 2 का मान क्या होगा?",
+        options: ["13", "15", "17", "19"],
+        answer: 1,
+        reason: "चिह्न बदलने पर: <span class='hl-cyan'>16 ÷ 4 × 3 + 5 - 2</span> ⇒ BODMAS से: 4 × 3 + 5 - 2 = 12 + 5 - 2 = <span class='hl-gold'>15</span>।",
+        others: [],
+        examPoint: "चिह्न बदलने के बाद हमेशा <span class='hl-cyan'>BODMAS (भाग → गुणा → जोड़ → घटाव)</span> क्रम से ही हल करें।"
+      },
+      {
+        id: 90,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "3 बजकर 30 मिनट (3:30) पर घड़ी की घंटे और मिनट की सुइयों के बीच न्यूनतम कोण कितने डिग्री का होगा?",
+        options: ["60°", "75°", "85°", "90°"],
+        answer: 1,
+        reason: "कोण = <span class='hl-cyan'>|30H - 5.5M|</span> = |30 × 3 - 5.5 × 30| = |90 - 165| = <span class='hl-gold'>75°</span>।",
+        others: [],
+        examPoint: "घड़ी के किसी भी समय पर कोण का अचूक सूत्र: <span class='hl-gold'>θ = |30H - (11/2)M|</span> (यदि मान &gt; 180° आए, तो 360° से घटाएँ)।"
+      },
+      {
+        id: 91,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "यदि किसी वर्ष 15 अगस्त को मंगलवार है, तो उसी वर्ष 1 सितंबर को सप्ताह का कौन-सा दिन होगा?",
+        options: ["गुरुवार", "शुक्रवार", "शनिवार", "बुधवार"],
+        answer: 1,
+        reason: "अगस्त (31 दिन) के शेष दिन = 16 + 1 सितंबर = <span class='hl-cyan'>17 दिन</span> ⇒ विषम दिन = 17 ÷ 7 का शेष = <span class='hl-pink'>3</span> ⇒ मंगलवार + 3 दिन = <span class='hl-gold'>शुक्रवार</span>।",
+        others: [],
+        examPoint: "कैलेंडर में कुल दिनों को <span class='hl-cyan'>7 से भाग</span> देकर केवल <span class='hl-gold'>शेषफल (विषम दिन)</span> को दिए गए दिन में जोड़ें।"
+      },
+      {
+        id: 92,
+        category: "गणित/रीजनिंग",
+        subSubject: "रीजनिंग",
+        question: "दी गई अक्षर श्रृंखला में प्रश्नवाचक चिह्न (?) के स्थान पर कौन-सा अक्षर-समूह आएगा?\nBDF, CFI, DHL, ?",
+        options: ["EJO", "EKN", "EJN", "FJO"],
+        answer: 0,
+        reason: "तीन स्थानों पर क्रमशः <span class='hl-cyan'>+1, +2, +3</span> बढ़ रहा है: (B,C,D → <span class='hl-gold'>E</span>), (D,F,H → <span class='hl-gold'>J</span>), (F,I,L → <span class='hl-gold'>O</span>) ⇒ <span class='hl-gold'>EJO</span>।",
+        others: [],
+        examPoint: "अक्षर-समूह श्रृंखला में पहले, दूसरे व तीसरे अक्षर का पैटर्न <span class='hl-cyan'>अलग-अलग क्रम</span> में जाँचें।"
+      },
+
+      /* ---------------- करंट / स्टैटिक GK (Q93 - Q98: 6 Questions) ---------------- */
+      {
+        id: 93,
+        category: "करंट/GK",
+        subSubject: "समसामयिकी",
+        question: "इसरो (ISRO) के सफल चंद्र मिशन 'चंद्रयान-3' के लैंडर का नाम क्या था, जिसने चंद्रमा के दक्षिणी ध्रुव के निकट सॉफ्ट लैंडिंग की?",
+        options: ["प्रज्ञान", "विक्रम", "गगन", "आदित्य"],
+        answer: 1,
+        reason: "<span class='hl-gold'>चंद्रयान-3</span> के लैंडर का नाम <span class='hl-gold'>विक्रम</span> था, जिसने <span class='hl-pink'>23 अगस्त 2023</span> को चंद्रमा के दक्षिणी ध्रुव क्षेत्र में ऐतिहासिक सॉफ्ट लैंडिंग की।",
+        others: [
+          "<span class='hl-cyan'>प्रज्ञान</span>: चंद्रयान-3 के <span class='hl-green'>रोवर</span> का नाम।",
+          "<span class='hl-cyan'>गगनयान</span>: भारत का पहला <span class='hl-green'>मानव अंतरिक्ष मिशन</span>।",
+          "<span class='hl-cyan'>आदित्य-L1</span>: सूर्य के अध्ययन हेतु इसरो का <span class='hl-green'>सौर मिशन</span>।"
+        ],
+        examPoint: "लैंडिंग स्थल को <span class='hl-gold'>'शिव शक्ति पॉइंट'</span> और <span class='hl-pink'>23 अगस्त</span> को <span class='hl-cyan'>'राष्ट्रीय अंतरिक्ष दिवस'</span> घोषित किया गया है।"
+      },
+      {
+        id: 94,
+        category: "करंट/GK",
+        subSubject: "स्टैटिक GK",
+        question: "अंतर्राष्ट्रीय न्यायालय (International Court of Justice — ICJ) का मुख्यालय कहाँ स्थित है?",
+        options: ["न्यूयॉर्क", "जिनेवा", "द हेग", "वियना"],
+        answer: 2,
+        reason: "<span class='hl-gold'>अंतर्राष्ट्रीय न्यायालय (ICJ)</span> का मुख्यालय <span class='hl-gold'>द हेग (नीदरलैंड)</span> के पीस पैलेस में स्थित है (<span class='hl-pink'>15 न्यायाधीश</span>, कार्यकाल 9 वर्ष)।",
+        others: [
+          "<span class='hl-green'>न्यूयॉर्क</span>: <span class='hl-cyan'>संयुक्त राष्ट्र संघ (UNO)</span> एवं UNICEF का मुख्यालय।",
+          "<span class='hl-green'>जिनेवा</span>: <span class='hl-cyan'>WHO, WTO, ILO व रेड क्रॉस</span> का मुख्यालय।",
+          "<span class='hl-green'>वियना</span>: <span class='hl-cyan'>IAEA</span> एवं <span class='hl-cyan'>OPEC</span> का मुख्यालय।"
+        ],
+        examPoint: "संयुक्त राष्ट्र के 6 प्रमुख अंगों में केवल <span class='hl-gold'>ICJ</span> का मुख्यालय <span class='hl-pink'>न्यूयॉर्क से बाहर</span> (द हेग में) स्थित है।"
+      },
+      {
+        id: 95,
+        category: "करंट/GK",
+        subSubject: "स्टैटिक GK",
+        question: "भारत का कौन-सा शास्त्रीय नृत्य मुख्य रूप से केरल राज्य से संबंधित है?",
+        options: ["कथकली", "भरतनाट्यम", "कुचिपुड़ी", "कथक"],
+        answer: 0,
+        reason: "<span class='hl-gold'>कथकली</span> (और <span class='hl-cyan'>मोहिनीअट्टम</span>) <span class='hl-green'>केरल</span> के प्रसिद्ध शास्त्रीय नृत्य हैं।",
+        others: [
+          "<span class='hl-green'>भरतनाट्यम</span>: <span class='hl-cyan'>तमिलनाडु</span> का प्राचीनतम शास्त्रीय नृत्य।",
+          "<span class='hl-green'>कुचिपुड़ी</span>: <span class='hl-cyan'>आंध्र प्रदेश</span> का शास्त्रीय नृत्य।",
+          "<span class='hl-green'>कथक</span>: <span class='hl-cyan'>उत्तर भारत (उत्तर प्रदेश)</span> का शास्त्रीय नृत्य।"
+        ],
+        examPoint: "संगीत नाटक अकादमी द्वारा मान्यता प्राप्त कुल <span class='hl-pink'>8 शास्त्रीय नृत्य</span> हैं; सबसे नवीन <span class='hl-gold'>सत्रिया (असम)</span> है।"
+      },
+      {
+        id: 96,
+        category: "करंट/GK",
+        subSubject: "स्टैटिक GK",
+        question: "प्रसिद्ध पुस्तक 'डिस्कवरी ऑफ इंडिया' (भारत एक खोज) के लेखक कौन हैं?",
+        options: ["महात्मा गांधी", "जवाहरलाल नेहरू", "डॉ. राजेंद्र प्रसाद", "सुभाष चंद्र बोस"],
+        answer: 1,
+        reason: "<span class='hl-gold'>'डिस्कवरी ऑफ इंडिया'</span> के लेखक <span class='hl-gold'>पंडित जवाहरलाल नेहरू</span> हैं, जिसे उन्होंने <span class='hl-pink'>1944</span> में <span class='hl-green'>अहमदनगर किले की जेल</span> में लिखा था।",
+        others: [
+          "<span class='hl-green'>महात्मा गांधी</span>: <span class='hl-cyan'>हिंद स्वराज</span> एवं 'सत्य के साथ मेरे प्रयोग'।",
+          "<span class='hl-green'>डॉ. राजेंद्र प्रसाद</span>: <span class='hl-cyan'>इंडिया डिवाइडेड</span>।",
+          "<span class='hl-green'>सुभाष चंद्र बोस</span>: <span class='hl-cyan'>द इंडियन स्ट्रगल</span>।"
+        ],
+        examPoint: "डॉ. राजेंद्र प्रसाद की पुस्तक <span class='hl-gold'>'इंडिया डिवाइडेड'</span> बिहार दारोगा व BPSC परीक्षाओं में सर्वाधिक पूछी जाती है।"
+      },
+      {
+        id: 97,
+        category: "करंट/GK",
+        subSubject: "स्टैटिक GK",
+        question: "भारत में राष्ट्रीय खेल दिवस (मेजर ध्यानचंद की जयंती) प्रतिवर्ष किस तिथि को मनाया जाता है?",
+        options: ["15 जनवरी", "28 फरवरी", "29 अगस्त", "14 सितंबर"],
+        answer: 2,
+        reason: "हॉकी के जादूगर <span class='hl-green'>मेजर ध्यानचंद</span> की जयंती पर प्रतिवर्ष <span class='hl-gold'>29 अगस्त</span> को <span class='hl-gold'>राष्ट्रीय खेल दिवस</span> मनाया जाता है।",
+        others: [
+          "<span class='hl-cyan'>15 जनवरी</span>: <span class='hl-green'>भारतीय थल सेना दिवस</span>।",
+          "<span class='hl-cyan'>28 फरवरी</span>: <span class='hl-green'>राष्ट्रीय विज्ञान दिवस</span> (रमन प्रभाव खोज)।",
+          "<span class='hl-cyan'>14 सितंबर</span>: <span class='hl-green'>राष्ट्रीय हिंदी दिवस</span>।"
+        ],
+        examPoint: "भारत का सर्वोच्च खेल सम्मान <span class='hl-gold'>मेजर ध्यानचंद खेल रत्न पुरस्कार</span> है (प्रथम विजेता: <span class='hl-green'>विश्वनाथन आनंद</span>)।"
+      },
+      {
+        id: 98,
+        category: "करंट/GK",
+        subSubject: "समसामयिकी",
+        question: "ब्रिक्स (BRICS) समूह के विस्तार के अंतर्गत 2024–2025 में निम्नलिखित में से कौन-से देश पूर्ण सदस्य बने हैं?",
+        options: ["मिस्र, इथियोपिया, ईरान, यूएई व इंडोनेशिया", "जापान, दक्षिण कोरिया व ऑस्ट्रेलिया", "कनाडा, मेक्सिको व जर्मनी", "फ्रांस, इटली व स्पेन"],
+        answer: 0,
+        reason: "मूल 5 देशों (ब्राजील, रूस, भारत, चीन, द. अफ्रीका) के बाद <span class='hl-pink'>2024</span> में <span class='hl-gold'>मिस्र, इथियोपिया, ईरान व यूएई</span> और <span class='hl-pink'>जनवरी 2025</span> में <span class='hl-gold'>इंडोनेशिया</span> पूर्ण सदस्य बना।",
+        others: [],
+        examPoint: "BRICS के <span class='hl-cyan'>न्यू डेवलपमेंट बैंक (NDB)</span> का मुख्यालय <span class='hl-green'>शंघाई (चीन)</span> में स्थित है।"
+      },
+
+      /* ---------------- बिहार GK (Q99 - Q100: 2 Questions) ---------------- */
+      {
+        id: 99,
+        category: "बिहार GK",
+        subSubject: "बिहार सामान्य ज्ञान",
+        question: "बिहार के किस जिले में राज्य का एकमात्र 'वाल्मीकि राष्ट्रीय उद्यान' (बाघ अभयारण्य) स्थित है?",
+        options: ["पूर्वी चंपारण", "पश्चिमी चंपारण", "कैमूर", "जमुई"],
+        answer: 1,
+        reason: "बिहार का एकमात्र राष्ट्रीय उद्यान एवं प्रथम बाघ अभयारण्य <span class='hl-gold'>वाल्मीकि राष्ट्रीय उद्यान</span> <span class='hl-gold'>पश्चिमी चंपारण</span> जिले में (<span class='hl-cyan'>गंडक नदी</span> तट पर) स्थित है।",
+        others: [
+          "<span class='hl-green'>पूर्वी चंपारण</span>: विश्व प्रसिद्ध <span class='hl-cyan'>केसरिया बौद्ध स्तूप</span>।",
+          "<span class='hl-green'>कैमूर</span>: बिहार का <span class='hl-cyan'>सबसे बड़ा वन्यजीव अभयारण्य</span>।",
+          "<span class='hl-green'>जमुई</span>: <span class='hl-cyan'>नागी एवं नकटी पक्षी अभयारण्य</span> (रामसर स्थल)।"
+        ],
+        examPoint: "बिहार का पहला <span class='hl-cyan'>रामसर आर्द्रभूमि स्थल</span> <span class='hl-gold'>काँवर झील (बेगूसराय)</span> है।"
+      },
+      {
+        id: 100,
+        category: "बिहार GK",
+        subSubject: "बिहार सामान्य ज्ञान",
+        question: "वर्ष 1857 के प्रथम स्वतंत्रता संग्राम में बिहार (जगदीशपुर) से क्रांति का नेतृत्व किस वीर सेनानी ने किया था?",
+        options: ["पीर अली", "वीर कुँवर सिंह", "बिरसा मुंडा", "सिद्धू-कान्हू"],
+        answer: 1,
+        reason: "<span class='hl-gold'>बाबू वीर कुँवर सिंह</span> ने <span class='hl-pink'>80 वर्ष</span> की आयु में <span class='hl-green'>जगदीशपुर (आरा/भोजपुर)</span> से <span class='hl-cyan'>1857 की क्रांति</span> का अद्वितीय नेतृत्व किया।",
+        others: [
+          "<span class='hl-green'>पीर अली</span>: <span class='hl-cyan'>पटना (गुरहट्टा)</span> में 1857 के विद्रोह के अग्रणी नेता।",
+          "<span class='hl-green'>बिरसा मुंडा</span>: <span class='hl-cyan'>मुंडा विद्रोह / उलगुलान</span> (<span class='hl-pink'>1899–1900</span>)।",
+          "<span class='hl-green'>सिद्धू-कान्हू</span>: <span class='hl-cyan'>संथाल विद्रोह</span> (<span class='hl-pink'>1855–56</span>) के नायक।"
+        ],
+        examPoint: "वीर कुँवर सिंह की अंतिम विजय की स्मृति में बिहार सरकार प्रतिवर्ष <span class='hl-gold'>23 अप्रैल</span> को <span class='hl-cyan'>विजयोत्सव दिवस</span> मनाती है।"
+      }
+    ];
+
+    /* =========================================================================
+       3. APP STATE & DOM REFERENCES
+    ========================================================================= */
+    const state = {
+      name: "",
+      district: "",
+      oath: "",
+      currentIndex: 0,
+      answers: {},
+      elapsedSeconds: 0,
+      isStarted: false,
+      isFinished: false,
+      isReviewMode: false,
+      timerId: null,
+      isDark: true,
+      fsScale: 1
+    };
+
+    const dom = {
+      html: document.documentElement,
+      timerDisplay: document.getElementById("timerDisplay"),
+      fontDecBtn: document.getElementById("fontDecBtn"),
+      fontIncBtn: document.getElementById("fontIncBtn"),
+      themeToggleBtn: document.getElementById("themeToggleBtn"),
+      themeIcon: document.getElementById("themeIcon"),
+
+      entrySection: document.getElementById("entrySection"),
+      resumeCard: document.getElementById("resumeCard"),
+      resumeHeading: document.getElementById("resumeHeading"),
+      resumeInfo: document.getElementById("resumeInfo"),
+      resumeBtn: document.getElementById("resumeBtn"),
+      discardResumeBtn: document.getElementById("discardResumeBtn"),
+      entryForm: document.getElementById("entryForm"),
+      inputName: document.getElementById("inputName"),
+      inputDistrict: document.getElementById("inputDistrict"),
+      oathInfoMsg: document.getElementById("oathInfoMsg"),
+      formErrorMsg: document.getElementById("formErrorMsg"),
+      openPreRankBtn: document.getElementById("openPreRankBtn"),
+
+      quizSection: document.getElementById("quizSection"),
+      progressBar: document.getElementById("progressBar"),
+      qCounterBadge: document.getElementById("qCounterBadge"),
+      solvedBadge: document.getElementById("solvedBadge"),
+      jumpDropdown: document.getElementById("jumpDropdown"),
+      topFinishBtn: document.getElementById("topFinishBtn"),
+      returnToScoreBtn: document.getElementById("returnToScoreBtn"),
+      questionCard: document.getElementById("questionCard"),
+      subSubjectTag: document.getElementById("subSubjectTag"),
+      studentTag: document.getElementById("studentTag"),
+      qStatusTag: document.getElementById("qStatusTag"),
+      questionText: document.getElementById("questionText"),
+      optionsList: document.getElementById("optionsList"),
+      explanationCard: document.getElementById("explanationCard"),
+      correctAnswerPill: document.getElementById("correctAnswerPill"),
+      expDirectReason: document.getElementById("expDirectReason"),
+      expOthersWrapper: document.getElementById("expOthersWrapper"),
+      expOthersList: document.getElementById("expOthersList"),
+      expExamPoint: document.getElementById("expExamPoint"),
+      prevBtn: document.getElementById("prevBtn"),
+      nextBtn: document.getElementById("nextBtn"),
+      nextBtnText: document.getElementById("nextBtnText"),
+
+      resultSection: document.getElementById("resultSection"),
+      resultStudentLine: document.getElementById("resultStudentLine"),
+      statNetScore: document.getElementById("statNetScore"),
+      statCorrect: document.getElementById("statCorrect"),
+      statWrong: document.getElementById("statWrong"),
+      statUnattempted: document.getElementById("statUnattempted"),
+      statAccuracy: document.getElementById("statAccuracy"),
+      statTime: document.getElementById("statTime"),
+      subjectPillsContainer: document.getElementById("subjectPillsContainer"),
+      reviewBtn: document.getElementById("reviewBtn"),
+      homePracticeBtn: document.getElementById("homePracticeBtn"),
+      rankTotalBadge: document.getElementById("rankTotalBadge"),
+      rankStatusText: document.getElementById("rankStatusText"),
+      refreshRankBtn: document.getElementById("refreshRankBtn"),
+      rankNoticeBanner: document.getElementById("rankNoticeBanner"),
+      rankCardsContainer: document.getElementById("rankCardsContainer"),
+
+      rankModal: document.getElementById("rankModal"),
+      modalRankTotal: document.getElementById("modalRankTotal"),
+      modalRankStatus: document.getElementById("modalRankStatus"),
+      modalRefreshBtn: document.getElementById("modalRefreshBtn"),
+      modalCloseBtn: document.getElementById("modalCloseBtn"),
+      modalRankList: document.getElementById("modalRankList"),
+
+      confirmModal: document.getElementById("confirmModal"),
+      confirmTitle: document.getElementById("confirmTitle"),
+      confirmBody: document.getElementById("confirmBody"),
+      confirmCancelBtn: document.getElementById("confirmCancelBtn"),
+      confirmOkBtn: document.getElementById("confirmOkBtn")
+    };
+
+    /* =========================================================================
+       4. UTILITIES (SANITIZATION, TIME PARSING, THEME, FONT SCALE)
+    ========================================================================= */
+    function escapeHtml(str) {
+      return String(str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function normName(str) {
+      return String(str || "").trim().replace(/\s+/g, " ").toLowerCase();
+    }
+
+    function formatTime(totalSeconds) {
+      const s = Math.max(0, Math.floor(Number(totalSeconds) || 0));
+      const h = Math.floor(s / 3600);
+      const m = Math.floor((s % 3600) / 60);
+      const r = s % 60;
+      const pad = (v) => String(v).padStart(2, "0");
+      return h > 0 ? `${pad(h)}:${pad(m)}:${pad(r)}` : `${pad(m)}:${pad(r)}`;
+    }
+
+    /**
+     * Safely parses MM:SS, HH:MM:SS, or Google Sheets Date-serialized time strings into seconds
+     */
+    function parseTimeSafe(raw) {
+      const str = String(raw || "").trim();
+      if (!str || str === "-") {
+        return { display: "00:00", seconds: Number.MAX_SAFE_INTEGER };
+      }
+
+      if (/1899|GMT|UTC|T\d{2}:\d{2}/i.test(str)) {
+        const m = str.match(/(\d{1,2}):(\d{2})(?::(\d{2}))?/);
+        if (m) {
+          const a = parseInt(m[1], 10);
+          const b = parseInt(m[2], 10);
+          const c = m[3] !== undefined ? parseInt(m[3], 10) : null;
+          if (c !== null) {
+            const secs = a * 3600 + b * 60 + c;
+            return { display: formatTime(secs), seconds: secs };
+          }
+          const secs = a * 60 + b;
+          return { display: formatTime(secs), seconds: secs };
+        }
+      }
+
+      const parts = str.split(":").map((x) => parseInt(x, 10));
+      if (parts.length === 2 && !parts.some(Number.isNaN)) {
+        const secs = parts[0] * 60 + parts[1];
+        return { display: formatTime(secs), seconds: secs };
+      }
+      if (parts.length === 3 && !parts.some(Number.isNaN)) {
+        const secs = parts[0] * 3600 + parts[1] * 60 + parts[2];
+        return { display: formatTime(secs), seconds: secs };
+      }
+      return { display: str, seconds: Number.MAX_SAFE_INTEGER };
+    }
+
+    function formatScore(val) {
+      const n = Number(val);
+      if (Number.isNaN(n)) return "0";
+      return Number.isInteger(n) ? String(n) : Number(n.toFixed(2)).toString();
+    }
+
+    function applyFontScale(scale) {
+      const clamped = Math.min(1.36, Math.max(0.86, Number(scale) || 1));
+      state.fsScale = Number(clamped.toFixed(2));
+      dom.html.style.setProperty("--fs-scale", String(state.fsScale));
+      try { localStorage.setItem(FONT_KEY, String(state.fsScale)); } catch (e) {}
+    }
+
+    function applyTheme(isDark) {
+      state.isDark = Boolean(isDark);
+      if (state.isDark) {
+        dom.html.classList.add("dark");
+        dom.themeIcon.textContent = "☀️";
+      } else {
+        dom.html.classList.remove("dark");
+        dom.themeIcon.textContent = "🌙";
+      }
+      try { localStorage.setItem(THEME_KEY, state.isDark ? "dark" : "light"); } catch (e) {}
+    }
+
+    dom.fontDecBtn.addEventListener("click", () => applyFontScale(state.fsScale - 0.08));
+    dom.fontIncBtn.addEventListener("click", () => applyFontScale(state.fsScale + 0.08));
+    dom.themeToggleBtn.addEventListener("click", () => applyTheme(!state.isDark));
+
+    /* =========================================================================
+       5. CUSTOM CONFIRMATION MODAL (STRICTLY NO alert() / confirm())
+    ========================================================================= */
+    let confirmAction = null;
+
+    function openConfirm(title, body, okLabel, onConfirm) {
+      dom.confirmTitle.textContent = title;
+      dom.confirmBody.textContent = body;
+      dom.confirmOkBtn.textContent = okLabel || "हाँ, आगे बढ़ें";
+      confirmAction = onConfirm;
+      dom.confirmModal.classList.remove("hidden");
+    }
+
+    function closeConfirm() {
+      dom.confirmModal.classList.add("hidden");
+      confirmAction = null;
+    }
+
+    dom.confirmCancelBtn.addEventListener("click", closeConfirm);
+    dom.confirmOkBtn.addEventListener("click", () => {
+      const fn = confirmAction;
+      closeConfirm();
+      if (typeof fn === "function") fn();
+    });
+
+    /* =========================================================================
+       6. LOCAL STORAGE: AUTO-SAVE, STRICT DEVICE FIRST-ATTEMPT LOCK & FALLBACK
+    ========================================================================= */
+    function saveProgress() {
+      try {
+        localStorage.setItem(AUTOSAVE_KEY, JSON.stringify({
+          name: state.name,
+          district: state.district,
+          oath: state.oath,
+          currentIndex: state.currentIndex,
+          answers: state.answers,
+          elapsedSeconds: state.elapsedSeconds,
+          isStarted: state.isStarted,
+          isFinished: state.isFinished
+        }));
+      } catch (e) {}
+    }
+
+    function loadProgress() {
+      try {
+        const raw = localStorage.getItem(AUTOSAVE_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        if (!parsed || !parsed.isStarted || !parsed.name || !parsed.district) return null;
+        return parsed;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function clearProgress() {
+      try { localStorage.removeItem(AUTOSAVE_KEY); } catch (e) {}
+    }
+
+    /**
+     * Device-level strict First-Attempt Lock for SET 03.
+     * Guarantees the first submitted score from this device is locked and never overwritten.
+     */
+    function getDeviceLockedAttempt() {
+      try {
+        const raw = localStorage.getItem(DEVICE_LOCK_KEY);
+        if (!raw) return null;
+        const parsed = JSON.parse(raw);
+        return parsed && parsed.memberName ? parsed : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function saveDeviceLockOnce(record) {
+      try {
+        if (!record || !record.memberName) return;
+        if (!getDeviceLockedAttempt()) {
+          localStorage.setItem(DEVICE_LOCK_KEY, JSON.stringify(record));
+        }
+      } catch (e) {}
+    }
+
+    function readLocalBoard() {
+      try {
+        const raw = localStorage.getItem(LOCAL_BOARD_KEY);
+        const arr = raw ? JSON.parse(raw) : [];
+        return Array.isArray(arr) ? arr : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function saveToLocalBoardOnce(record) {
+      try {
+        if (!record || !record.memberName) return;
+        const board = readLocalBoard();
+        const key = normName(record.memberName);
+        if (!board.some((item) => normName(item.memberName) === key)) {
+          board.push(record);
+          localStorage.setItem(LOCAL_BOARD_KEY, JSON.stringify(board));
+        }
+      } catch (e) {}
+    }
+
+    /* =========================================================================
+       7. TIMER & QUIZ RENDERING (SMART SCROLL FOCUS + PLAIN UNCOLORED ➢ ARROWS)
+    ========================================================================= */
+    function startTimer() {
+      stopTimer();
+      dom.timerDisplay.textContent = formatTime(state.elapsedSeconds);
+      state.timerId = setInterval(() => {
+        if (state.isFinished) return;
+        state.elapsedSeconds += 1;
+        dom.timerDisplay.textContent = formatTime(state.elapsedSeconds);
+        saveProgress();
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (state.timerId) {
+        clearInterval(state.timerId);
+        state.timerId = null;
+      }
+    }
+
+    function populateJumpDropdown() {
+      dom.jumpDropdown.innerHTML = "";
+      QUESTIONS.forEach((q, idx) => {
+        const opt = document.createElement("option");
+        opt.value = String(idx);
+        const tick = state.answers[q.id] !== undefined ? " ✓" : "";
+        opt.textContent = `Q ${q.id}/${QUESTIONS.length}${tick}`;
+        dom.jumpDropdown.appendChild(opt);
+      });
+      dom.jumpDropdown.value = String(state.currentIndex);
+    }
+
+    function scrollToQuestionCard() {
+      requestAnimationFrame(() => {
+        dom.questionCard.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    function handleOptionPick(optIdx) {
+      const q = QUESTIONS[state.currentIndex];
+      if (!q || state.answers[q.id] !== undefined) return;
+      state.answers[q.id] = optIdx;
+      saveProgress();
+      populateJumpDropdown();
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = QUESTIONS[state.currentIndex];
+      if (!q) return;
+
+      const total = QUESTIONS.length;
+      const solved = Object.keys(state.answers).length;
+      const picked = state.answers[q.id];
+      const isAnswered = picked !== undefined;
+      const reveal = isAnswered || state.isReviewMode;
+      const isLast = state.currentIndex === total - 1;
+      const letters = ["A", "B", "C", "D"];
+
+      // Top Progress & Counters
+      dom.qCounterBadge.textContent = `Q ${state.currentIndex + 1} / ${total}`;
+      dom.solvedBadge.textContent = `हल: ${solved}/${total}`;
+      dom.progressBar.style.width = `${Math.round(((state.currentIndex + 1) / total) * 100)}%`;
+      dom.jumpDropdown.value = String(state.currentIndex);
+
+      // Sub-Subject Badge & Student Tag
+      const badgeCls = CATEGORY_BADGE_STYLE[q.category] || "bg-indigo-500/15 text-indigo-400 border-indigo-500/40";
+      dom.subSubjectTag.textContent = q.subSubject;
+      dom.subSubjectTag.className = `inline-flex items-center px-3 py-1 rounded-full text-xs sm:text-sm font-extrabold border ${badgeCls}`;
+      dom.studentTag.textContent = `👤 ${state.name} (${state.district})`;
+
+      if (!isAnswered) {
+        dom.qStatusTag.textContent = state.isReviewMode ? "छोड़ा गया" : "विकल्प चुनें";
+        dom.qStatusTag.className = "text-xs sm:text-sm font-bold text-soft";
+      } else if (picked === q.answer) {
+        dom.qStatusTag.textContent = "सही ✓ (+2)";
+        dom.qStatusTag.className = "text-xs sm:text-sm font-extrabold text-emerald-400";
+      } else {
+        dom.qStatusTag.textContent = `गलत ✗ (-0.2) • सही: ${letters[q.answer]}`;
+        dom.qStatusTag.className = "text-xs sm:text-sm font-extrabold text-rose-400";
+      }
+
+      dom.questionText.textContent = `प्र. ${q.id}. ${q.question}`;
+
+      // Render 4 Option Buttons
+      dom.optionsList.innerHTML = "";
+      q.options.forEach((optText, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+
+        let btnCls = "w-full text-left flex items-start justify-between gap-3 p-4 rounded-xl border-2 transition ";
+        let badgeBox = "w-9 h-9 rounded-lg font-extrabold flex items-center justify-center shrink-0 mt-0.5 text-base ";
+        let iconHtml = "";
+
+        if (reveal) {
+          btn.disabled = true;
+          btnCls += "cursor-default ";
+          if (idx === q.answer) {
+            btnCls += "border-emerald-500 bg-emerald-500/15 ";
+            badgeBox += "bg-emerald-500 text-white ";
+            iconHtml = '<span class="text-2xl font-extrabold text-emerald-400 shrink-0 leading-none">✓</span>';
+          } else if (idx === picked && idx !== q.answer) {
+            btnCls += "border-rose-500 bg-rose-500/15 ";
+            badgeBox += "bg-rose-500 text-white ";
+            iconHtml = '<span class="text-2xl font-extrabold text-rose-400 shrink-0 leading-none">✗</span>';
+          } else {
+            btnCls += "inner-surface opacity-70 ";
+            badgeBox += "bg-slate-500/30 text-sec ";
+          }
+        } else {
+          btnCls += "inner-surface hover:border-indigo-400 active:scale-[0.99] cursor-pointer ";
+          badgeBox += "bg-indigo-500/20 text-indigo-400 border border-indigo-500/35 ";
+        }
+
+        btn.className = btnCls;
+        btn.innerHTML = `
+          <div class="flex items-start gap-3 flex-1 min-w-0">
+            <span class="${badgeBox}">${letters[idx]}</span>
+            <span class="opt-text break-words">${escapeHtml(optText)}</span>
+          </div>
+          ${iconHtml}
+        `;
+        if (!reveal) {
+          btn.addEventListener("click", () => handleOptionPick(idx));
+        }
+        dom.optionsList.appendChild(btn);
+      });
+
+      // Instant 3-Part Smart Analysis
+      if (reveal) {
+        dom.explanationCard.classList.remove("hidden");
+        dom.correctAnswerPill.textContent = `सही उत्तर: (${letters[q.answer]}) ${q.options[q.answer]}`;
+        dom.expDirectReason.innerHTML = q.reason;
+
+        // Part 2: Render ONLY if other options are exam-worthy; ➢ is strictly uncolored (color: inherit)
+        if (Array.isArray(q.others) && q.others.length > 0) {
+          dom.expOthersWrapper.classList.remove("hidden");
+          dom.expOthersList.innerHTML = q.others
+            .map(
+              (line) =>
+                `<li class="flex items-start gap-2.5"><span class="plain-arrow">➢</span><span>${line}</span></li>`
+            )
+            .join("");
+        } else {
+          dom.expOthersWrapper.classList.add("hidden");
+          dom.expOthersList.innerHTML = "";
+        }
+
+        // Part 3: Exam Point
+        dom.expExamPoint.innerHTML = q.examPoint;
+      } else {
+        dom.explanationCard.classList.add("hidden");
+      }
+
+      // Bottom Previous / Next Controls
+      dom.prevBtn.disabled = state.currentIndex === 0;
+      if (state.isReviewMode) {
+        dom.topFinishBtn.classList.add("hidden");
+        dom.returnToScoreBtn.classList.remove("hidden");
+        dom.nextBtn.disabled = isLast;
+        dom.nextBtnText.textContent = isLast ? "अंतिम प्रश्न" : "Next ➡️";
+      } else {
+        dom.topFinishBtn.classList.remove("hidden");
+        dom.returnToScoreBtn.classList.add("hidden");
+        dom.nextBtn.disabled = false;
+        dom.nextBtnText.textContent = isLast ? "🏁 Finish Quiz" : "Next ➡️";
+      }
+    }
+
+    function goToQuestion(idx) {
+      if (idx < 0 || idx >= QUESTIONS.length) return;
+      state.currentIndex = idx;
+      saveProgress();
+      renderQuestion();
+      scrollToQuestionCard();
+    }
+
+    /* =========================================================================
+       8. SCORING ENGINE (+2 CORRECT / -0.2 WRONG / MAX 200)
+    ========================================================================= */
+    function computeScoreboard() {
+      let correct = 0;
+      let wrong = 0;
+      let unattempted = 0;
+      const catStats = {};
+
+      CATEGORY_ORDER.forEach((cat) => {
+        catStats[cat] = { category: cat, total: 0, correct: 0 };
+      });
+
+      QUESTIONS.forEach((q) => {
+        if (!catStats[q.category]) {
+          catStats[q.category] = { category: q.category, total: 0, correct: 0 };
+        }
+        catStats[q.category].total += 1;
+
+        const picked = state.answers[q.id];
+        if (picked === undefined) {
+          unattempted += 1;
+        } else if (picked === q.answer) {
+          correct += 1;
+          catStats[q.category].correct += 1;
+        } else {
+          wrong += 1;
+        }
+      });
+
+      const netMarks = Number((correct * MARKS_PER_Q - wrong * NEG_PER_WRONG).toFixed(2));
+      const attempted = correct + wrong;
+      const accuracy = attempted > 0 ? Number(((correct / attempted) * 100).toFixed(1)) : 0;
+      const timeTaken = formatTime(state.elapsedSeconds);
+
+      return {
+        correct,
+        wrong,
+        unattempted,
+        netMarks,
+        maxMarks: MAX_MARKS,
+        accuracy,
+        timeTaken,
+        catStats
+      };
+    }
+
+    /* =========================================================================
+       9. LIVE GOOGLE SHEETS LEADERBOARD (GET ?action=rankJson + POST)
+          CRITICAL RANK RULE:
+            Rank 1 = '🥇 #1', Rank 2 = '🥈 #2', Rank 3 = '🥉 #3'
+            Rank 4, 5, 6, 7, 8, 9, 10... = plain number ONLY ('4', '5', '6'...) — NO '#'!
+    ========================================================================= */
+    async function fetchSheetEntries() {
+      const res = await fetch(`${SCRIPT_URL}?action=rankJson&t=${Date.now()}`, {
+        method: "GET",
+        redirect: "follow"
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const rawText = await res.text();
+      const json = JSON.parse(rawText);
+      const entries = json && Array.isArray(json.entries) ? json.entries : [];
+      const target = TEST_NAME.toLowerCase();
+
+      return entries.filter((item) => String(item.testName || "").trim().toLowerCase() === target);
+    }
+
+    /**
+     * GAS returns entries.reverse() (newest first).
+     * Reverse back to oldest-first and keep ONLY the FIRST submitted entry per memberName.
+     * Tie-breaker sorting: Higher totalMarks -> Higher accuracy -> Lower timeTaken (seconds).
+     */
+    function buildOfficialRankList(entriesNewestFirst) {
+      const oldestFirst = (entriesNewestFirst || []).slice().reverse();
+      const firstByStudent = new Map();
+
+      oldestFirst.forEach((item) => {
+        if (!item) return;
+        const memberName = String(item.memberName || "").trim();
+        if (!memberName) return;
+        const key = normName(memberName);
+
+        if (!firstByStudent.has(key)) {
+          const correct = parseInt(item.correct, 10) || 0;
+          const wrong = parseInt(item.wrong, 10) || 0;
+          const maxMarks = Number(item.maxMarks) || MAX_MARKS;
+          const rawMarks = Number(item.totalMarks);
+          const totalMarks = Number.isNaN(rawMarks)
+            ? Number((correct * MARKS_PER_Q - wrong * NEG_PER_WRONG).toFixed(2))
+            : Number(rawMarks.toFixed(2));
+          const attempted = correct + wrong;
+          const accuracy = attempted > 0
+            ? Number(((correct / attempted) * 100).toFixed(1))
+            : (Number.isNaN(Number(item.accuracy)) ? 0 : Number(Number(item.accuracy).toFixed(1)));
+          const timeObj = parseTimeSafe(item.timeTaken);
+
+          firstByStudent.set(key, {
+            memberName,
+            testName: TEST_NAME,
+            correct,
+            wrong,
+            totalMarks,
+            maxMarks,
+            accuracy,
+            timeTaken: timeObj.display,
+            timeSeconds: timeObj.seconds,
+            remarks: String(item.remarks || "").trim()
+          });
+        }
+      });
+
+      const list = Array.from(firstByStudent.values());
+      list.sort((a, b) => {
+        if (b.totalMarks !== a.totalMarks) return b.totalMarks - a.totalMarks;
+        if (b.accuracy !== a.accuracy) return b.accuracy - a.accuracy;
+        return a.timeSeconds - b.timeSeconds;
+      });
+      return list;
+    }
+
+    function renderFullWidthRankCards(containerEl, countEl, rankList, highlightName) {
+      if (countEl) countEl.textContent = `${rankList.length} अभ्यर्थी`;
+
+      if (!rankList.length) {
+        containerEl.innerHTML =
+          '<div class="py-8 px-4 text-center text-soft font-semibold text-base">अभी इस सेट में कोई रैंक एंट्री दर्ज नहीं हुई है। पहले अभ्यर्थी बनें!</div>';
+        return;
+      }
+
+      const myNorm = highlightName ? normName(highlightName) : "";
+
+      containerEl.innerHTML = rankList
+        .map((row, idx) => {
+          const rank = idx + 1;
+          const isMe = myNorm !== "" && normName(row.memberName) === myNorm;
+
+          let cardCls = "inner-surface border-2 ";
+          let badgeCls = "bg-slate-600 text-white min-w-[2.4rem] ";
+          let badgeTxt = String(rank); // STRICT RULE: Plain number ONLY (4, 5, 6, 7, 8...) — NO '#' for rank >= 4
+
+          if (rank === 1) {
+            cardCls = "border-2 border-amber-400/80 bg-gradient-to-r from-amber-500/20 via-amber-500/10 to-transparent shadow-md ";
+            badgeCls = "bg-amber-400 text-slate-950 ";
+            badgeTxt = "🥇 #1";
+          } else if (rank === 2) {
+            cardCls = "border-2 border-slate-300/70 bg-gradient-to-r from-slate-400/15 via-slate-500/10 to-transparent ";
+            badgeCls = "bg-slate-200 text-slate-950 ";
+            badgeTxt = "🥈 #2";
+          } else if (rank === 3) {
+            cardCls = "border-2 border-orange-400/75 bg-gradient-to-r from-orange-500/20 via-orange-500/10 to-transparent ";
+            badgeCls = "bg-orange-500 text-white ";
+            badgeTxt = "🥉 #3";
+          }
+
+          if (isMe) {
+            cardCls += "ring-2 ring-emerald-400 shadow-[0_0_18px_rgba(16,185,129,0.28)] ";
+          }
+
+          const youTag = isMe
+            ? '<span class="inline-block ml-2 px-2.5 py-0.5 rounded-full text-xs font-extrabold bg-emerald-500/20 text-emerald-400 border border-emerald-400/50 align-middle">आप (You)</span>'
+            : "";
+
+          return `
+            <div class="rounded-2xl ${cardCls} p-4 sm:p-5 space-y-3 transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-2.5">
+                <div class="flex items-center gap-2.5 min-w-0 flex-1">
+                  <span class="inline-flex items-center justify-center px-3 py-1 rounded-xl text-sm sm:text-base font-extrabold shrink-0 ${badgeCls}">
+                    ${badgeTxt}
+                  </span>
+                  <div class="text-base sm:text-lg font-extrabold leading-snug break-words min-w-0">
+                    ${escapeHtml(row.memberName)}${youTag}
+                  </div>
+                </div>
+
+                <div class="px-4 py-1.5 rounded-xl bg-emerald-500/15 border border-emerald-400/55 text-emerald-400 text-base sm:text-xl font-extrabold shrink-0">
+                  ${formatScore(row.totalMarks)} / ${row.maxMarks}
+                </div>
+              </div>
+
+              <div class="pt-3 border-t flex flex-wrap items-center gap-2 text-xs sm:text-sm font-bold" style="border-color: var(--border-color);">
+                <span class="px-3 py-1 rounded-lg bg-indigo-500/15 text-indigo-400 border border-indigo-500/35">
+                  📍 ${escapeHtml(row.remarks || "—")}
+                </span>
+                <span class="px-3 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 border border-emerald-500/35">
+                  ✅ ${row.correct} / ❌ ${row.wrong}
+                </span>
+                <span class="px-3 py-1 rounded-lg bg-sky-500/15 text-sky-400 border border-sky-500/35">
+                  🎯 ${row.accuracy}%
+                </span>
+                <span class="px-3 py-1 rounded-lg bg-purple-500/15 text-purple-400 border border-purple-500/35">
+                  ⏱️ ${escapeHtml(row.timeTaken)}
+                </span>
+              </div>
+            </div>
+          `;
+        })
+        .join("");
+    }
+
+    async function loadLeaderboardInto(containerEl, countEl, statusEl, fallbackEntry, highlightName) {
+      statusEl.className = "text-xs sm:text-sm font-bold text-amber-400";
+      statusEl.textContent = "⏳ लाइव Google Sheet से रैंक लिस्ट लोड हो रही है...";
+
+      try {
+        const remote = await fetchSheetEntries();
+        const merged = [...remote];
+
+        if (fallbackEntry) {
+          const exists = remote.some((e) => normName(e.memberName) === normName(fallbackEntry.memberName));
+          if (!exists) merged.unshift(fallbackEntry);
+        }
+
+        const official = buildOfficialRankList(merged);
+        renderFullWidthRankCards(containerEl, countEl, official, highlightName);
+
+        statusEl.className = "text-xs sm:text-sm font-bold text-emerald-400";
+        statusEl.textContent = "✅ लाइव Google Sheet से अपडेटेड (सभी अभ्यर्थियों की रैंक लिस्ट)";
+      } catch (err) {
+        const localOnly = readLocalBoard();
+        const lockedDevice = getDeviceLockedAttempt();
+        if (lockedDevice) localOnly.push(lockedDevice);
+        if (fallbackEntry) localOnly.push(fallbackEntry);
+
+        const officialLocal = buildOfficialRankList(localOnly.slice().reverse());
+        renderFullWidthRankCards(containerEl, countEl, officialLocal, highlightName);
+
+        statusEl.className = "text-xs sm:text-sm font-bold text-amber-400";
+        statusEl.textContent = "⚠️ अभी सर्वर से संपर्क नहीं हो सका — लोकल रैंक दिखाई जा रही है। 🔄 Rank Refresh दबाएँ।";
+      }
+    }
+
+    async function postScoreToGas(payload) {
+      const bodyStr = JSON.stringify(payload);
+      try {
+        const res = await fetch(SCRIPT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: bodyStr,
+          redirect: "follow"
+        });
+        if (!res.ok) throw new Error(`POST ${res.status}`);
+        await new Promise((r) => setTimeout(r, 1500));
+      } catch (err) {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "text/plain;charset=utf-8" },
+          body: bodyStr
+        });
+        await new Promise((r) => setTimeout(r, 1500));
+      }
+    }
+
+    async function submitAndRefreshLeaderboard(scoreData, isReload) {
+      const cleanName = state.name.trim();
+      const cleanDistrict = state.district.trim();
+      const myKey = normName(cleanName);
+
+      // Oath === "नां" -> do NOT submit score to live rank list
+      if (state.oath !== "हाँ") {
+        dom.rankNoticeBanner.textContent =
+          "ℹ️ आपने ईमानदारी शपथ में 'नां' चुना था, इसलिए आपका स्कोर लाइव रैंक लिस्ट में शामिल नहीं किया गया है।";
+        dom.rankNoticeBanner.classList.remove("hidden");
+        await loadLeaderboardInto(dom.rankCardsContainer, dom.rankTotalBadge, dom.rankStatusText, null, cleanName);
+        return;
+      }
+
+      // Strict Device-Level First-Attempt Lock check
+      const lockedOnDevice = getDeviceLockedAttempt();
+      if (lockedOnDevice) {
+        if (!isReload) {
+          dom.rankNoticeBanner.textContent =
+            `🔒 इस डिवाइस से SET 03 का पहला प्रयास (${lockedOnDevice.memberName} — ${formatScore(lockedOnDevice.totalMarks)}/200) पहले से लॉक है। दोबारा टेस्ट देने पर रैंक लिस्ट में बदलाव नहीं होगा।`;
+          dom.rankNoticeBanner.classList.remove("hidden");
+        } else {
+          dom.rankNoticeBanner.classList.add("hidden");
+        }
+        await loadLeaderboardInto(
+          dom.rankCardsContainer,
+          dom.rankTotalBadge,
+          dom.rankStatusText,
+          lockedOnDevice,
+          lockedOnDevice.memberName
+        );
+        return;
+      }
+
+      const localRecord = {
+        memberName: cleanName,
+        testName: TEST_NAME,
+        correct: scoreData.correct,
+        wrong: scoreData.wrong,
+        totalMarks: scoreData.netMarks,
+        maxMarks: MAX_MARKS,
+        accuracy: scoreData.accuracy,
+        timeTaken: scoreData.timeTaken,
+        remarks: cleanDistrict
+      };
+
+      // Pre-check remote sheet before POST so same student doesn't duplicate across devices
+      dom.rankStatusText.className = "text-xs sm:text-sm font-bold text-amber-400";
+      dom.rankStatusText.textContent = "⏳ पहले प्रयास की जाँच हो रही है...";
+
+      try {
+        const remote = await fetchSheetEntries();
+        const official = buildOfficialRankList(remote);
+        const existingRemote = official.find((r) => normName(r.memberName) === myKey);
+
+        if (existingRemote) {
+          saveDeviceLockOnce(existingRemote);
+          saveToLocalBoardOnce(existingRemote);
+          dom.rankNoticeBanner.textContent =
+            "🔒 आपका पहला प्रयास पहले से Google Sheet रैंक लिस्ट में दर्ज व लॉक है।";
+          dom.rankNoticeBanner.classList.remove("hidden");
+          renderFullWidthRankCards(dom.rankCardsContainer, dom.rankTotalBadge, official, cleanName);
+          dom.rankStatusText.className = "text-xs sm:text-sm font-bold text-emerald-400";
+          dom.rankStatusText.textContent = "✅ लाइव Google Sheet से अपडेटेड (सभी अभ्यर्थियों की रैंक लिस्ट)";
+          return;
+        }
+      } catch (e) {
+        // Proceed to POST if pre-check is unreachable
+      }
+
+      // First genuine attempt -> Lock on device & POST exact payload
+      saveDeviceLockOnce(localRecord);
+      saveToLocalBoardOnce(localRecord);
+      dom.rankNoticeBanner.classList.add("hidden");
+
+      dom.rankStatusText.className = "text-xs sm:text-sm font-bold text-amber-400";
+      dom.rankStatusText.textContent = "⏳ आपका स्कोर लाइव Google Sheet में सेव हो रहा है...";
+
+      const payload = {
+        memberName: cleanName,
+        testName: TEST_NAME,
+        correct: scoreData.correct,
+        wrong: scoreData.wrong,
+        marksPerQuestion: MARKS_PER_Q,
+        negativePerWrong: NEG_PER_WRONG,
+        totalMarks: scoreData.netMarks,
+        maxMarks: MAX_MARKS,
+        timeTaken: scoreData.timeTaken,
+        remarks: cleanDistrict
+      };
+
+      try {
+        await postScoreToGas(payload);
+      } catch (postErr) {
+        // Fallback handled in loadLeaderboardInto
+      }
+
+      await loadLeaderboardInto(dom.rankCardsContainer, dom.rankTotalBadge, dom.rankStatusText, localRecord, cleanName);
+    }
+
+    /* =========================================================================
+       10. FINISH QUIZ & RESULT SCREEN
+    ========================================================================= */
+    function finishQuiz(isReload) {
+      stopTimer();
+      state.isFinished = true;
+      state.isReviewMode = false;
+      saveProgress();
+
+      dom.entrySection.classList.add("hidden");
+      dom.quizSection.classList.add("hidden");
+      dom.resultSection.classList.remove("hidden");
+
+      const data = computeScoreboard();
+      dom.resultStudentLine.textContent = `👤 ${state.name} • 📍 जिला: ${state.district}`;
+      dom.statNetScore.textContent = `${formatScore(data.netMarks)} / ${MAX_MARKS}`;
+      dom.statCorrect.textContent = String(data.correct);
+      dom.statWrong.textContent = String(data.wrong);
+      dom.statUnattempted.textContent = String(data.unattempted);
+      dom.statAccuracy.textContent = `${data.accuracy}%`;
+      dom.statTime.textContent = data.timeTaken;
+
+      dom.subjectPillsContainer.innerHTML = "";
+      CATEGORY_ORDER.forEach((cat) => {
+        const info = data.catStats[cat] || { category: cat, total: 0, correct: 0 };
+        const cls = CATEGORY_BADGE_STYLE[cat] || "bg-slate-600/20 text-slate-200 border-slate-500/40";
+        const pill = document.createElement("div");
+        pill.className = `inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-extrabold border ${cls}`;
+        pill.innerHTML = `<span>${escapeHtml(cat)}:</span><span>${info.correct}/${info.total}</span>`;
+        dom.subjectPillsContainer.appendChild(pill);
+      });
+
+      submitAndRefreshLeaderboard(data, isReload);
+
+      requestAnimationFrame(() => {
+        dom.resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
+    function promptFinishQuiz() {
+      const done = Object.keys(state.answers).length;
+      const left = QUESTIONS.length - done;
+      const msg = left > 0
+        ? `आपने अभी ${done}/${QUESTIONS.length} प्रश्न हल किए हैं (${left} प्रश्न शेष हैं)। क्या आप अभी Finish Quiz करके परिणाम देखना चाहते हैं?`
+        : "आपने सभी 100 प्रश्न हल कर लिए हैं! क्या आप Finish Quiz करके परिणाम और लाइव रैंक लिस्ट देखना चाहते हैं?";
+      openConfirm("🏁 क्विज़ समाप्त करें?", msg, "हाँ, Finish करें", () => finishQuiz(false));
+    }
+
+    /* =========================================================================
+       11. PRE-START LIVE RANK MODAL & EVENT LISTENERS
+    ========================================================================= */
+    dom.openPreRankBtn.addEventListener("click", () => {
+      dom.rankModal.classList.remove("hidden");
+      loadLeaderboardInto(
+        dom.modalRankList,
+        dom.modalRankTotal,
+        dom.modalRankStatus,
+        null,
+        dom.inputName.value.trim() || state.name
+      );
+    });
+
+    dom.modalRefreshBtn.addEventListener("click", () => {
+      loadLeaderboardInto(
+        dom.modalRankList,
+        dom.modalRankTotal,
+        dom.modalRankStatus,
+        null,
+        dom.inputName.value.trim() || state.name
+      );
+    });
+
+    dom.modalCloseBtn.addEventListener("click", () => dom.rankModal.classList.add("hidden"));
+
+    document.querySelectorAll('input[name="honestyOath"]').forEach((radio) => {
+      radio.addEventListener("change", (e) => {
+        dom.formErrorMsg.classList.add("hidden");
+        if (e.target.value === "नां") {
+          dom.oathInfoMsg.classList.remove("hidden");
+        } else {
+          dom.oathInfoMsg.classList.add("hidden");
+        }
+      });
+    });
+
+    function enterQuizScreen() {
+      dom.entrySection.classList.add("hidden");
+      dom.resultSection.classList.add("hidden");
+      dom.quizSection.classList.remove("hidden");
+      populateJumpDropdown();
+      renderQuestion();
+      startTimer();
+      scrollToQuestionCard();
+    }
+
+    dom.entryForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nameVal = dom.inputName.value.trim();
+      const districtVal = dom.inputDistrict.value.trim();
+      const oathEl = document.querySelector('input[name="honestyOath"]:checked');
+
+      if (!nameVal || !districtVal) {
+        dom.formErrorMsg.textContent = "⚠️ कृपया अपना पूरा नाम (Name) और जिला (District) दोनों भरें।";
+        dom.formErrorMsg.classList.remove("hidden");
+        return;
+      }
+
+      if (!oathEl) {
+        dom.formErrorMsg.textContent = "⚠️ कृपया ईमानदारी शपथ में 'हाँ' या 'नां' में से एक विकल्प चुनें।";
+        dom.formErrorMsg.classList.remove("hidden");
+        return;
+      }
+
+      dom.formErrorMsg.classList.add("hidden");
+      dom.resumeCard.classList.add("hidden");
+
+      state.name = nameVal;
+      state.district = districtVal;
+      state.oath = oathEl.value;
+      state.currentIndex = 0;
+      state.answers = {};
+      state.elapsedSeconds = 0;
+      state.isStarted = true;
+      state.isFinished = false;
+      state.isReviewMode = false;
+      saveProgress();
+
+      enterQuizScreen();
+    });
+
+    dom.prevBtn.addEventListener("click", () => {
+      if (state.currentIndex > 0) goToQuestion(state.currentIndex - 1);
+    });
+
+    dom.nextBtn.addEventListener("click", () => {
+      if (state.currentIndex < QUESTIONS.length - 1) {
+        goToQuestion(state.currentIndex + 1);
+      } else if (!state.isReviewMode) {
+        promptFinishQuiz();
+      }
+    });
+
+    dom.topFinishBtn.addEventListener("click", promptFinishQuiz);
+
+    dom.jumpDropdown.addEventListener("change", (e) => {
+      const target = parseInt(e.target.value, 10);
+      if (!Number.isNaN(target)) goToQuestion(target);
+    });
+
+    dom.reviewBtn.addEventListener("click", () => {
+      state.isReviewMode = true;
+      state.currentIndex = 0;
+      dom.resultSection.classList.add("hidden");
+      dom.quizSection.classList.remove("hidden");
+      populateJumpDropdown();
+      renderQuestion();
+      scrollToQuestionCard();
+    });
+
+    dom.returnToScoreBtn.addEventListener("click", () => {
+      state.isReviewMode = false;
+      dom.quizSection.classList.add("hidden");
+      dom.resultSection.classList.remove("hidden");
+      requestAnimationFrame(() => {
+        dom.resultSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    dom.refreshRankBtn.addEventListener("click", () => {
+      const locked = state.oath === "हाँ" ? getDeviceLockedAttempt() : null;
+      loadLeaderboardInto(
+        dom.rankCardsContainer,
+        dom.rankTotalBadge,
+        dom.rankStatusText,
+        locked,
+        (locked && locked.memberName) || state.name
+      );
+    });
+
+    dom.homePracticeBtn.addEventListener("click", () => {
+      openConfirm(
+        "🏠 मुख्य पेज पर जाएँ?",
+        "क्या आप नए अभ्यास के लिए मुख्य पेज पर जाना चाहते हैं? (पहली बार सबमिट हुआ स्कोर रैंक लिस्ट में सुरक्षित व लॉक रहेगा।)",
+        "हाँ, मुख्य पेज खोलें",
+        () => {
+          stopTimer();
+          clearProgress();
+          state.name = "";
+          state.district = "";
+          state.oath = "";
+          state.currentIndex = 0;
+          state.answers = {};
+          state.elapsedSeconds = 0;
+          state.isStarted = false;
+          state.isFinished = false;
+          state.isReviewMode = false;
+
+          dom.inputName.value = "";
+          dom.inputDistrict.value = "";
+          document.querySelectorAll('input[name="honestyOath"]').forEach((r) => {
+            r.checked = false;
+          });
+          dom.oathInfoMsg.classList.add("hidden");
+          dom.formErrorMsg.classList.add("hidden");
+          dom.rankNoticeBanner.classList.add("hidden");
+          dom.resumeCard.classList.add("hidden");
+          dom.timerDisplay.textContent = "00:00";
+
+          dom.quizSection.classList.add("hidden");
+          dom.resultSection.classList.add("hidden");
+          dom.entrySection.classList.remove("hidden");
+        }
+      );
+    });
+
+    /* =========================================================================
+       12. BOOTSTRAP (SAVED THEME, FONT SCALE & SMART RESUME)
+    ========================================================================= */
+    (function bootstrapApp() {
+      try {
+        const savedTheme = localStorage.getItem(THEME_KEY);
+        applyTheme(savedTheme ? savedTheme === "dark" : true);
+      } catch (e) {
+        applyTheme(true);
+      }
+
+      try {
+        const savedScale = localStorage.getItem(FONT_KEY);
+        if (savedScale) applyFontScale(parseFloat(savedScale));
+      } catch (e) {}
+
+      const saved = loadProgress();
+      if (!saved) return;
+
+      if (saved.isFinished) {
+        state.name = String(saved.name);
+        state.district = String(saved.district);
+        state.oath = saved.oath === "नां" ? "नां" : "हाँ";
+        state.currentIndex = Math.min(Math.max(Number(saved.currentIndex) || 0, 0), QUESTIONS.length - 1);
+        state.answers = saved.answers && typeof saved.answers === "object" ? saved.answers : {};
+        state.elapsedSeconds = Math.max(0, Number(saved.elapsedSeconds) || 0);
+        state.isStarted = true;
+        state.isFinished = true;
+        dom.timerDisplay.textContent = formatTime(state.elapsedSeconds);
+        finishQuiz(true);
+        return;
+      }
+
+      const qNum = Math.min(Math.max((Number(saved.currentIndex) || 0) + 1, 1), QUESTIONS.length);
+      const done = saved.answers ? Object.keys(saved.answers).length : 0;
+      const timeStr = formatTime(saved.elapsedSeconds || 0);
+
+      dom.inputName.value = String(saved.name || "");
+      dom.inputDistrict.value = String(saved.district || "");
+      dom.resumeHeading.textContent = `जारी रखें — प्रश्न ${qNum} से`;
+      dom.resumeInfo.textContent = `👤 ${saved.name} (${saved.district}) • हल: ${done}/${QUESTIONS.length} • समय: ${timeStr}`;
+      dom.resumeBtn.textContent = `▶️ जारी रखें — प्रश्न ${qNum} से`;
+      dom.resumeCard.classList.remove("hidden");
+
+      dom.resumeBtn.addEventListener("click", () => {
+        state.name = String(saved.name);
+        state.district = String(saved.district);
+        state.oath = saved.oath === "नां" ? "नां" : "हाँ";
+        state.currentIndex = Math.min(Math.max(Number(saved.currentIndex) || 0, 0), QUESTIONS.length - 1);
+        state.answers = saved.answers && typeof saved.answers === "object" ? saved.answers : {};
+        state.elapsedSeconds = Math.max(0, Number(saved.elapsedSeconds) || 0);
+        state.isStarted = true;
+        state.isFinished = false;
+        state.isReviewMode = false;
+        dom.resumeCard.classList.add("hidden");
+        enterQuizScreen();
+      });
+
+      dom.discardResumeBtn.addEventListener("click", () => {
+        clearProgress();
+        dom.resumeCard.classList.add("hidden");
+        dom.timerDisplay.textContent = "00:00";
+      });
+    })();
+  </script>
+</body>
+</html>
